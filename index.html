@@ -7,12 +7,49 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <style>
-    div{
-        background: #47eb1e;
-    }
+#slider {
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.slide {
+  width: 200px;
+  height: 100px;
+  display: none;
+}
+
+.slide:first-child {
+  display: block;
+}
+
 
 </style>
 <body>
+    <div id="slider">
+        <div class="slide">Slide 1</div>
+        <div class="slide">Slide 2</div>
+        <div class="slide">Slide 3</div>
+        <button id="next">Next</button>
+      </div>
+
+
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const next = document.querySelector('#next');
+
+        next.addEventListener('click', function() {
+        slides[currentSlide].style.display = 'none';
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+        slides[currentSlide].style.display = 'block';
+        });
+    </script>
+    
     <script>
         let tg = window.Telegram.WebApp
         MainButton = tg.MainButton
