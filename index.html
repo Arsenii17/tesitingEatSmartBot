@@ -36,7 +36,26 @@
         </div>
       </div>
 
-    <script>
+    <script>        
+        const slideshow = document.getElementById('slideshow');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+        showSlide(currentSlide);
+        };
+
+
+        function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index? 'block' : 'none';
+        });
+        }
+        
         let tg = window.Telegram.WebApp
         MainButton = tg.MainButton
 
@@ -46,37 +65,8 @@
         MainButton.textColor = "#FFFFFF"
         MainButton.color = "#9C6AF9"
         MainButton.show()
-        tg.onEvent('mainButtonClicked', callback)
+        tg.onEvent('mainButtonClicked', nextSlide)
 
-        
-        const slideshow = document.getElementById('slideshow');
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-
-        // const backBtn = document.getElementById('back');
-        // const nextBtn = document.getElementById('next');
-
-        // backBtn.addEventListener('click', () => {
-        // currentSlide--;
-        // if (currentSlide < 0) {
-        //     currentSlide = slides.length - 1;
-        // }
-        // showSlide(currentSlide);
-        // });
-
-        MainButton.addEventListener('click', () => {
-        currentSlide++;
-        if (currentSlide >= slides.length) {
-            currentSlide = 0;
-        }
-        showSlide(currentSlide);
-        });
-
-        function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.style.display = i === index? 'block' : 'none';
-        });
-        }
     </script>
 </body>
 </html>
