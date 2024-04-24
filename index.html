@@ -7,49 +7,35 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <style>
-#slider {
-  width: 200px;
-  height: 100px;
-  overflow: hidden;
+#slideshow {
+  position: relative;
+  height: 200px;
 }
 
 .slide {
-  width: 200px;
-  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
   display: none;
 }
 
 .slide:first-child {
   display: block;
 }
-
-
 </style>
 <body>
-    <div id="slider">
-        <div class="slide">Slide 1</div>
-        <div class="slide">Slide 2</div>
-        <div class="slide">Slide 3</div>
+    <div id="slideshow">
+        <button id="back">Back</button>
         <button id="next">Next</button>
+        <div id="slides">
+          <div class="slide">Slide 1</div>
+          <div class="slide">Slide 2</div>
+          <div class="slide">Slide 3</div>
+        </div>
       </div>
 
-
-
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const next = document.querySelector('#next');
-
-        next.addEventListener('click', function() {
-        slides[currentSlide].style.display = 'none';
-        currentSlide++;
-        if (currentSlide >= slides.length) {
-            currentSlide = 0;
-        }
-        slides[currentSlide].style.display = 'block';
-        });
-    </script>
-    
     <script>
         let tg = window.Telegram.WebApp
         MainButton = tg.MainButton
@@ -60,6 +46,37 @@
         MainButton.textColor = "#FFFFFF"
         MainButton.color = "#9C6AF9"
         MainButton.show()
+        tg.onEvent('mainButtonClicked', callback)
+
+        
+        const slideshow = document.getElementById('slideshow');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        // const backBtn = document.getElementById('back');
+        // const nextBtn = document.getElementById('next');
+
+        // backBtn.addEventListener('click', () => {
+        // currentSlide--;
+        // if (currentSlide < 0) {
+        //     currentSlide = slides.length - 1;
+        // }
+        // showSlide(currentSlide);
+        // });
+
+        MainButton.addEventListener('click', () => {
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+        showSlide(currentSlide);
+        });
+
+        function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index? 'block' : 'none';
+        });
+        }
     </script>
 </body>
 </html>
