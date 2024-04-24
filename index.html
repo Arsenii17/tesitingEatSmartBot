@@ -31,6 +31,10 @@
 }
 .under_greeting{
     font-size: 14px;
+    color: "#8F8F8F";
+}
+#purple_text{
+  color: "#9C6AF9";
 }
 .slide{
   font-family: "Onest", sans-serif;
@@ -44,7 +48,7 @@
           <div class="slide">
             
             <h1 class="greeting">Добро<br>пожаловать</h1>
-            <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
+            <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>, твой личный ИИ-гуру питания</h2>
             <img class="main_image" src="img.jpg">
 
           </div>
@@ -63,46 +67,7 @@
       </div>
 
     <script>        
-        const slideshow = document.getElementById('slideshow');
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
 
-        function nextSlide() {
-        currentSlide++;
-        if (currentSlide >= slides.length) {
-            currentSlide = 0;
-        }
-
-        if (currentSlide == 0) {
-            BackButton.hide()
-        }
-        else {
-            BackButton.show()
-        }
-        
-        showSlide(currentSlide);
-        };
-        function prevSlide() {
-        currentSlide--;
-        if (currentSlide <= 0) {
-            currentSlide = 0;
-        }
-
-        if (currentSlide == 0) {
-            BackButton.hide()
-        }
-        else {
-            BackButton.show()
-        }
-        
-        showSlide(currentSlide);
-        };
-
-        function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.style.display = i === index? 'block' : 'none';
-        });
-        }
 
         let tg = window.Telegram.WebApp
         tg.expand()
@@ -118,8 +83,40 @@
 
         BackButton = tg.BackButton
         BackButton.color = "#3881F0"
-        BackButton.show()
+
         tg.onEvent('backButtonClicked', prevSlide)
+
+
+
+        const slideshow = document.getElementById('slideshow');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+        if (BackButton.isVisible == false) {BackButton.show();}
+        showSlide(currentSlide);
+        };
+
+        function prevSlide() {
+        currentSlide--;
+        if (currentSlide <= 0) {
+            currentSlide = 0;
+        }
+        if (currentSlide == 0) {
+            BackButton.hide()
+        }
+        
+        showSlide(currentSlide);
+        };
+
+        function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index? 'block' : 'none';
+        });
+        }
 
     </script>
 </body>
