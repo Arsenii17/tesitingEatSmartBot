@@ -72,9 +72,31 @@
         if (currentSlide >= slides.length) {
             currentSlide = 0;
         }
+
+        if (currentSlide == 0) {
+            BackButton.hide()
+        }
+        else {
+            BackButton.show()
+        }
+        
         showSlide(currentSlide);
         };
+        function prevSlide() {
+        currentSlide--;
+        if (currentSlide <= 0) {
+            currentSlide = 0;
+        }
 
+        if (currentSlide == 0) {
+            BackButton.hide()
+        }
+        else {
+            BackButton.show()
+        }
+        
+        showSlide(currentSlide);
+        };
 
         function showSlide(index) {
         slides.forEach((slide, i) => {
@@ -95,7 +117,9 @@
         tg.onEvent('mainButtonClicked', nextSlide)
 
         BackButton = tg.BackButton
+        BackButton.color = "#3881F0"
         BackButton.show()
+        tg.onEvent('backButtonClicked', prevSlide)
 
     </script>
 </body>
