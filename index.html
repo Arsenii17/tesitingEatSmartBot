@@ -7,12 +7,13 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <style>
-#slideshow {
+.slideshow {
   position: relative;
   height: 200px;
 }
 
 .slide {
+  width: 387px;
   position: absolute;
   top: 0;
   left: 0;
@@ -41,29 +42,27 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
+.main_image{
+  max-width: 387px;
+}
 </style>
 <body>
-    <div id="slideshow">
-        <div id="slides">
-          <div class="slide">
-            
-            <h1 class="greeting">Добро<br>пожаловать</h1>
-            <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>, твой личный ИИ-гуру питания</h2>
-            <img class="main_image" src="img.jpg">
+    <div class="slideshow">
+      <div class="slide">
+        
+        <h1 class="greeting">Добро<br>пожаловать</h1>
+        <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>, твой личный ИИ-гуру питания</h2>
+        <img class="main_image" src="img.jpg">
 
-          </div>
-          <div class="slide">
+      </div>
+      <div class="slide">
 
-            <h1 class="greeting">Основное</h1>
-            <h2 class="under_greeting">Это EatSmart, твой личный ИИ-гуру питания</h2>
-            
-
-
-          </div>
-          <div class="slide">
-            3 слайд
-          </div>
-        </div>
+        <h1 class="greeting">Основное</h1>
+        <h2 class="under_greeting">Это EatSmart, твой личный ИИ-гуру питания</h2>
+      </div>
+      <div class="slide">
+        3 слайд
+      </div>
       </div>
 
     <script>        
