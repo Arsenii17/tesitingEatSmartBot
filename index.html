@@ -24,15 +24,32 @@
 .slide:first-child {
   display: block;
 }
+
+.greeting{
+    font-size: 32px;
+    line-height: 36px;
+}
+.under_greeting{
+    font-size: 14px;
+}
+.slide{
+  font-family: "Onest", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
 </style>
 <body>
     <div id="slideshow">
-        <button id="back">Back</button>
-        <button id="next">Next</button>
         <div id="slides">
-          <div class="slide">Slide 1</div>
-          <div class="slide">Slide 2</div>
-          <div class="slide">Slide 3</div>
+          <div class="slide">
+            
+            <h1 class="greeting">Добро<br>пожаловать</h1>
+            <h2 class="under_greeting">Это EatSmart, твой личный ИИ-гуру питания</h2>
+            <img class="main_image" src="img.jpg">
+
+          </div>
+          <div class="slide"></div>
+          <div class="slide"></div>
         </div>
       </div>
 
@@ -55,12 +72,12 @@
             slide.style.display = i === index? 'block' : 'none';
         });
         }
-        
-        let tg = window.Telegram.WebApp
-        MainButton = tg.MainButton
 
+        let tg = window.Telegram.WebApp
+        tg.expand()
         tg.headerColor = "#FFFFFF"
 
+        MainButton = tg.MainButton
         MainButton.text = "Начать"
         MainButton.textColor = "#FFFFFF"
         MainButton.color = "#9C6AF9"
