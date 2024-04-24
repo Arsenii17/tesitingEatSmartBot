@@ -7,6 +7,9 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <style>
+  body{
+    margin: 6px;
+  }
 .slideshow {
   position: relative;
   height: 200px;
@@ -25,13 +28,17 @@
 .slide:first-child {
   display: block;
 }
-
+.sliderTitle{
+  margin: auto 16px;
+}
 .greeting{
     font-size: 32px;
     line-height: 36px;
+    height: 56px;
 }
 .under_greeting{
-  font-weight: normal;
+    margin-top: 4px;
+    font-weight: normal;
     font-size: 14px;
     color: #8F8F8F;
 }
@@ -44,16 +51,17 @@
   font-style: normal;
 }
 .main_image{
-  max-width: 387px;
+  max-width: 395px;
 }
 </style>
 <body>
     <div class="slideshow">
       <div class="slide">
-        
-        <h1 class="greeting">Добро<br>пожаловать</h1>
-        <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>, твой личный ИИ-гуру питания</h2>
-        <img class="main_image" src="img.jpg">
+        <div class="sliderTitle">
+          <h1 class="greeting">Добро<br>пожаловать</h1>
+          <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>, твой личный ИИ-гуру питания</h2>
+      </div>
+      <img class="main_image" src="main_img.jpg">  
 
       </div>
       <div class="slide">
