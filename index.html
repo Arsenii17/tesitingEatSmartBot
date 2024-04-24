@@ -44,12 +44,21 @@
           <div class="slide">
             
             <h1 class="greeting">Добро<br>пожаловать</h1>
-            <h2 class="under_greeting">Это EatSmart, твой личный ИИ-гуру питания</h2>
+            <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
             <img class="main_image" src="img.jpg">
 
           </div>
-          <div class="slide"></div>
-          <div class="slide"></div>
+          <div class="slide">
+
+            <h1 class="greeting">Основное</h1>
+            <h2 class="under_greeting">Это EatSmart, твой личный ИИ-гуру питания</h2>
+            
+
+
+          </div>
+          <div class="slide">
+            3 слайд
+          </div>
         </div>
       </div>
 
@@ -75,6 +84,7 @@
 
         let tg = window.Telegram.WebApp
         tg.expand()
+        tg.backgroundColor = "#FFFFFF"
         tg.headerColor = "#FFFFFF"
 
         MainButton = tg.MainButton
@@ -83,6 +93,9 @@
         MainButton.color = "#9C6AF9"
         MainButton.show()
         tg.onEvent('mainButtonClicked', nextSlide)
+
+        BackButton = tg.BackButton
+        BackButton.show()
 
     </script>
 </body>
