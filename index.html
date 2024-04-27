@@ -35,7 +35,6 @@
 .greeting{
     font-size: 32px;
     line-height: 36px;
-    height: 56px;
 }
 .under_greeting{
     margin-top: 4px;
@@ -59,8 +58,28 @@
   width: 116px;
 
 }
+span{
+  -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.option{
+  border-radius: 8px;
+  height: 56px;
+  margin: 8px 16px;
+}
+
+
+
 </style>
 <body>
+  <button onclick="prevSlide()">Previous</button>
+  <button onclick="nextSlide()">NEXT</button>
+  
     <div class="slideshow">
       
       <div class="slide">
@@ -72,16 +91,54 @@
       </div>
 
       <div class="slide">
-
-        <img class="page1" src="page1.jpg">
         <h1 class="greeting">Основное</h1>
-        <h2 class="under_greeting">Это EatSmart, твой личный ИИ-гуру питания</h2>
+        <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
       
       </div>
       <div class="slide">
-        3 слайд
+        <div class="sliderTitle">
+          <h1 class="greeting">Здоровье</h1>
+          <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас медицинские противопоказания:</h2>
+        </div>
+        <div id="icon-radio-group">
+          <div class="option">
+            <img src="icon1.png" alt="Icon 1">
+            <span>Диабет</span>
+            <input type="radio" id="option1" name="diabet" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="icon2.png" alt="Icon 1">
+            <span>Ожирение</span>
+            <input type="radio" id="option2" name="ozhirenie" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="icon3.png" alt="Icon 1">
+            <span>Гипертония</span>
+            <input type="radio" id="option3" name="gipertonia" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="icon4.png" alt="Icon 1">
+            <span>Сердечные заболевания</span>
+            <input type="radio" id="option4" name="serdechnie" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="icon5.png" alt="Icon 1">
+            <span>Аллергия</span>
+            <input type="radio" id="option5" name="allergia" value="option1">
+          </div>
+        </div>
+        </div>
       </div>
       </div>
+
 
     <script>        
 
@@ -108,11 +165,22 @@
         const slideshow = document.getElementById('slideshow');
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
+
         function nextSlide() {
         currentSlide++;
         if (currentSlide >= slides.length) {
             currentSlide = 0;
         }
+        switch (currentSlide) {
+          case 0:
+            BackButton.hide()
+            MainButton.text = "Начать"
+          case 1:
+            BackButton.show()
+            MainButton.text = "Продолжить"
+            tg.backgroundColor = "CECECE"
+        }
+        
         if (BackButton.isVisible == false) {BackButton.show();}
         showSlide(currentSlide);
         };
@@ -129,21 +197,27 @@
           case 1:
             BackButton.show()
             MainButton.text = "Продолжить"
-            MainButton.showProgress(true)
         }
-        if (currentSlide == 0) {
-            
-        }
-        
         showSlide(currentSlide);
         };
-
         function showSlide(index) {
         slides.forEach((slide, i) => {
             slide.style.display = i === index? 'block' : 'none';
         });
         }
+        const radioGroup = document.getElementById('radio-group');
+        const radios = radioGroup.querySelectorAll('input[type="radio"]');
 
+        radios.forEach(radio => {
+          radio.addEventListener('change', () => {
+            console.log(`Selected option: ${radio.value}`);
+          });
+        });
+
+        function encheckbox(option_num) {
+          console.log(option_num);
+
+        }
     </script>
 </body>
 </html>
