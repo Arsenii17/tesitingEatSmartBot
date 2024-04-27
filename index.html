@@ -57,10 +57,12 @@
 
 .page1{
   width: 116px;
+
 }
 </style>
 <body>
     <div class="slideshow">
+      
       <div class="slide">
         <div class="sliderTitle">
           <h1 class="greeting">Добро<br>пожаловать</h1>
@@ -68,16 +70,19 @@
       </div>
       <img class="main_image" src="main_img.jpg">  
       </div>
+
       <div class="slide">
+
         <img class="page1" src="page1.jpg">
         <h1 class="greeting">Основное</h1>
         <h2 class="under_greeting">Это EatSmart, твой личный ИИ-гуру питания</h2>
+      
       </div>
       <div class="slide">
         3 слайд
       </div>
       </div>
-      
+
     <script>        
 
 
@@ -117,8 +122,17 @@
         if (currentSlide <= 0) {
             currentSlide = 0;
         }
-        if (currentSlide == 0) {
+        switch (currentSlide) {
+          case 0:
             BackButton.hide()
+            MainButton.text = "Начать"
+          case 1:
+            BackButton.show()
+            MainButton.text = "Продолжить"
+            MainButton.showProgress(true)
+        }
+        if (currentSlide == 0) {
+            
         }
         
         showSlide(currentSlide);
