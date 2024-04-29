@@ -145,7 +145,7 @@ span{
 
         let tg = window.Telegram.WebApp
         tg.expand()
-        tg.backgroundColor = "#FC3FC#"
+        tg.backgroundColor = "#FFFFFF"
         tg.headerColor = "#FFFFFF"
         tg.secondary_bg_color = "#FFFFFF"
         MainButton = tg.MainButton
@@ -178,7 +178,7 @@ span{
           case 1:
             BackButton.show()
             MainButton.text = "Продолжить"
-            tg.backgroundColor = "#CECECE"
+            tg.backgroundColor = "CECECE"
         }
         
         if (BackButton.isVisible == false) {BackButton.show();}
@@ -192,14 +192,11 @@ span{
         }
         switch (currentSlide) {
           case 0:
-            tg.backgroundColor = "#FFFFFF"
             BackButton.hide()
             MainButton.text = "Начать"
           case 1:
             BackButton.show()
             MainButton.text = "Продолжить"
-          case 6:
-            MainButton.text = "Открыть чат"
         }
         showSlide(currentSlide);
         };
