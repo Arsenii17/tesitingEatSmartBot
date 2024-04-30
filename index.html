@@ -10,69 +10,105 @@
   body{
     margin: 6px;
     overflow: hidden;
+    background-color: #ffffff;
   }
-.slideshow {
-  position: relative;
-  height: 200px;
-}
+  .slideshow {
+    position: relative;
+    height: 200px;
+  }
 
-.slide {
-  width: 387px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  display: none;
-}
+  .slide {
+    width: 387px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    display: none;
+  }
 
-.slide:first-child {
-  display: block;
-}
-.sliderTitle{
-  margin: auto 16px;
-}
-.greeting{
-    font-size: 32px;
-    line-height: 36px;
-}
-.under_greeting{
-    margin-top: 4px;
-    font-weight: normal;
-    font-size: 14px;
-    color: #8F8F8F;
-}
-#purple_text{
-  color: #9C6AF9;
-}
-.slide{
-  font-family: "Onest", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-.main_image{
-  max-width: 395px;
-}
+  .slide:first-child {
+    display: block;
+  }
+  .sliderTitle{
+    margin: auto 16px;
+  }
+  .greeting{
+      font-size: 32px;
+      line-height: 36px;
+  }
+  .under_greeting{
+      margin-top: 4px;
+      font-weight: normal;
+      font-size: 14px;
+      color: #8F8F8F;
+  }
+  #purple_text{
+    color: #9C6AF9;
+  }
+  .slide{
+    font-family: "Onest", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  .main_image{
+    max-width: 395px;
+  }
 
-.page1{
-  width: 116px;
+  .page1{
+    width: 116px;
 
-}
-span{
-  -webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
+  }
+  span{
+    -webkit-touch-callout: none;
+  	-webkit-user-select: none;
+  	-khtml-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: none;
+  }
 
-.option{
-  border-radius: 8px;
-  height: 56px;
-  margin: 8px 16px;
-}
+  .option {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc; /* Добавляем рамку */
+    margin: 8px 16px;
+    cursor: pointer; /* Делаем курсор указателем при наведении */
+    transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
+  }
 
+  .option:hover {
+    background-color: #f0f0f0; /* Изменяем фон при наведении */
+  }
+
+  .option img {
+    margin-right: 8px; /* Отступ между изображением и текстом */
+  }
+
+  .option span {
+    font-size: 16px; /* Размер текста */
+  }
+
+  .option input[type="radio"] {
+    display: none; /* Скрываем радиокнопку */
+  }
+
+  .option input[type="radio"] + span:before {
+    content: ""; /* Добавляем псевдоэлемент */
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #9C6AF9; /* Цвет рамки радиокнопки */
+    margin-right: 8px; /* Отступ между радиокнопкой и текстом */
+    transition: background-color 0.3s; /* Плавная анимация при изменении цвета фона */
+  }
+
+  .option input[type="radio"]:checked + span:before {
+    background-color: #9C6AF9; /* Цвет заливки радиокнопки при выборе */
+  }
 
 
 </style>
@@ -85,7 +121,7 @@ span{
       <div class="slide">
         <div class="sliderTitle">
           <h1 class="greeting">Добро<br>пожаловать</h1>
-          <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>, твой личный ПОЛУЧИЛОСЬ-гуру питания</h2>
+          <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>, твой личный ИИ-гуру питания</h2>
       </div>
       <img class="main_image" src="main_img.jpg">  
       </div>
