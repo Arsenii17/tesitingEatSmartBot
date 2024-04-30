@@ -10,8 +10,10 @@
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
   body{
     max-width: 390px;
+     overflow-y: auto;
+
     margin: 6px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     background-color: #ffffff;
   }
   .slideshow {
@@ -134,84 +136,77 @@
     resize: none; /* Запретить изменение размеров */
   }
 
-  .content-wrapper {
-    height: 100%; /* Занимает всю доступную высоту */
-    overflow-y: auto; /* Добавляет вертикальную прокрутку при необходимости */
-    background-color: #FFFFFF; /* Фон всегда белый */
-  }
-
 
 
 </style>
 <body>
-  <div class="content-wrapper">
-    <button onclick="prevSlide()">Previous</button>
-    <button onclick="nextSlide()">NEXT</button>
-    
-      <div class="slideshow">
-        
-        <div class="slide">
-          <div class="sliderTitle">
-            <h1 class="greeting">Добро<br>пожаловать</h1>
-            <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>, твой личный ИИ-гуру питания</h2>
-        </div>
-        <img class="main_image" src="main_img.jpg">  
-        </div>
+  <button onclick="prevSlide()">Previous</button>
+  <button onclick="nextSlide()">NEXT</button>
+  
+    <div class="slideshow">
+      
+      <div class="slide">
+        <div class="sliderTitle">
+          <h1 class="greeting">Добро<br>пожаловать</h1>
+          <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>, твой личный ИИ-гуру питания</h2>
+      </div>
+      <img class="main_image" src="main_img.jpg">  
+      </div>
 
-        <div class="slide">
-          <h1 class="greeting">Основное</h1>
-          <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
-        
+      <div class="slide">
+        <h1 class="greeting">Основное</h1>
+        <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
+      
+      </div>
+      <div class="slide">
+        <div class="sliderTitle">
+          <h1 class="greeting">Здоровье</h1>
+          <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас медицинские противопоказания:</h2>
         </div>
-        <div class="slide">
-          <div class="sliderTitle">
-            <h1 class="greeting">Здоровье</h1>
-            <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас медицинские противопоказания:</h2>
+        <div id="icon-radio-group">
+          <div class="option">
+            <img src="icon1.png" alt="Icon 1">
+            <span>Диабет</span>
+            <input type="radio" id="option1" name="diabet" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
           </div>
-          <div id="icon-radio-group">
-            <div class="option">
-              <img src="icon1.png" alt="Icon 1">
-              <span>Диабет</span>
-              <input type="radio" id="option1" name="diabet" value="option1" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" >
-            </div>
-            <br>
-            <div class="option">
-              <img src="icon2.png" alt="Icon 1">
-              <span>Ожирение</span>
-              <input type="radio" id="option2" name="ozhirenie" value="option1" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" >
-            </div>
-            <br>
-            <div class="option">
-              <img src="icon3.png" alt="Icon 1">
-              <span>Гипертония</span>
-              <input type="radio" id="option3" name="gipertonia" value="option1" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" >
-            </div>
-            <br>
-            <div class="option">
-              <img src="icon4.png" alt="Icon 1">
-              <span>Сердечные заболевания</span>
-              <input type="radio" id="option4" name="serdechnie" value="option1" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" >
-            </div>
-            <br>
-            <div class="option">
-              <img src="icon5.png" alt="Icon 1">
-              <span>Аллергия</span>
-              <input type="radio" id="option5" name="allergia" value="option1">
-            </div>
-            <div class="additional-options">
-              <div class="not-found">Не нашли в списке?</div>
-                <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
-            </div>
+          <br>
+          <div class="option">
+            <img src="icon2.png" alt="Icon 1">
+            <span>Ожирение</span>
+            <input type="radio" id="option2" name="ozhirenie" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="icon3.png" alt="Icon 1">
+            <span>Гипертония</span>
+            <input type="radio" id="option3" name="gipertonia" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="icon4.png" alt="Icon 1">
+            <span>Сердечные заболевания</span>
+            <input type="radio" id="option4" name="serdechnie" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="icon5.png" alt="Icon 1">
+            <span>Аллергия</span>
+            <input type="radio" id="option5" name="allergia" value="option1">
+          </div>
+          <div class="additional-options">
+            <div class="not-found">Не нашли в списке?</div>
+              <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+          </div>
 
-          </div>
-          </div>
         </div>
         </div>
-  <div>
+      </div>
+      </div>
+
 
     <script>        
 
