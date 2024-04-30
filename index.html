@@ -7,6 +7,7 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
   body{
     margin: 6px;
     overflow: hidden;
@@ -42,6 +43,7 @@
       font-weight: normal;
       font-size: 14px;
       color: #8F8F8F;
+      margin-bottom: 20px;
   }
   #purple_text{
     color: #9C6AF9;
@@ -71,10 +73,10 @@
   .option {
     display: flex;
     align-items: center;
-    padding: 8px;
+    padding: 20px;
     border-radius: 8px;
     border: 1px solid #ccc; /* Добавляем рамку */
-    margin: 8px 16px;
+    margin: 0px 10px;
     cursor: pointer; /* Делаем курсор указателем при наведении */
     transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
   }
@@ -109,6 +111,28 @@
   .option input[type="radio"]:checked + span:before {
     background-color: #9C6AF9; /* Цвет заливки радиокнопки при выборе */
   }
+  .additional-options {
+    margin-top: 30px;
+    margin-left: 10px;
+  }
+
+  .not-found {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 510;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .medical-conditions {
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: none; /* Запретить изменение размеров */
+  }
+
 
 
 </style>
@@ -170,6 +194,11 @@
             <span>Аллергия</span>
             <input type="radio" id="option5" name="allergia" value="option1">
           </div>
+          <div class="additional-options">
+            <div class="not-found">Не нашли в списке?</div>
+              <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+          </div>
+
         </div>
         </div>
       </div>
