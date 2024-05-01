@@ -213,8 +213,8 @@
 
         let tg = window.Telegram.WebApp
         tg.expand()
-        tg.backgroundColor = "#FFFFFF"
-        tg.headerColor = "#FFFFFF"
+        tg.backgroundColor = "#FCFCFC"
+        tg.headerColor = "#FCFCFC"
         tg.secondary_bg_color = "#FFFFFF"
         MainButton = tg.MainButton
         MainButton.text = "Начать"
@@ -239,16 +239,17 @@
         if (currentSlide >= slides.length) {
             currentSlide = 0;
         }
-        switch (currentSlide) {
-          case 0:
+        if (currentSlide == 0){
+          console.log("case 0")
             BackButton.hide()
             MainButton.text = "Начать"
-            break
-          case 1:
+        }
+        else{
+            console.log("case 1")
+            BackButton.show()
             MainButton.text = "Продолжить"
-            tg.backgroundColor = "CECECE"
-            break
-          }
+            
+        }
         
         if (BackButton.isVisible == false) {BackButton.show();}
 
@@ -257,25 +258,42 @@
         };
 
         function prevSlide() {
+
         currentSlide--;
+
         if (currentSlide <= 0) {
             currentSlide = 0;
         }
-        switch (currentSlide) {
-          case 0:
-            console.log("case 0")
+        else if (currentSlide == 0){
+          console.log("case 0")
             BackButton.hide()
             MainButton.text = "Начать"
-            break
-          case 1:
+        }
+        else{
+            console.log("case 1")
             BackButton.show()
             MainButton.text = "Продолжить"
-            break
-          }
+            
+        }
+        
+
+        // switch (currentSlide) {
+        //   case 0:
+        //     console.log("case 0")
+        //     BackButton.hide()
+        //     MainButton.text = "Начать"
+        //     break
+
+        //   case 1:
+        //     console.log("case 1")
+        //     BackButton.show()
+        //     MainButton.text = "Продолжить"
+        //     break
+        //   }
 
         showSlide(currentSlide);
-
         };
+
         function showSlide(index) {
         slides.forEach((slide, i) => {
             slide.style.display = i === index? 'block' : 'none';
