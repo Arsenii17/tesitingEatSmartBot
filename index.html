@@ -172,7 +172,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
       /*grid-template-columns: repeat(3, 110px);*/
-      grid-auto-rows: 110px;
+      grid-auto-rows: 105px;
       gap: 25px;
       margin-top: 20px;
     }
@@ -187,6 +187,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      margin-left: 5px;
     }
 
     .preference-card:hover {
@@ -208,7 +209,7 @@
 
     .card-title {
 
-      margin-top: 140px;
+      margin-top: 127px;
 
       text-align: center;
       font-family: "Quicksand", sans-serif;
@@ -472,6 +473,11 @@
         </div>
 
         <!-- Добавьте другие карточки здесь -->
+      </div>
+      <br><br>
+      <div class="additional-options">
+        <div class="not-found">Не нашли в списке?</div>
+          <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
       </div>
       <!-- <button onclick="nextSlide()">Продолжить</button> -->
     </div>
