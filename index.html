@@ -9,132 +9,188 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
   body{
-    max-width: 390px;
-   /*overflow: hidden;*/
-    overflow-x: hidden;
+      max-width: 390px;
+     /*overflow: hidden;*/
+      overflow-x: hidden;
 
-    margin: 6px;
-    background-color: #ffffff;
-  }
-  .slideshow {
-    position: relative;
-    height: 200px;
-  }
+      margin: 6px;
+      background-color: #ffffff;
+    }
+    .slideshow {
+      position: relative;
+      height: 200px;
+    }
 
-  .slide {
-    width: 387px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    display: none;
-  }
+    .slide {
+      width: 387px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      display: none;
+    }
 
-  .slide:first-child {
-    display: block;
-  }
-  .sliderTitle{
-    margin: auto 16px;
-  }
-  .greeting{
-      font-size: 32px;
-      line-height: 36px;
-  }
-  .under_greeting{
-      margin-top: 4px;
-      font-weight: normal;
+    .slide:first-child {
+      display: block;
+    }
+    .sliderTitle{
+      margin: auto 16px;
+    }
+    .greeting{
+        font-size: 32px;
+        line-height: 36px;
+    }
+    .under_greeting{
+        margin-top: 4px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #8F8F8F;
+        margin-bottom: 20px;
+    }
+    #purple_text{
+      color: #9C6AF9;
+    }
+    .slide{
+      font-family: "Onest", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }
+    .main_image{
+      max-width: 390px;
+    }
+
+    .page1{
+      width: 116px;
+
+    }
+    span{
+      -webkit-touch-callout: none;
+    	-webkit-user-select: none;
+    	-khtml-user-select: none;
+    	-moz-user-select: none;
+    	-ms-user-select: none;
+    	user-select: none;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc; /* Добавляем рамку */
+      margin: 0px 10px;
+      cursor: pointer; /* Делаем курсор указателем при наведении */
+      transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
+    }
+
+    .option:hover {
+      background-color: #f0f0f0; /* Изменяем фон при наведении */
+    }
+
+    .option img {
+      margin-right: 8px; /* Отступ между изображением и текстом */
+    }
+
+    .option span {
+      font-size: 16px; /* Размер текста */
+    }
+
+    .option input[type="radio"] {
+      display: none; /* Скрываем радиокнопку */
+    }
+
+    .option input[type="radio"] + span:before {
+      content: ""; /* Добавляем псевдоэлемент */
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #9C6AF9; /* Цвет рамки радиокнопки */
+      margin-right: 8px; /* Отступ между радиокнопкой и текстом */
+      transition: background-color 0.3s; /* Плавная анимация при изменении цвета фона */
+    }
+
+    .option input[type="radio"]:checked + span:before {
+      background-color: #9C6AF9; /* Цвет заливки радиокнопки при выборе */
+    }
+    .additional-options {
+      margin-top: 30px;
+      margin-left: 10px;
+    }
+
+    .not-found {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 510;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .medical-conditions {
+      width: 90%;
+      height: 100px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
       font-size: 14px;
-      color: #8F8F8F;
-      margin-bottom: 20px;
-  }
-  #purple_text{
-    color: #9C6AF9;
-  }
-  .slide{
-    font-family: "Onest", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-  }
-  .main_image{
-    max-width: 390px;
-  }
+      resize: none; /* Запретить изменение размеров */
+    }
 
-  .page1{
-    width: 116px;
 
-  }
-  span{
-    -webkit-touch-callout: none;
-  	-webkit-user-select: none;
-  	-khtml-user-select: none;
-  	-moz-user-select: none;
-  	-ms-user-select: none;
-  	user-select: none;
-  }
 
-  .option {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #ccc; /* Добавляем рамку */
-    margin: 0px 10px;
-    cursor: pointer; /* Делаем курсор указателем при наведении */
-    transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
-  }
 
-  .option:hover {
-    background-color: #f0f0f0; /* Изменяем фон при наведении */
-  }
+    .option1 {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 0px 10px 20px;
+      cursor: pointer; /* Делаем курсор указателем при наведении */
+      transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
+    }
 
-  .option img {
-    margin-right: 8px; /* Отступ между изображением и текстом */
-  }
+    .option1:hover {
+      background-color: #f0f0f0; /* Изменяем фон при наведении */
+    }
 
-  .option span {
-    font-size: 16px; /* Размер текста */
-  }
+    .option1 span {
+      width: 120px;
+      font-size: 16px; /* Размер текста */
+    }
 
-  .option input[type="radio"] {
-    display: none; /* Скрываем радиокнопку */
-  }
+    .option1 select,
+    .option1 input[type="number"] {
+      flex-grow: 1;
+      padding: 8px;
+      border: none; /* Убираем рамку */
+      border-radius: 0; /* Убираем бордер радиус */
+      border-bottom: 1px solid #ccc; /* Добавляем нижнюю границу */
+      font-size: 14px;
+      margin-left: 10px;
+    }
 
-  .option input[type="radio"] + span:before {
-    content: ""; /* Добавляем псевдоэлемент */
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 2px solid #9C6AF9; /* Цвет рамки радиокнопки */
-    margin-right: 8px; /* Отступ между радиокнопкой и текстом */
-    transition: background-color 0.3s; /* Плавная анимация при изменении цвета фона */
-  }
+    /* Стили для выбранных опций */
+    .option1 select:focus,
+    .option1 input[type="number"]:focus,
+    .option1 input[type="radio"]:checked + span:before {
+      border-bottom: 2px solid #9C6AF9; /* Изменяем цвет границы при фокусе */
+    }
 
-  .option input[type="radio"]:checked + span:before {
-    background-color: #9C6AF9; /* Цвет заливки радиокнопки при выборе */
-  }
-  .additional-options {
-    margin-top: 30px;
-    margin-left: 10px;
-  }
+    .option1 input[type="radio"]:checked + span:before {
+      background-color: #9C6AF9; /* Изменяем цвет заливки при выборе радиокнопки */
+    }
 
-  .not-found {
-    font-family: "Quicksand", sans-serif;
-    font-weight: 510;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
+    /* Стили для не выбранных опций */
+    .option1 select:not(:focus),
+    .option1 input[type="number"]:not(:focus),
+    .option1 input[type="radio"]:not(:checked) + span:before {
+      border-bottom: 1px solid #ccc; /* Возвращаем стандартный цвет границы */
+    }
 
-  .medical-conditions {
-    width: 90%;
-    height: 100px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-    resize: none; /* Запретить изменение размеров */
-  }
+    .option1 input[type="radio"]:not(:checked) + span:before {
+      background-color: #8F8F8F; /* Цвет заливки для не выбранных радиокнопок */
+    }
+
 
 
 
@@ -153,11 +209,54 @@
       <img class="main_image" src="main_img.jpg">  
       </div>
 
-      <div class="slide">
+
+
+
+
+
+      <!-- <div class="slide">
         <h1 class="greeting">Основное</h1>
         <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
       
+      </div> -->
+      <div class="slide">
+        <h1 class="greeting">Основное</h1>
+        <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
+        <!-- Пол -->
+        <div class="option1">
+          <span>Пол:</span>
+          <select id="gender" name="gender" style="margin-left: 200px;">
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+          </select>
+        </div>
+        <!-- Вес -->
+        <div class="option1">
+          <span>Выберите вес:</span>
+          <input type="number" id="weight" name="weight" step="1" min="0" max="250">
+          <span>кг</span>
+        </div>
+        <!-- Рост -->
+        <div class="option1">
+          <span>Рост:</span>
+          <input type="number" id="height" name="height" step="1" min="0" max="250">
+          <span>см</span>
+        </div>
+        <!-- Возраст -->
+        <div class="option1">
+          <span>Выберите возраст:</span>
+          <input type="number" id="age" name="age" step="1" min="0" max="100">
+          <span>лет</span>
+        </div>
       </div>
+
+
+
+
+
+
+
+
       <div class="slide">
         <div class="sliderTitle">
           <h1 class="greeting">Здоровье</h1>
