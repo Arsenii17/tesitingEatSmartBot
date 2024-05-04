@@ -139,18 +139,17 @@
 
 
 
+
+/*    Основное где вес и тд*/
     .option1 {
       display: flex;
       align-items: center;
-      padding: 20px;
+      padding: 16px;
       border-radius: 8px;
+      border: 1px solid #ccc;
       margin: 0px 10px 20px;
       cursor: pointer; /* Делаем курсор указателем при наведении */
       transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
-    }
-
-    .option1:hover {
-      background-color: #f0f0f0; /* Изменяем фон при наведении */
     }
 
     .option1 span {
@@ -168,29 +167,6 @@
       font-size: 14px;
       margin-left: 10px;
     }
-
-    /* Стили для выбранных опций */
-    .option1 select:focus,
-    .option1 input[type="number"]:focus,
-    .option1 input[type="radio"]:checked + span:before {
-      border-bottom: 2px solid #9C6AF9; /* Изменяем цвет границы при фокусе */
-    }
-
-    .option1 input[type="radio"]:checked + span:before {
-      background-color: #9C6AF9; /* Изменяем цвет заливки при выборе радиокнопки */
-    }
-
-    /* Стили для не выбранных опций */
-    .option1 select:not(:focus),
-    .option1 input[type="number"]:not(:focus),
-    .option1 input[type="radio"]:not(:checked) + span:before {
-      border-bottom: 1px solid #ccc; /* Возвращаем стандартный цвет границы */
-    }
-
-    .option1 input[type="radio"]:not(:checked) + span:before {
-      background-color: #8F8F8F; /* Цвет заливки для не выбранных радиокнопок */
-    }
-
 
 
 
@@ -232,20 +208,20 @@
         </div>
         <!-- Вес -->
         <div class="option1">
-          <span>Выберите вес:</span>
-          <input type="number" id="weight" name="weight" step="1" min="0" max="250">
+          <span>Вес:</span>
+          <input type="number" id="weight" name="weight" step="1" min="0" max="250" style="margin-left: 205px;">
           <span>кг</span>
         </div>
         <!-- Рост -->
         <div class="option1">
           <span>Рост:</span>
-          <input type="number" id="height" name="height" step="1" min="0" max="250">
+          <input type="number" id="height" name="height" step="1" min="0" max="250" style="margin-left: 197px;">
           <span>см</span>
         </div>
         <!-- Возраст -->
         <div class="option1">
-          <span>Выберите возраст:</span>
-          <input type="number" id="age" name="age" step="1" min="0" max="100">
+          <span>Возраст:</span>
+          <input type="number" id="age" name="age" step="1" min="0" max="100" style="margin-left: 172px;">
           <span>лет</span>
         </div>
       </div>
