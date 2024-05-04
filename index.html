@@ -128,7 +128,7 @@
 
     .medical-conditions {
       width: 90%;
-      height: 100px;
+      height: 80px;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
@@ -270,6 +270,58 @@
           <div class="option">
             <img src="icon5.png" alt="Icon 1">
             <span>Аллергия</span>
+            <input type="radio" id="option5" name="allergia" value="option1">
+          </div>
+          <div class="additional-options">
+            <div class="not-found">Не нашли в списке?</div>
+              <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+          </div>
+
+        </div>
+        </div>
+      </div>
+
+
+
+
+
+       <div class="slide">
+        <div class="sliderTitle">
+          <h1 class="greeting">Цели</h1>
+          <h2 class="under_greeting">Выберите одну или несколько целей которые больше вам подходят:</h2>
+        </div>
+        <div id="icon-radio-group">
+          <div class="option">
+            <img src="up.png" alt="Icon 1" width='20px' height='20px'>
+            <span style="margin-top: 2px;margin-left: 10px;">Диабет</span>
+            <input type="radio" id="option1" name="diabet" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="down2.png" alt="Icon 1"  width='20px' height='20px'>
+            <span style="margin-top: 2px;margin-left: 10px;">Ожирение</span>
+            <input type="radio" id="option2" name="ozhirenie" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="ves.png" alt="Icon 1"  width='22px' height='22px'>
+            <span style="margin-top: 2px;margin-left: 8px;">Гипертония</span>
+            <input type="radio" id="option3" name="gipertonia" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="heart.png" alt="Icon 1"  width='20px' height='20px'>
+            <span style="margin-top: 2px;margin-left: 10px;">Сердечные заболевания</span>
+            <input type="radio" id="option4" name="serdechnie" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="run.png" alt="Icon 1" width='20px' height='22px'>
+            <span style="margin-top: 2px;margin-left: 10px;">Аллергия</span>
             <input type="radio" id="option5" name="allergia" value="option1">
           </div>
           <div class="additional-options">
