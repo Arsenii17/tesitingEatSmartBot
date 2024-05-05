@@ -488,28 +488,17 @@
     <script>        
 
 
-        let tg = window.Telegram.WebApp;
-        tg.expand();
-        tg.backgroundColor = "#FCFCFC";
-        tg.headerColor = "#FCFCFC";
-        tg.secondary_bg_color = "#FFFFFF";
-        MainButton = tg.MainButton;
-        MainButton.text = "Начать";
-        MainButton.textColor = "#FFFFFF";
-        MainButton.color = "#9C6AF9";
-        MainButton.show();
-        tg.onEvent('mainButtonClicked', nextSlide);
-
-        // Создаем div для текста под кнопкой
-        const buttonText = document.createElement('div');
-        buttonText.textContent = "Нажмите кнопку для начала";
-        buttonText.style.fontSize = "14px";
-        buttonText.style.color = "#8F8F8F";
-        buttonText.style.textAlign = "center";
-        buttonText.style.marginTop = "10px";
-
-        // Вставляем созданный div после кнопки
-        MainButton.element.parentNode.insertBefore(buttonText, MainButton.element.nextSibling);
+        let tg = window.Telegram.WebApp
+        tg.expand()
+        tg.backgroundColor = "#FCFCFC"
+        tg.headerColor = "#FCFCFC"
+        tg.secondary_bg_color = "#FFFFFF"
+        MainButton = tg.MainButton
+        MainButton.text = "Начать"
+        MainButton.textColor = "#FFFFFF"
+        MainButton.color = "#9C6AF9"
+        MainButton.show()
+        tg.onEvent('mainButtonClicked', nextSlide)
 
         BackButton = tg.BackButton
         BackButton.color = "#3881F0"
