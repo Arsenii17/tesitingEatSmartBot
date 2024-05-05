@@ -10,7 +10,9 @@
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
   body{
       max-width: 390px;
+     /*overflow: hidden;*/
       overflow-x: hidden;
+
       margin: 6px;
       background-color: #ffffff;
     }
@@ -71,26 +73,47 @@
       user-select: none;
     }
 
-    .option1 {
+    .option {
       display: flex;
       align-items: center;
       padding: 20px;
       border-radius: 8px;
-      border: 1px solid #ccc;
-      margin: 0px 10px 20px;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-
+      border: 1px solid #ccc; /* Добавляем рамку */
+      margin: 0px 10px;
+      cursor: pointer; /* Делаем курсор указателем при наведении */
+      transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
     }
 
-    .option1:hover {
-      background-color: #f0f0f0;
+    .option:hover {
+      background-color: #f0f0f0; /* Изменяем фон при наведении */
     }
 
-    .option1 span {
-      font-size: 16px;
+    .option img {
+      margin-right: 8px; /* Отступ между изображением и текстом */
     }
 
+    .option span {
+      font-size: 16px; /* Размер текста */
+    }
+
+    .option input[type="radio"] {
+      display: none; /* Скрываем радиокнопку */
+    }
+
+    .option input[type="radio"] + span:before {
+      content: ""; /* Добавляем псевдоэлемент */
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #9C6AF9; /* Цвет рамки радиокнопки */
+      margin-right: 8px; /* Отступ между радиокнопкой и текстом */
+      transition: background-color 0.3s; /* Плавная анимация при изменении цвета фона */
+    }
+
+    .option input[type="radio"]:checked + span:before {
+      background-color: #9C6AF9; /* Цвет заливки радиокнопки при выборе */
+    }
     .additional-options {
       margin-top: 30px;
       margin-left: 10px;
@@ -105,19 +128,52 @@
 
     .medical-conditions {
       width: 90%;
-      height: 100px;
+      height: 80px;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 14px;
-      resize: none;
+      resize: none; /* Запретить изменение размеров */
+    }
+
+
+
+
+
+/*    Основное где вес и тд*/
+    .option1 {
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin: 0px 10px 20px;
+      cursor: pointer; /* Делаем курсор указателем при наведении */
+      transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
+    }
+
+    .option1 span {
+      width: 120px;
+      font-size: 16px; /* Размер текста */
+    }
+
+    .option1 select,
+    .option1 input[type="number"] {
+      flex-grow: 1;
+      padding: 8px;
+      border: none; /* Убираем рамку */
+      border-radius: 0; /* Убираем бордер радиус */
+      border-bottom: 1px solid #ccc; /* Добавляем нижнюю границу */
+      font-size: 14px;
+      margin-left: 10px;
     }
 
     .preference-cards {
       display: grid;
-      grid-template-columns: repeat(3, 110px);
-      grid-auto-rows: 110px;
-      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      /*grid-template-columns: repeat(3, 110px);*/
+      grid-auto-rows: 105px;
+      gap: 25px;
       margin-top: 20px;
     }
 
@@ -131,6 +187,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      margin-left: 5px;
     }
 
     .preference-card:hover {
@@ -150,13 +207,28 @@
       color: #fff;
     }
 
+    .card-title {
+
+      margin-top: 127px;
+
+      text-align: center;
+      font-family: "Quicksand", sans-serif;
+      font-size: 14px;
+      color: #8F8F8F;
+/*      margin-top: 5px; /* Добавлено для отступа между карточкой и названием */*/
+    }
+
+
+
+
+
 </style>
 <body>
   <button onclick="prevSlide()">Previous</button>
   <button onclick="nextSlide()">NEXT</button>
   
     <div class="slideshow">
-      <!-- Слайд 1 -->
+      
       <div class="slide">
         <div class="sliderTitle">
           <h1 class="greeting">Добро<br>пожаловать</h1>
@@ -164,7 +236,17 @@
         </div>
         <img class="main_image" src="main_img.jpg">  
       </div>
-      <!-- Слайд 2 -->
+
+
+
+
+  
+
+      <!-- <div class="slide">
+        <h1 class="greeting">Основное</h1>
+        <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
+      
+      </div> -->
       <div class="slide">
         <h1 class="greeting">Основное</h1>
         <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
@@ -178,90 +260,358 @@
         </div>
         <!-- Вес -->
         <div class="option1">
-          <span>Выберите вес:</span>
-          <input type="number" id="weight" name="weight" step="1" min="0" max="250">
+          <span>Вес:</span>
+          <input type="number" id="weight" name="weight" step="1" min="0" max="250" style="margin-left: 205px;">
           <span>кг</span>
         </div>
         <!-- Рост -->
         <div class="option1">
           <span>Рост:</span>
-          <input type="number" id="height" name="height" step="1" min="0" max="250">
+          <input type="number" id="height" name="height" step="1" min="0" max="250" style="margin-left: 197px;">
           <span>см</span>
         </div>
         <!-- Возраст -->
         <div class="option1">
-          <span>Выберите возраст:</span>
-          <input type="number" id="age" name="age" step="1" min="0" max="100">
+          <span>Возраст:</span>
+          <input type="number" id="age" name="age" step="1" min="0" max="100" style="margin-left: 172px;">
           <span>лет</span>
         </div>
       </div>
-      <!-- Слайд 3 -->
+
+
+
+
+
+
+
+
       <div class="slide">
         <div class="sliderTitle">
           <h1 class="greeting">Здоровье</h1>
           <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас медицинские противопоказания:</h2>
         </div>
         <div id="icon-radio-group">
-          <div class="option1">
+          <div class="option">
             <img src="icon1.png" alt="Icon 1">
             <span>Диабет</span>
-            <input type="radio" id="option1" name="diabet" value="option1">
+            <input type="radio" id="option1" name="diabet" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
           </div>
-          <!-- Добавьте другие опции здесь -->
+          <br>
+          <div class="option">
+            <img src="icon2.png" alt="Icon 1">
+            <span>Ожирение</span>
+            <input type="radio" id="option2" name="ozhirenie" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="icon3.png" alt="Icon 1">
+            <span>Гипертония</span>
+            <input type="radio" id="option3" name="gipertonia" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="icon4.png" alt="Icon 1">
+            <span>Сердечные заболевания</span>
+            <input type="radio" id="option4" name="serdechnie" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="icon5.png" alt="Icon 1">
+            <span>Аллергия</span>
+            <input type="radio" id="option5" name="allergia" value="option1">
+          </div>
           <div class="additional-options">
             <div class="not-found">Не нашли в списке?</div>
-            <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+              <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
           </div>
+
         </div>
       </div>
-      <!-- Слайд 4 -->
-      <div class="slide">
+
+
+
+
+
+       <div class="slide">
         <div class="sliderTitle">
-          <h1 class="greeting">Предпочтения</h1>
-          <h2 class="under_greeting">Выберите продукты и блюда, которые вы предпочитаете употреблять:</h2>
+          <h1 class="greeting">Цели</h1>
+          <h2 class="under_greeting">Выберите одну или несколько целей которые больше вам подходят:</h2>
         </div>
-        <div class="preference-cards">
-          <div class="preference-card">
-            <h3 class="preference-title">Продукт 1</h3>
+        <div id="icon-radio-group">
+          <div class="option">
+            <img src="up.png" alt="Icon 1" width='20px' height='20px'>
+            <span style="margin-top: 2px;margin-left: 10px;">Диабет</span>
+            <input type="radio" id="option1" name="diabet" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
           </div>
-          <div class="preference-card">
-            <h3 class="preference-title">Продукт 2</h3>
+          <br>
+          <div class="option">
+            <img src="down2.png" alt="Icon 1"  width='20px' height='20px'>
+            <span style="margin-top: 2px;margin-left: 10px;">Ожирение</span>
+            <input type="radio" id="option2" name="ozhirenie" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
           </div>
-          <!-- Добавьте другие карточки здесь -->
+          <br>
+          <div class="option">
+            <img src="ves.png" alt="Icon 1"  width='22px' height='22px'>
+            <span style="margin-top: 2px;margin-left: 8px;">Гипертония</span>
+            <input type="radio" id="option3" name="gipertonia" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="heart.png" alt="Icon 1"  width='20px' height='20px'>
+            <span style="margin-top: 2px;margin-left: 10px;">Сердечные заболевания</span>
+            <input type="radio" id="option4" name="serdechnie" value="option1" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" >
+          </div>
+          <br>
+          <div class="option">
+            <img src="run.png" alt="Icon 1" width='20px' height='22px'>
+            <span style="margin-top: 2px;margin-left: 10px;">Аллергия</span>
+            <input type="radio" id="option5" name="allergia" value="option1">
+          </div>
+          <div class="additional-options">
+            <div class="not-found">Не нашли в списке?</div>
+              <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+          </div>
+
         </div>
-        <button onclick="nextSlide()">Продолжить</button>
+        </div>
       </div>
+      </div>
+
+
+
+
+     <div class="slide">
+      <div class="sliderTitle">
+        <h1 class="greeting">Предпочтения</h1>
+        <h2 class="under_greeting">Выберите продукты и блюда, которые вы предпочитаете употреблять:</h2>
+      </div>
+      <div class="preference-cards">
+        <!-- Карточка 1 -->
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Говядина</div> 
+        </div>
+        <!-- Карточка 2 -->
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Овощи</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Клубника</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Картофель</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Перец</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Спагетти</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Макароны</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Хлеб</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Капуста</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Крупа</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Сыр</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Киви</div> 
+        </div>
+
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Цитрусовые</div> 
+        </div>
+
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Рис</div> 
+        </div>
+
+        <div class="preference-card">
+          <h3 class="preference-title"></h3>
+          <div class="card-title">Шоколад</div> 
+        </div>
+
+        <!-- Добавьте другие карточки здесь -->
+      </div>
+      <br><br>
+      <div class="additional-options">
+        <div class="not-found">Не нашли в списке?</div>
+          <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+      </div>
+      <!-- <button onclick="nextSlide()">Продолжить</button> -->
     </div>
 
+
+
+
     <script>        
-      const slides = document.querySelectorAll('.slide');
-      let currentSlide = 0;
 
-      function nextSlide() {
-        currentSlide++;
-        if (currentSlide >= slides.length) {
-          currentSlide = slides.length - 1;
-        }
-        showSlide(currentSlide);
-      }
 
-      function prevSlide() {
-        currentSlide--;
-        if (currentSlide < 0) {
-          currentSlide = slides;
-        }
-        showSlide(currentSlide);
-      }
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+        tg.backgroundColor = "#FCFCFC";
+        tg.headerColor = "#FCFCFC";
+        tg.secondary_bg_color = "#FFFFFF";
+        MainButton = tg.MainButton;
+        MainButton.text = "Начать";
+        MainButton.textColor = "#FFFFFF";
+        MainButton.color = "#9C6AF9";
+        MainButton.show();
+        tg.onEvent('mainButtonClicked', nextSlide);
 
-      function showSlide(index) {
-        slides.forEach((slide, i) => {
-          if (i === index) {
-            slide.style.display = 'block';
-          } else {
-            slide.style.display = 'none';
+        // Создаем div для текста под кнопкой
+        const buttonText = document.createElement('div');
+        buttonText.textContent = "Нажмите кнопку для начала";
+        buttonText.style.fontSize = "14px";
+        buttonText.style.color = "#8F8F8F";
+        buttonText.style.textAlign = "center";
+        buttonText.style.marginTop = "10px";
+
+        // Вставляем созданный div после кнопки
+        MainButton.element.parentNode.insertBefore(buttonText, MainButton.element.nextSibling);
+
+        BackButton = tg.BackButton
+        BackButton.color = "#3881F0"
+
+        tg.onEvent('backButtonClicked', prevSlide)
+
+        tg.SettingsButton.show()
+
+        const slideshow = document.getElementById('slideshow');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+          currentSlide++;
+          if (currentSlide >= slides.length) {
+              currentSlide = 0;
           }
+          if (currentSlide == 0){
+            console.log("case 0")
+              BackButton.hide()
+              MainButton.text = "Начать"
+          }
+          else{
+              console.log("case 1")
+              BackButton.show()
+              MainButton.text = "Продолжить"
+              
+          }
+          
+          if (BackButton.isVisible == false) {BackButton.show();}
+
+          showSlide(currentSlide);
+
+        };
+
+        function prevSlide() {
+
+        currentSlide--;
+
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
+        else if (currentSlide == 0){
+          console.log("case 0")
+            BackButton.hide()
+            console.log("Hidden")
+            MainButton.text = "Начать"
+        }
+        else{
+            console.log("case 1")
+            BackButton.show()
+            MainButton.text = "Продолжить"
+            
+        }
+        
+
+        // switch (currentSlide) {
+        //   case 0:
+        //     console.log("case 0")
+        //     BackButton.hide()
+        //     MainButton.text = "Начать"
+        //     break
+
+        //   case 1:
+        //     console.log("case 1")
+        //     BackButton.show()
+        //     MainButton.text = "Продолжить"
+        //     break
+        //   }
+
+        showSlide(currentSlide);
+        };
+
+        function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index? 'block' : 'none';
         });
-      }
+        }
+        const radioGroup = document.getElementById('radio-group');
+        const radios = radioGroup.querySelectorAll('input[type="radio"]');
+
+        radios.forEach(radio => {
+          radio.addEventListener('change', () => {
+            console.log(`Selected option: ${radio.value}`);
+          });
+        });
+
+        function encheckbox(option_num) {
+          console.log(option_num);
+
+        }
+
+
+        // Обработчики кликов для выбора карточек
+        const preferenceCards = document.querySelectorAll('.preference-card');
+
+        preferenceCards.forEach(card => {
+          card.addEventListener('click', () => {
+            card.classList.toggle('selected');
+          });
+        });
+
     </script>
 </body>
 </html>
