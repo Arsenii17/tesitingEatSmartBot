@@ -276,9 +276,9 @@
           <input type="number" id="age" name="age" step="1" min="0" max="100" style="margin-left: 172px;">
           <span>лет</span>
         </div>
+
+        <button onclick="printValues()">Вывести значения</button>
       </div>
-
-
 
 
 
@@ -488,7 +488,10 @@
     <script>        
 
 
-        let tg = window.Telegram.WebApp
+        let tg = window.Telegram.WebApp;
+
+
+
         tg.expand()
         tg.backgroundColor = "#FCFCFC"
         tg.headerColor = "#FCFCFC"
@@ -600,6 +603,35 @@
             card.classList.toggle('selected');
           });
         });
+
+
+
+        let age = document.getElementById("age");
+        let user__ud = tg.initDataUnsafe.user.id;
+        function printValues() {
+          // Получаем значения полей
+          const gender = document.getElementById('gender').value;
+          const weight = document.getElementById('weight').value;
+          const height = document.getElementById('height').value;
+          const age = document.getElementById('age').value;
+
+
+          let data ={
+            // user__id: user__id,
+            gender: gender,
+            weight: weight,
+            height: height,
+            age: age
+          }
+          console.log(data)
+          tg.sendData(JSON.stringify(data))
+          // Выводим значения в консоль
+          // console.log("Пол:", gender);
+          // console.log("Вес:", weight, "кг");
+          // console.log("Рост:", height, "см");
+          // console.log("Возраст:", age, "лет");
+        }
+        
 
     </script>
 </body>
