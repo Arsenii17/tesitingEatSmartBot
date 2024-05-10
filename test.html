@@ -96,9 +96,9 @@
       font-size: 16px; /* Размер текста */
     }
 
-    .option input[type="radio"] {
-      display: none; /* Скрываем радиокнопку */
-    }
+  /*  .option input[type="radio"] {
+      display: none; /* Скрываем радиокнопку 
+    }*/
 
     .option input[type="radio"] + span:before {
       content: ""; /* Добавляем псевдоэлемент */
@@ -276,9 +276,9 @@
           <input type="number" id="age" name="age" step="1" min="0" max="100" style="margin-left: 172px;">
           <span>лет</span>
         </div>
+
+        <!-- <button onclick="printValues()">Вывести значения</button> -->
       </div>
-
-
 
 
 
@@ -294,35 +294,35 @@
           <div class="option">
             <img src="icon1.png" alt="Icon 1">
             <span>Диабет</span>
-            <input type="radio" id="option1" name="diabet" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="medical_option1" name="medical_condition" value="Диабет" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 234px;">
           </div>
           <br>
           <div class="option">
             <img src="icon2.png" alt="Icon 1">
             <span>Ожирение</span>
-            <input type="radio" id="option2" name="ozhirenie" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="medical_option2" name="medical_condition" value="Ожирение" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 205px;">
           </div>
           <br>
           <div class="option">
             <img src="icon3.png" alt="Icon 1">
             <span>Гипертония</span>
-            <input type="radio" id="option3" name="gipertonia" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="medical_option3" name="medical_condition" value="Гипертония" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 198px;" >
           </div>
           <br>
           <div class="option">
             <img src="icon4.png" alt="Icon 1">
             <span>Сердечные заболевания</span>
-            <input type="radio" id="option4" name="serdechnie" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="medical_option4" name="medical_condition" value="Сердечные заболевания" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 188px;">
           </div>
           <br>
           <div class="option">
             <img src="icon5.png" alt="Icon 1">
             <span>Аллергия</span>
-            <input type="radio" id="option5" name="allergia" value="option1">
+            <input type="radio" id="medical_option5" name="medical_condition" value="Аллергия"  style="padding-left: 20%; margin-left: 215px;">
           </div>
           <div class="additional-options">
             <div class="not-found">Не нашли в списке?</div>
@@ -344,46 +344,50 @@
         <div id="icon-radio-group">
           <div class="option">
             <img src="up.png" alt="Icon 1" width='20px' height='20px'>
-            <span style="margin-top: 2px;margin-left: 10px;">Диабет</span>
-            <input type="radio" id="option1" name="diabet" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <span style="margin-top: 2px;margin-left: 10px;">Набор массы</span>
+            <input type="radio" id="goal1" name="goal" value="Набор массы" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 230px;">
           </div>
           <br>
           <div class="option">
             <img src="down2.png" alt="Icon 1"  width='20px' height='20px'>
-            <span style="margin-top: 2px;margin-left: 10px;">Ожирение</span>
-            <input type="radio" id="option2" name="ozhirenie" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <span style="margin-top: 2px;margin-left: 10px;">Снижение веса</span>
+            <input type="radio" id="goal2" name="goal" value="Снижение веса" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 201px;">
           </div>
           <br>
           <div class="option">
             <img src="ves.png" alt="Icon 1"  width='22px' height='22px'>
-            <span style="margin-top: 2px;margin-left: 8px;">Гипертония</span>
-            <input type="radio" id="option3" name="gipertonia" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <span style="margin-top: 2px;margin-left: 8px;">Поддержание текущего веса</span>
+            <input type="radio" id="goal3" name="goal" value="Поддержание текущего веса" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 173px;">
           </div>
           <br>
           <div class="option">
             <img src="heart.png" alt="Icon 1"  width='20px' height='20px'>
-            <span style="margin-top: 2px;margin-left: 10px;">Сердечные заболевания</span>
-            <input type="radio" id="option4" name="serdechnie" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <span style="margin-top: 2px;margin-left: 10px;">Улучшение здоровья</span>
+            <input type="radio" id="goal4" name="goal" value="Улучшение здоровья" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 196px;">
           </div>
           <br>
           <div class="option">
             <img src="run.png" alt="Icon 1" width='20px' height='22px'>
-            <span style="margin-top: 2px;margin-left: 10px;">Аллергия</span>
-            <input type="radio" id="option5" name="allergia" value="option1">
+            <span style="margin-top: 2px;margin-left: 10px;">Улучшение спортивных результатов</span>
+            <input type="radio" id="goal5" name="goal" value="Улучшение спортивных результатов" style="padding-left: 20%; margin-left: 192px;">
           </div>
           <div class="additional-options">
             <div class="not-found">Не нашли в списке?</div>
               <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
           </div>
+            <button onclick="collectDataAndPrint()">Вывести JSON</button>
 
         </div>
         </div>
       </div>
       </div>
+
+
+
 
 
 
@@ -488,7 +492,18 @@
     <script>        
 
 
-        let tg = window.Telegram.WebApp
+        let tg = window.Telegram.WebApp;
+
+           // Определение переменных для хранения данных
+        let userData = {
+          gender: "",
+          weight: "",
+          height: "",
+          age: "",
+          medicalCondition: "",
+          goal: ""
+        };
+
         tg.expand()
         tg.backgroundColor = "#FCFCFC"
         tg.headerColor = "#FCFCFC"
@@ -600,6 +615,71 @@
             card.classList.toggle('selected');
           });
         });
+
+
+
+        // let age = document.getElementById("age");
+        // // let user__id = tg.initDataUnsafe.user.id;
+        // function printValues() {
+        //   // Получаем значения полей
+        //   const gender = document.getElementById('gender').value;
+        //   const weight = document.getElementById('weight').value;
+        //   const height = document.getElementById('height').value;
+        //   const age = document.getElementById('age').value;
+
+
+        //   let data ={
+        //     // user__id: user__id,
+        //     gender: gender,
+        //     weight: weight,
+        //     height: height,
+        //     age: age
+        //   }
+        //   console.log(data)
+        //   tg.sendData(JSON.stringify(data))
+        //   // Выводим значения в консоль
+        //   // console.log("Пол:", gender);
+        //   // console.log("Вес:", weight, "кг");
+        //   // console.log("Рост:", height, "см");
+        //   // console.log("Возраст:", age, "лет");
+        // }
+
+
+
+     
+
+        // Функция для сбора данных и вывода в консоль
+        function collectData() {
+          // Получение значений с первого экрана
+          userData.gender = document.getElementById('gender').value;
+          userData.weight = document.getElementById('weight').value;
+          userData.height = document.getElementById('height').value;
+          userData.age = document.getElementById('age').value;
+
+          // Получение выбранного медицинского состояния со второго экрана
+          const medicalConditions = document.querySelectorAll('input[name="medical_condition"]');
+          medicalConditions.forEach(condition => {
+            if (condition.checked) {
+              userData.medicalCondition = condition.value;
+            }
+          });
+
+          // Получение выбранной цели с третьего экрана
+          const goals = document.querySelectorAll('input[name="goal"]');
+          goals.forEach(goal => {
+            if (goal.checked) {
+              userData.goal = goal.value;
+            }
+          });
+
+          // console.log(JSON.stringify(userData));
+        }
+        function collectDataAndPrint() {
+          collectData();
+          console.log(JSON.stringify(userData));
+        }
+
+        
 
     </script>
 </body>
