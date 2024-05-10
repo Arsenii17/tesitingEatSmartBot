@@ -96,9 +96,9 @@
       font-size: 16px; /* Размер текста */
     }
 
-    .option input[type="radio"] {
-      display: none; /* Скрываем радиокнопку */
-    }
+  /*  .option input[type="radio"] {
+      display: none; /* Скрываем радиокнопку 
+    }*/
 
     .option input[type="radio"] + span:before {
       content: ""; /* Добавляем псевдоэлемент */
@@ -294,35 +294,35 @@
           <div class="option">
             <img src="icon1.png" alt="Icon 1">
             <span>Диабет</span>
-            <input type="radio" id="option1" name="medical_condition" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="medical_option1" name="medical_condition" value="Диабет" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 234px;">
           </div>
           <br>
           <div class="option">
             <img src="icon2.png" alt="Icon 1">
             <span>Ожирение</span>
-            <input type="radio" id="option2" name="medical_condition" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="medical_option2" name="medical_condition" value="Ожирение" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 205px;">
           </div>
           <br>
           <div class="option">
             <img src="icon3.png" alt="Icon 1">
             <span>Гипертония</span>
-            <input type="radio" id="option3" name="medical_condition" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="medical_option3" name="medical_condition" value="Гипертония" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 198px;" >
           </div>
           <br>
           <div class="option">
             <img src="icon4.png" alt="Icon 1">
             <span>Сердечные заболевания</span>
-            <input type="radio" id="option4" name="medical_condition" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="medical_option4" name="medical_condition" value="Сердечные заболевания" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 188px;">
           </div>
           <br>
           <div class="option">
             <img src="icon5.png" alt="Icon 1">
             <span>Аллергия</span>
-            <input type="radio" id="option5" name="medical_condition" value="option1">
+            <input type="radio" id="medical_option5" name="medical_condition" value="Аллергия"  style="padding-left: 20%; margin-left: 215px;">
           </div>
           <div class="additional-options">
             <div class="not-found">Не нашли в списке?</div>
@@ -345,35 +345,35 @@
           <div class="option">
             <img src="up.png" alt="Icon 1" width='20px' height='20px'>
             <span style="margin-top: 2px;margin-left: 10px;">Набор массы</span>
-            <input type="radio" id="option1" name="goal" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="goal1" name="goal" value="Набор массы" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 230px;">
           </div>
           <br>
           <div class="option">
             <img src="down2.png" alt="Icon 1"  width='20px' height='20px'>
             <span style="margin-top: 2px;margin-left: 10px;">Снижение веса</span>
-            <input type="radio" id="option2" name="goal" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="goal2" name="goal" value="Снижение веса" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 201px;">
           </div>
           <br>
           <div class="option">
             <img src="ves.png" alt="Icon 1"  width='22px' height='22px'>
             <span style="margin-top: 2px;margin-left: 8px;">Поддержание текущего веса</span>
-            <input type="radio" id="option3" name="goal" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="goal3" name="goal" value="Поддержание текущего веса" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 173px;">
           </div>
           <br>
           <div class="option">
             <img src="heart.png" alt="Icon 1"  width='20px' height='20px'>
             <span style="margin-top: 2px;margin-left: 10px;">Улучшение здоровья</span>
-            <input type="radio" id="option4" name="goal" value="option1" onMouseDown="this.isChecked=this.checked;" 
-            onClick="this.checked=!this.isChecked;" >
+            <input type="radio" id="goal4" name="goal" value="Улучшение здоровья" onMouseDown="this.isChecked=this.checked;" 
+            onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 196px;">
           </div>
           <br>
           <div class="option">
             <img src="run.png" alt="Icon 1" width='20px' height='22px'>
             <span style="margin-top: 2px;margin-left: 10px;">Улучшение спортивных результатов</span>
-            <input type="radio" id="option5" name="goal" value="option1">
+            <input type="radio" id="goal5" name="goal" value="Улучшение спортивных результатов" style="padding-left: 20%; margin-left: 192px;">
           </div>
           <div class="additional-options">
             <div class="not-found">Не нашли в списке?</div>
