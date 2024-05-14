@@ -247,6 +247,30 @@
 
 
 
+    #tg-main-button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #custom-main-button {
+      background-color: #9C6AF9;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #step-counter {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+    }
+
+
+
+
 
 
 </style>
@@ -395,61 +419,6 @@
               <button onclick="collectDataAndPrint()">Вывести JSON</button>
           </div>
       </div>
-
-      <!--  <div class="slide">
-        <div class="sliderTitle">
-          <h1 class="greeting">Цели</h1>
-          <h2 class="under_greeting">Выберите одну или несколько целей которые больше вам подходят:</h2>
-        </div>
-        <div id="icon-radio-group">
-          <div class="option">
-            <label for="goal1" class="option-label">
-              <img src="up.svg" alt="Icon 1" width='20px' height='20px'>
-              <span style="margin-top: 2px;margin-left: 10px;">Набор массы</span>
-              <input type="radio" id="goal1" name="goal" value="Набор массы" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 190px;">
-            </label>
-          </div>
-          <br>
-          <div class="option">
-            <label for="goal2" class="option-label">
-              <img src="down.svg" alt="Icon 1"  width='20px' height='20px'>
-              <span style="margin-top: 2px;margin-left: 10px;">Снижение веса</span>
-              <input type="radio" id="goal2" name="goal" value="Снижение веса" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 175px;">
-            </label>
-          </div>
-          <br>
-          <div class="option">
-            <label for="goal3" class="option-label">
-
-              <img src="ves.svg" alt="Icon 1"  width='22px' height='22px'>
-              <span style="margin-top: 2px;margin-left: 8px;">Поддержание текущего веса</span>
-              <input type="radio" id="goal3" name="goal" value="Поддержание текущего веса" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 110px;">
-            </label>
-          </div>
-          <br>
-          <div class="option">
-            <label for="goal4" class="option-label">
-
-              <img src="heart.svg" alt="Icon 1"  width='20px' height='20px'>
-              <span style="margin-top: 2px;margin-left: 10px;">Улучшение здоровья</span>
-              <input type="radio" id="goal4" name="goal" value="Улучшение здоровья" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 130px;">
-            </label>
-          </div>
-          <br>
-          <div class="option">
-            <label for="goal5" class="option-label">
-
-              <img src="run.svg" alt="Icon 1" width='20px' height='22px'>
-              <span style="margin-top: 2px;margin-left: 10px;">Улучшение спортивных результатов</span>
-              <input type="radio" id="goal5" name="goal" value="Улучшение спортивных результатов" style="padding-left: 20%; margin-left: 100px;">
-            </label>
-          </div>
-          <br>
-            <button onclick="collectDataAndPrint()">Вывести JSON</button> -->
 <!-- 
 
         </div>
@@ -547,6 +516,15 @@
 
 
 
+    <div id="tg-main-button-container">
+      <button id="custom-main-button" class="tg-btn">Начать</button>
+      <div id="step-counter">Пройди еще 4 этапа и получи бонус</div>
+    </div>
+
+
+
+
+
     <script>        
 
 
@@ -566,12 +544,17 @@
         tg.backgroundColor = "#FCFCFC"
         tg.headerColor = "#FCFCFC"
         tg.secondary_bg_color = "#FFFFFF"
-        MainButton = tg.MainButton
-        MainButton.text = "Начать"
-        MainButton.textColor = "#FFFFFF"
-        MainButton.color = "#9C6AF9"
-        MainButton.show()
-        tg.onEvent('mainButtonClicked', nextSlide)
+
+
+        tg.MainButton.hide();
+        const customMainButton = document.getElementById('custom-main-button');
+        customMainButton.addEventListener('click', nextSlide);
+        // MainButton = tg.MainButton
+        // MainButton.text = "Начать"
+        // MainButton.textColor = "#FFFFFF"
+        // MainButton.color = "#9C6AF9"
+        // MainButton.show()
+        // tg.onEvent('mainButtonClicked', nextSlide)
 
         BackButton = tg.BackButton
         BackButton.color = "#3881F0"
@@ -579,79 +562,52 @@
         tg.onEvent('backButtonClicked', prevSlide)
 
         tg.SettingsButton.show()
-        // tg.extend()
-        // tg.expand()
 
         const slideshow = document.getElementById('slideshow');
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
+        const stepCounter = document.getElementById('step-counter');
+        const totalSteps = slides.length;
 
         function nextSlide() {
           currentSlide++;
           if (currentSlide >= slides.length) {
               currentSlide = 0;
           }
-          if (currentSlide == 0){
-            console.log("case 0")
-              BackButton.hide()
-              MainButton.text = "Начать"
-          }
-          else{
-              console.log("case 1")
-              BackButton.show()
-              MainButton.text = "Продолжить"
-              
-          }
-          
-          if (BackButton.isVisible == false) {BackButton.show();}
-
+          updateButtonAndCounter();
           showSlide(currentSlide);
-
         };
 
         function prevSlide() {
+          currentSlide--;
 
-        currentSlide--;
-
-        if (currentSlide < 0) {
-            currentSlide = slides.length - 1;
-        }
-        else if (currentSlide == 0){
-          console.log("case 0")
-            BackButton.hide()
-            console.log("Hidden")
-            MainButton.text = "Начать"
-        }
-        else{
-            console.log("case 1")
-            BackButton.show()
-            MainButton.text = "Продолжить"
-            
-        }
-        
-
-        // switch (currentSlide) {
-        //   case 0:
-        //     console.log("case 0")
-        //     BackButton.hide()
-        //     MainButton.text = "Начать"
-        //     break
-
-        //   case 1:
-        //     console.log("case 1")
-        //     BackButton.show()
-        //     MainButton.text = "Продолжить"
-        //     break
-        //   }
-
-        showSlide(currentSlide);
+          if (currentSlide < 0) {
+              currentSlide = slides.length - 1;
+          }
+          updateButtonAndCounter();
+          showSlide(currentSlide);
         };
 
-        function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.style.display = i === index? 'block' : 'none';
-        });
+        function updateButtonAndCounter() {
+          const remainingSteps = totalSteps - currentSlide - 1;
+          if (currentSlide === 0) {
+            customMainButton.textContent = "Начать";
+            stepCounter.textContent = `Пройди еще ${remainingSteps} этапа и получи бонус`;
+          } else {
+            customMainButton.textContent = "Продолжить";
+            stepCounter.textContent = `Пройди еще ${remainingSteps} этапов и получи бонус`;
+          }
         }
+
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+              slide.style.display = i === index ? 'block' : 'none';
+          });
+        }
+
+        // Начальная установка
+        updateButtonAndCounter();
+
         const radioGroup = document.getElementById('radio-group');
         const radios = radioGroup.querySelectorAll('input[type="radio"]');
 
@@ -663,47 +619,83 @@
 
         function encheckbox(option_num) {
           console.log(option_num);
-
         }
 
-
-        // Обработчики кликов для выбора карточек
-        const preferenceCards = document.querySelectorAll('.preference-card');
-
-        preferenceCards.forEach(card => {
-          card.addEventListener('click', () => {
-            card.classList.toggle('selected');
-          });
-        });
-
-
-
-        // let age = document.getElementById("age");
-        // // let user__id = tg.initDataUnsafe.user.id;
-        // function printValues() {
-        //   // Получаем значения полей
-        //   const gender = document.getElementById('gender').value;
-        //   const weight = document.getElementById('weight').value;
-        //   const height = document.getElementById('height').value;
-        //   const age = document.getElementById('age').value;
-
-
-        //   let data ={
-        //     // user__id: user__id,
-        //     gender: gender,
-        //     weight: weight,
-        //     height: height,
-        //     age: age
+        // function nextSlide() {
+        //   currentSlide++;
+        //   if (currentSlide >= slides.length) {
+        //       currentSlide = 0;
         //   }
-        //   console.log(data)
-        //   tg.sendData(JSON.stringify(data))
-        //   // Выводим значения в консоль
-        //   // console.log("Пол:", gender);
-        //   // console.log("Вес:", weight, "кг");
-        //   // console.log("Рост:", height, "см");
-        //   // console.log("Возраст:", age, "лет");
+        //   if (currentSlide == 0){
+        //     console.log("case 0")
+        //       BackButton.hide()
+        //       MainButton.text = "Начать"
+        //   }
+        //   else{
+        //       console.log("case 1")
+        //       BackButton.show()
+        //       MainButton.text = "Продолжить"
+              
+        //   }
+          
+        //   if (BackButton.isVisible == false) {BackButton.show();}
+
+        //   showSlide(currentSlide);
+
+        // };
+
+        // function prevSlide() {
+
+        // currentSlide--;
+
+        // if (currentSlide < 0) {
+        //     currentSlide = slides.length - 1;
+        // }
+        // else if (currentSlide == 0){
+        //   console.log("case 0")
+        //     BackButton.hide()
+        //     console.log("Hidden")
+        //     MainButton.text = "Начать"
+        // }
+        // else{
+        //     console.log("case 1")
+        //     BackButton.show()
+        //     MainButton.text = "Продолжить"
+            
+        // }
+        
+
+        // showSlide(currentSlide);
+        // };
+
+        // function showSlide(index) {
+        // slides.forEach((slide, i) => {
+        //     slide.style.display = i === index? 'block' : 'none';
+        // });
+        // }
+        // const radioGroup = document.getElementById('radio-group');
+        // const radios = radioGroup.querySelectorAll('input[type="radio"]');
+
+        // radios.forEach(radio => {
+        //   radio.addEventListener('change', () => {
+        //     console.log(`Selected option: ${radio.value}`);
+        //   });
+        // });
+
+        // function encheckbox(option_num) {
+        //   console.log(option_num);
+
         // }
 
+
+        // // Обработчики кликов для выбора карточек
+        // const preferenceCards = document.querySelectorAll('.preference-card');
+
+        // preferenceCards.forEach(card => {
+        //   card.addEventListener('click', () => {
+        //     card.classList.toggle('selected');
+        //   });
+        // });
 
 
      
