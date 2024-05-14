@@ -27,7 +27,7 @@
         width: 400px;
       }
       #icon-radio-group{
-        width: 405px;
+        width: 415px;
       }
     }
 
@@ -69,7 +69,7 @@
     }
     .main_image{
       max-width: 400px;
-      margin-left: 12px;
+      margin-left: 15px;
     }
 
     .page1{
@@ -382,7 +382,7 @@
               <img src="up.png" alt="Icon 1" width='20px' height='20px'>
               <span style="margin-top: 2px;margin-left: 10px;">Набор массы</span>
               <input type="radio" id="goal1" name="goal" value="Набор массы" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 230px;">
+              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 190px;">
             </label>
           </div>
           <br>
@@ -391,7 +391,7 @@
               <img src="down2.png" alt="Icon 1"  width='20px' height='20px'>
               <span style="margin-top: 2px;margin-left: 10px;">Снижение веса</span>
               <input type="radio" id="goal2" name="goal" value="Снижение веса" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 201px;">
+              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 175px;">
             </label>
           </div>
           <br>
@@ -401,7 +401,7 @@
               <img src="ves.png" alt="Icon 1"  width='22px' height='22px'>
               <span style="margin-top: 2px;margin-left: 8px;">Поддержание текущего веса</span>
               <input type="radio" id="goal3" name="goal" value="Поддержание текущего веса" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 173px;">
+              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 110px;">
             </label>
           </div>
           <br>
@@ -411,7 +411,7 @@
               <img src="heart.png" alt="Icon 1"  width='20px' height='20px'>
               <span style="margin-top: 2px;margin-left: 10px;">Улучшение здоровья</span>
               <input type="radio" id="goal4" name="goal" value="Улучшение здоровья" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 196px;">
+              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 130px;">
             </label>
           </div>
           <br>
@@ -420,14 +420,12 @@
 
               <img src="run.png" alt="Icon 1" width='20px' height='22px'>
               <span style="margin-top: 2px;margin-left: 10px;">Улучшение спортивных результатов</span>
-              <input type="radio" id="goal5" name="goal" value="Улучшение спортивных результатов" style="padding-left: 20%; margin-left: 192px;">
+              <input type="radio" id="goal5" name="goal" value="Улучшение спортивных результатов" style="padding-left: 20%; margin-left: 100px;">
             </label>
           </div>
-          <div class="additional-options">
-            <div class="not-found">Не нашли в списке?</div>
-              <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
-          </div>
+          <br>
             <button onclick="collectDataAndPrint()">Вывести JSON</button>
+
 
         </div>
         </div>
