@@ -247,30 +247,6 @@
 
 
 
-    #tg-main-button-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #custom-main-button {
-      background-color: #9C6AF9;
-      color: #FFFFFF;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #step-counter {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #333;
-    }
-
-
-
-
 
 
 </style>
@@ -419,6 +395,7 @@
               <button onclick="collectDataAndPrint()">Вывести JSON</button>
           </div>
       </div>
+
 <!-- 
 
         </div>
@@ -516,14 +493,6 @@
 
 
 
-    <div id="tg-main-button-container">
-      <button id="custom-main-button" class="tg-btn">Начать</button>
-      <div id="step-counter">Пройди еще 4 этапа и получи бонус</div>
-    </div>
-
-
-
-
 
     <script>        
 
@@ -544,17 +513,12 @@
         tg.backgroundColor = "#FCFCFC"
         tg.headerColor = "#FCFCFC"
         tg.secondary_bg_color = "#FFFFFF"
-
-
-        tg.MainButton.show();
-        const customMainButton = document.getElementById('custom-main-button');
-        customMainButton.addEventListener('click', nextSlide);
-        // MainButton = tg.MainButton
-        // MainButton.text = "Начать"
-        // MainButton.textColor = "#FFFFFF"
-        // MainButton.color = "#9C6AF9"
-        // MainButton.show()
-        // tg.onEvent('mainButtonClicked', nextSlide)
+        MainButton = tg.MainButton
+        MainButton.text = "Начать"
+        MainButton.textColor = "#FFFFFF"
+        MainButton.color = "#9C6AF9"
+        MainButton.show()
+        tg.onEvent('mainButtonClicked', nextSlide)
 
         BackButton = tg.BackButton
         BackButton.color = "#3881F0"
@@ -562,52 +526,66 @@
         tg.onEvent('backButtonClicked', prevSlide)
 
         tg.SettingsButton.show()
+        // tg.extend()
+        // tg.expand()
 
         const slideshow = document.getElementById('slideshow');
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
-        const stepCounter = document.getElementById('step-counter');
-        const totalSteps = slides.length;
 
         function nextSlide() {
           currentSlide++;
           if (currentSlide >= slides.length) {
               currentSlide = 0;
           }
-          updateButtonAndCounter();
+          if (currentSlide == 0){
+            console.log("case 0")
+              BackButton.hide()
+              MainButton.text = "Начать"
+          }
+          else{
+              console.log("case 1")
+              BackButton.show()
+              MainButton.text = "Продолжить"
+              
+          }
+          
+          if (BackButton.isVisible == false) {BackButton.show();}
+
           showSlide(currentSlide);
+
         };
 
         function prevSlide() {
-          currentSlide--;
 
-          if (currentSlide < 0) {
-              currentSlide = slides.length - 1;
-          }
-          updateButtonAndCounter();
-          showSlide(currentSlide);
+        currentSlide--;
+
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
+        else if (currentSlide == 0){
+          console.log("case 0")
+            BackButton.hide()
+            console.log("Hidden")
+            MainButton.text = "Начать"
+        }
+        else{
+            console.log("case 1")
+            BackButton.show()
+            MainButton.text = "Продолжить"
+            
+        }
+        
+
+
+        showSlide(currentSlide);
         };
 
-        function updateButtonAndCounter() {
-          const remainingSteps = totalSteps - currentSlide - 1;
-          if (currentSlide === 0) {
-            customMainButton.textContent = "Начать";
-            stepCounter.textContent = `Пройди еще ${remainingSteps} этапа и получи бонус`;
-          } else {
-            customMainButton.textContent = "Продолжить";
-            stepCounter.textContent = `Пройди еще ${remainingSteps} этапов и получи бонус`;
-          }
-        }
-
         function showSlide(index) {
-          slides.forEach((slide, i) => {
-              slide.style.display = i === index ? 'block' : 'none';
-          });
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index? 'block' : 'none';
+        });
         }
-
-        // Начальная установка
-        updateButtonAndCounter();
-
         const radioGroup = document.getElementById('radio-group');
         const radios = radioGroup.querySelectorAll('input[type="radio"]');
 
@@ -619,83 +597,21 @@
 
         function encheckbox(option_num) {
           console.log(option_num);
+
         }
 
-        // function nextSlide() {
-        //   currentSlide++;
-        //   if (currentSlide >= slides.length) {
-        //       currentSlide = 0;
-        //   }
-        //   if (currentSlide == 0){
-        //     console.log("case 0")
-        //       BackButton.hide()
-        //       MainButton.text = "Начать"
-        //   }
-        //   else{
-        //       console.log("case 1")
-        //       BackButton.show()
-        //       MainButton.text = "Продолжить"
-              
-        //   }
-          
-        //   if (BackButton.isVisible == false) {BackButton.show();}
 
-        //   showSlide(currentSlide);
+        // Обработчики кликов для выбора карточек
+        const preferenceCards = document.querySelectorAll('.preference-card');
 
-        // };
-
-        // function prevSlide() {
-
-        // currentSlide--;
-
-        // if (currentSlide < 0) {
-        //     currentSlide = slides.length - 1;
-        // }
-        // else if (currentSlide == 0){
-        //   console.log("case 0")
-        //     BackButton.hide()
-        //     console.log("Hidden")
-        //     MainButton.text = "Начать"
-        // }
-        // else{
-        //     console.log("case 1")
-        //     BackButton.show()
-        //     MainButton.text = "Продолжить"
-            
-        // }
-        
-
-        // showSlide(currentSlide);
-        // };
-
-        // function showSlide(index) {
-        // slides.forEach((slide, i) => {
-        //     slide.style.display = i === index? 'block' : 'none';
-        // });
-        // }
-        // const radioGroup = document.getElementById('radio-group');
-        // const radios = radioGroup.querySelectorAll('input[type="radio"]');
-
-        // radios.forEach(radio => {
-        //   radio.addEventListener('change', () => {
-        //     console.log(`Selected option: ${radio.value}`);
-        //   });
-        // });
-
-        // function encheckbox(option_num) {
-        //   console.log(option_num);
-
-        // }
+        preferenceCards.forEach(card => {
+          card.addEventListener('click', () => {
+            card.classList.toggle('selected');
+          });
+        });
 
 
-        // // Обработчики кликов для выбора карточек
-        // const preferenceCards = document.querySelectorAll('.preference-card');
 
-        // preferenceCards.forEach(card => {
-        //   card.addEventListener('click', () => {
-        //     card.classList.toggle('selected');
-        //   });
-        // });
 
 
      
