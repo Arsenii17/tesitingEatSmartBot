@@ -85,69 +85,78 @@
     	user-select: none;
     }
 
+    #icon-radio-group {
+        width: 110%;
+    }
+
     .option {
-      width: calc(90% - 20px);
-      display: flex;
-      align-items: center;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #ccc; /* Добавляем рамку */
-      margin: 0px 10px;
-      cursor: pointer; /* Делаем курсор указателем при наведении */
-      transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 20px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        position: relative;
     }
 
     .option:hover {
-      background-color: #f0f0f0; /* Изменяем фон при наведении */
+        background-color: #f0f0f0;
     }
 
     .option img {
-      margin-right: 8px; /* Отступ между изображением и текстом */
+        margin-right: 8px;
     }
 
     .option span {
-      font-size: 16px; /* Размер текста */
+        font-size: 16px;
+        flex-grow: 1;
+        text-align: left;
     }
 
-  /*  .option input[type="radio"] {
-      display: none; /* Скрываем радиокнопку 
-    }*/
-
-    .option input[type="radio"] + span:before {
-      content: ""; /* Добавляем псевдоэлемент */
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 2px solid #9C6AF9; /* Цвет рамки радиокнопки */
-      margin-right: 8px; /* Отступ между радиокнопкой и текстом */
-      transition: background-color 0.3s; /* Плавная анимация при изменении цвета фона */
+    .option input[type="radio"] {
+        margin-left: auto;
+        cursor: pointer;
     }
 
-    .option input[type="radio"]:checked + span:before {
-      background-color: #9C6AF9; /* Цвет заливки радиокнопки при выборе */
-    }
     .additional-options {
-      margin-top: 30px;
-      margin-left: 10px;
+        margin-top: 30px;
+        width: 100%;
     }
 
     .not-found {
-      font-family: "Quicksand", sans-serif;
-      font-weight: 510;
-      font-size: 16px;
-      margin-bottom: 10px;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 510;
+        font-size: 16px;
+        margin-bottom: 10px;
     }
 
     .medical-conditions {
-      width: 90%;
-      height: 80px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-      resize: none; /* Запретить изменение размеров */
+        width: calc(100% - 20px);
+        height: 80px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+        resize: none;
     }
+
+    @media (min-width: 391px) {
+        .slide {
+            max-width: 425px;
+        }
+        .additional-options {
+            width: 100%;
+        }
+        #icon-radio-group {
+            width: 114%;
+        }
+    }
+
+
+
 
 
 
@@ -304,64 +313,45 @@
 
 
       <div class="slide">
-        <div class="sliderTitle">
-          <h1 class="greeting">Здоровье</h1>
-          <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас медицинские противопоказания:</h2>
-        </div>
-        <div id="icon-radio-group">
-          <div class="option">
-            <label for="medical_option1" class="option-label">
-
-              <img src="icon1.svg" alt="Icon 1">
-              <span>Диабет</span>
-              <input type="radio" id="medical_option1" name="medical_condition" value="Диабет" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 234px;">
-            </label>
+          <div class="sliderTitle">
+              <h1 class="greeting">Здоровье</h1>
+              <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас медицинские противопоказания:</h2>
           </div>
-          <br>
-          <div class="option">
-            <label for="medical_option2" class="option-label">
-
-              <img src="icon2.svg" alt="Icon 1">
-              <span>Ожирение</span>
-              <input type="radio" id="medical_option2" name="medical_condition" value="Ожирение" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 205px;">
-            </label>
+          <div id="icon-radio-group">
+              <label class="option">
+                  <img src="icon1.svg" alt="Icon 1">
+                  <span>Диабет</span>
+                  <input type="radio" id="medical_option1" name="medical_condition" value="Диабет">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="icon2.svg" alt="Icon 2">
+                  <span>Ожирение</span>
+                  <input type="radio" id="medical_option2" name="medical_condition" value="Ожирение">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="icon3.svg" alt="Icon 3">
+                  <span>Гипертония</span>
+                  <input type="radio" id="medical_option3" name="medical_condition" value="Гипертония">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="icon4.svg" alt="Icon 4">
+                  <span>Сердечные заболевания</span>
+                  <input type="radio" id="medical_option4" name="medical_condition" value="Сердечные заболевания">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="icon5.svg" alt="Icon 5">
+                  <span>Аллергия</span>
+                  <input type="radio" id="medical_option5" name="medical_condition" value="Аллергия">
+              </label>
+              <div class="additional-options">
+                  <div class="not-found">Не нашли в списке?</div>
+                  <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+              </div>
           </div>
-          <br>
-          <div class="option">
-            <label for="medical_option3" class="option-label">
-              <img src="icon3.svg" alt="Icon 1">
-              <span>Гипертония</span>
-              <input type="radio" id="medical_option3" name="medical_condition" value="Гипертония" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 198px;" >
-            </label>
-          </div>
-          <br>
-          <div class="option">
-            <label for="medical_option4" class="option-label">
-
-              <img src="icon4.svg" alt="Icon 1">
-              <span>Сердечные заболевания</span>
-              <input type="radio" id="medical_option4" name="medical_condition" value="Сердечные заболевания" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 120px;">
-            </label>
-          </div>
-          <br>
-          <div class="option">
-            <label for="medical_option5" class="option-label">
-
-              <img src="icon5.svg" alt="Icon 1">
-              <span>Аллергия</span>
-              <input type="radio" id="medical_option5" name="medical_condition" value="Аллергия"  style="padding-left: 20%; margin-left: 215px;">
-            </label>
-          </div>
-          <div class="additional-options">
-            <div class="not-found">Не нашли в списке?</div>
-              <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
-          </div>
-
-        </div>
       </div>
 
 

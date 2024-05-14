@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EatSmart Preferences</title>
+    <title>Health Preferences</title>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
-   /*   body {
+      body {
           margin: 0;
           padding: 20px;
           font-family: 'Quicksand', sans-serif;
@@ -15,11 +15,11 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-      }*/
+      }
 
-      .preferences {
+      .slide {
           width: 100%;
-          max-width: 410px;
+          max-width: 425px;
       }
 
       .greeting {
@@ -35,74 +35,118 @@
           margin-bottom: 20px;
       }
 
-      .preference-cards {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-          gap: 10px;
-      }
-
-      .preference-card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          border-radius: 10px;
-/*          background-color: #f0f0f0;*/
-/*          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
-          cursor: pointer;
-          overflow: hidden;
-          transition: background-color 0.3s;
-      }
-
-      .preference-card img {
+      #icon-radio-group {
           width: 100%;
-          height: auto;
-          object-fit: cover;
-          border-radius: 10px;
       }
 
-      .preference-title {
-          text-align: center;
+      .option {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 20px;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          margin-bottom: 10px;
+          cursor: pointer;
+          transition: background-color 0.3s, color 0.3s;
+          position: relative;
+      }
+
+      .option:hover {
+          background-color: #f0f0f0;
+      }
+
+      .option img {
+          margin-right: 8px;
+      }
+
+      .option span {
+          font-size: 16px;
+          flex-grow: 1;
+          text-align: left;
+      }
+
+      .option input[type="radio"] {
+          margin-left: auto;
+          cursor: pointer;
+      }
+
+      .additional-options {
+          margin-top: 30px;
+          width: 100%;
+      }
+
+      .not-found {
+          font-family: "Quicksand", sans-serif;
+          font-weight: 510;
+          font-size: 16px;
+          margin-bottom: 10px;
+      }
+
+      .medical-conditions {
+          width: calc(100% - 20px);
+          height: 80px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 8px;
           font-size: 14px;
-          color: #333333;
-          margin-top: 8px;
+          resize: none;
       }
 
-  /*    .preference-card:hover {
-          background-color: #e0e0e0;
-      }*/
+      @media (min-width: 391px) {
+          .slide {
+              max-width: 425px;
+          }
+          .additional-options {
+              width: 100%;
+          }
+          #icon-radio-group {
+              width: 100%;
+          }
+      }
 
     </style>
 </head>
 <body>
-    <div class="preferences">
-        <h1 class="greeting">Предпочтения</h1>
-        <h2 class="under_greeting">Выберите продукты и блюда которые вы предпочитаете употреблять:</h2>
-        <div class="preference-cards">
-            <div class="preference-card">
-                <img src="meat.svg" alt="Говядина">
-                <div class="preference-title">Говядина</div>
+    <div class="slide">
+        <div class="sliderTitle">
+            <h1 class="greeting">Здоровье</h1>
+            <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас медицинские противопоказания:</h2>
+        </div>
+        <div id="icon-radio-group">
+            <label class="option">
+                <img src="icon1.svg" alt="Icon 1">
+                <span>Диабет</span>
+                <input type="radio" id="medical_option1" name="medical_condition" value="Диабет">
+            </label>
+            <br>
+            <label class="option">
+                <img src="icon2.svg" alt="Icon 2">
+                <span>Ожирение</span>
+                <input type="radio" id="medical_option2" name="medical_condition" value="Ожирение">
+            </label>
+            <br>
+            <label class="option">
+                <img src="icon3.svg" alt="Icon 3">
+                <span>Гипертония</span>
+                <input type="radio" id="medical_option3" name="medical_condition" value="Гипертония">
+            </label>
+            <br>
+            <label class="option">
+                <img src="icon4.svg" alt="Icon 4">
+                <span>Сердечные заболевания</span>
+                <input type="radio" id="medical_option4" name="medical_condition" value="Сердечные заболевания">
+            </label>
+            <br>
+            <label class="option">
+                <img src="icon5.svg" alt="Icon 5">
+                <span>Аллергия</span>
+                <input type="radio" id="medical_option5" name="medical_condition" value="Аллергия">
+            </label>
+            <div class="additional-options">
+                <div class="not-found">Не нашли в списке?</div>
+                <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
             </div>
-            <div class="preference-card">
-                <img src="vegetables.jpg" alt="Овощи">
-                <div class="preference-title">Овощи</div>
-            </div>
-            <div class="preference-card">
-                <img src="strawberry.jpg" alt="Клубника">
-                <div class="preference-title">Клубника</div>
-            </div>
-            <div class="preference-card">
-                <img src="potato.jpg" alt="Картофель">
-                <div class="preference-title">Картофель</div>
-            </div>
-            <div class="preference-card">
-                <img src="pepper.jpg" alt="Перец">
-                <div class="preference-title">Перец</div>
-            </div>
-            <div class="preference-card">
-                <img src="spaghetti.jpg" alt="Спагетти">
-                <div class="preference-title">Спагетти</div>
-            </div>
-            <!-- Добавьте больше карточек по необходимости -->
         </div>
     </div>
 </body>
