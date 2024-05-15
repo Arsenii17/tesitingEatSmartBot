@@ -513,11 +513,11 @@
         tg.backgroundColor = "#FCFCFC"
         tg.headerColor = "#FCFCFC"
         tg.secondary_bg_color = "#FFFFFF"
-        MainButton = tg.MainButton
-        MainButton.text = "Начать"
-        MainButton.textColor = "#FFFFFF"
-        MainButton.color = "#9C6AF9"
-        MainButton.show()
+        // MainButton = tg.MainButton
+        // MainButton.text = "Начать"
+        // MainButton.textColor = "#FFFFFF"
+        // MainButton.color = "#9C6AF9"
+        // MainButton.show()
         tg.onEvent('mainButtonClicked', nextSlide)
 
         BackButton = tg.BackButton
@@ -541,12 +541,12 @@
           if (currentSlide == 0){
             console.log("case 0")
               BackButton.hide()
-              MainButton.text = "Начать"
+              // MainButton.text = "Начать"
           }
           else{
               console.log("case 1")
               BackButton.show()
-              MainButton.text = "Продолжить"
+              // MainButton.text = "Продолжить"
               
           }
           
@@ -567,12 +567,12 @@
           console.log("case 0")
             BackButton.hide()
             console.log("Hidden")
-            MainButton.text = "Начать"
+            // MainButton.text = "Начать"
         }
         else{
             console.log("case 1")
             BackButton.show()
-            MainButton.text = "Продолжить"
+            // MainButton.text = "Продолжить"
             
         }
         
