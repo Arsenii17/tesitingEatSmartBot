@@ -85,69 +85,78 @@
       user-select: none;
     }
 
+    #icon-radio-group {
+        width: 100%;
+    }
+
     .option {
-      width: calc(90% - 20px);
-      display: flex;
-      align-items: center;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #ccc; /* Добавляем рамку */
-      margin: 0px 10px;
-      cursor: pointer; /* Делаем курсор указателем при наведении */
-      transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 20px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+/*        margin-bottom: 10px;*/
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        position: relative;
     }
 
     .option:hover {
-      background-color: #f0f0f0; /* Изменяем фон при наведении */
+        background-color: #f0f0f0;
     }
 
     .option img {
-      margin-right: 8px; /* Отступ между изображением и текстом */
+        margin-right: 8px;
     }
 
     .option span {
-      font-size: 16px; /* Размер текста */
+        font-size: 16px;
+        flex-grow: 1;
+        text-align: left;
     }
 
-  /*  .option input[type="radio"] {
-      display: none; /* Скрываем радиокнопку 
-    }*/
-
-    .option input[type="radio"] + span:before {
-      content: ""; /* Добавляем псевдоэлемент */
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 2px solid #9C6AF9; /* Цвет рамки радиокнопки */
-      margin-right: 8px; /* Отступ между радиокнопкой и текстом */
-      transition: background-color 0.3s; /* Плавная анимация при изменении цвета фона */
+    .option input[type="radio"] {
+        margin-left: auto;
+        cursor: pointer;
     }
 
-    .option input[type="radio"]:checked + span:before {
-      background-color: #9C6AF9; /* Цвет заливки радиокнопки при выборе */
-    }
     .additional-options {
-      margin-top: 30px;
-      margin-left: 10px;
+        margin-top: 30px;
+        width: 100%;
     }
 
     .not-found {
-      font-family: "Quicksand", sans-serif;
-      font-weight: 510;
-      font-size: 16px;
-      margin-bottom: 10px;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 510;
+        font-size: 16px;
+        margin-bottom: 10px;
     }
 
     .medical-conditions {
-      width: 90%;
-      height: 80px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-      resize: none; /* Запретить изменение размеров */
+        width: calc(100% - 20px);
+        height: 80px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+        resize: none;
     }
+
+    @media (min-width: 391px) {
+        .slide {
+            max-width: 425px;
+        }
+        .additional-options {
+            width: 100%;
+        }
+        #icon-radio-group {
+            width: 110%;
+        }
+    }
+
+
+
 
 
 
@@ -181,64 +190,81 @@
       margin-left: 10px;
     }
 
+    .preferences {
+/*      margin-left: 5px;*/
+      width: 110%;
+      max-width: 410px;
+    }
+
+    .greeting {
+      font-size: 32px;
+      line-height: 36px;
+    }
+
+    .under_greeting {
+        margin-top: 4px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #8F8F8F;
+        margin-bottom: 20px;
+    }
+
     .preference-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-      /*grid-template-columns: repeat(3, 110px);*/
-      grid-auto-rows: 105px;
-      gap: 25px;
-      margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 10px;
     }
 
     .preference-card {
-      width: 110px;
-      height: 110px;
-      border-radius: 10px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      margin-left: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+/*          background-color: #f0f0f0;*/
+/*          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+        cursor: pointer;
+        overflow: hidden;
+        transition: background-color 0.3s;
     }
 
-    .preference-card:hover {
-      background-color: #f0f0f0;
+    .preference-card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
     }
 
     .preference-title {
-      font-size: 14px;
-      color: #8F8F8F;
+        text-align: center;
+        font-size: 14px;
+        color: #333333;
+        margin-top: 8px;
     }
 
-    .preference-card.selected {
+/*  .preference-card:hover {
+        background-color: #e0e0e0;
+    }*/
+
+   .buttonMain {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 52px;
       background-color: #9C6AF9;
-    }
-
-    .preference-card.selected .preference-title {
-      color: #fff;
-    }
-
-    .card-title {
-
-      margin-top: 127px;
-
-      text-align: center;
-      font-family: "Quicksand", sans-serif;
-      font-size: 14px;
-      color: #8F8F8F;
-/*      margin-top: 5px; /* Добавлено для отступа между карточкой и названием */*/
-    }
-    .option-label {
+      color: white;
+      font-size: 16px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+/*    border-radius: 0;  Убираем закругление углов */
+      border: none; /* Убираем границу */
       display: flex;
+      justify-content: center;
       align-items: center;
-      width: 100%; /* Растягиваем label на всю ширину option */
     }
-/*    .option-label:hover {
-      background-color: #f0f0f0;
-    }
-*/
+
+
 
 
 
@@ -246,8 +272,8 @@
 </style>
 <body>
   <button onclick="prevSlide()">Previous</button>
-  <button onclick="nextSlide()">NEXT</button>
-  
+<!--  <button onclick="nextSlide()">NEXT</button>-->
+
     <div class="slideshow">
       
       <div class="slide">
@@ -282,19 +308,19 @@
         <!-- Вес -->
         <div class="option1">
           <span>Вес:</span>
-          <input type="number" id="weight" name="weight" step="1" min="0" max="250" style="margin-left: 205px;">
+          <input type="number" id="weight" name="weight" step="1" min="0" max="250" style="margin-left: 252px;">
           <span>кг</span>
         </div>
         <!-- Рост -->
         <div class="option1">
           <span>Рост:</span>
-          <input type="number" id="height" name="height" step="1" min="0" max="250" style="margin-left: 197px;">
+          <input type="number" id="height" name="height" step="1" min="0" max="250" style="margin-left: 245px;">
           <span>см</span>
         </div>
         <!-- Возраст -->
         <div class="option1">
           <span>Возраст:</span>
-          <input type="number" id="age" name="age" step="1" min="0" max="100" style="margin-left: 172px;">
+          <input type="number" id="age" name="age" step="1" min="0" max="100" style="margin-left: 220px;">
           <span>лет</span>
         </div>
 
@@ -307,230 +333,188 @@
 
 
       <div class="slide">
-        <div class="sliderTitle">
-          <h1 class="greeting">Здоровье</h1>
-          <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас медицинские противопоказания:</h2>
-        </div>
-        <div id="icon-radio-group">
-          <div class="option">
-            <label for="medical_option1" class="option-label">
-
-              <img src="icon1.svg" alt="Icon 1">
-              <span>Диабет</span>
-              <input type="radio" id="medical_option1" name="medical_condition" value="Диабет" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 234px;">
-            </label>
+          <div class="sliderTitle">
+              <h1 class="greeting">Здоровье</h1>
+              <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас медицинские противопоказания:</h2>
           </div>
-          <br>
-          <div class="option">
-            <label for="medical_option2" class="option-label">
-
-              <img src="icon2.svg" alt="Icon 1">
-              <span>Ожирение</span>
-              <input type="radio" id="medical_option2" name="medical_condition" value="Ожирение" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 205px;">
-            </label>
+          <div id="icon-radio-group">
+              <label class="option">
+                  <img src="icon1.svg" alt="Icon 1">
+                  <span>Диабет</span>
+                  <input type="radio" id="medical_option1" name="medical_condition" value="Диабет">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="icon2.svg" alt="Icon 2">
+                  <span>Ожирение</span>
+                  <input type="radio" id="medical_option2" name="medical_condition" value="Ожирение">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="icon3.svg" alt="Icon 3">
+                  <span>Гипертония</span>
+                  <input type="radio" id="medical_option3" name="medical_condition" value="Гипертония">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="icon4.svg" alt="Icon 4">
+                  <span>Сердечные заболевания</span>
+                  <input type="radio" id="medical_option4" name="medical_condition" value="Сердечные заболевания">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="icon5.svg" alt="Icon 5">
+                  <span>Аллергия</span>
+                  <input type="radio" id="medical_option5" name="medical_condition" value="Аллергия">
+              </label>
+              <div class="additional-options">
+                  <div class="not-found">Не нашли в списке?</div>
+                  <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+              </div>
           </div>
-          <br>
-          <div class="option">
-            <label for="medical_option3" class="option-label">
-              <img src="icon3.svg" alt="Icon 1">
-              <span>Гипертония</span>
-              <input type="radio" id="medical_option3" name="medical_condition" value="Гипертония" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 198px;" >
-            </label>
-          </div>
-          <br>
-          <div class="option">
-            <label for="medical_option4" class="option-label">
-
-              <img src="icon4.svg" alt="Icon 1">
-              <span>Сердечные заболевания</span>
-              <input type="radio" id="medical_option4" name="medical_condition" value="Сердечные заболевания" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 120px;">
-            </label>
-          </div>
-          <br>
-          <div class="option">
-            <label for="medical_option5" class="option-label">
-
-              <img src="icon5.svg" alt="Icon 1">
-              <span>Аллергия</span>
-              <input type="radio" id="medical_option5" name="medical_condition" value="Аллергия"  style="padding-left: 20%; margin-left: 215px;">
-            </label>
-          </div>
-          <div class="additional-options">
-            <div class="not-found">Не нашли в списке?</div>
-              <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
-          </div>
-
-        </div>
       </div>
 
 
 
-
-
-       <div class="slide">
-        <div class="sliderTitle">
-          <h1 class="greeting">Цели</h1>
-          <h2 class="under_greeting">Выберите одну или несколько целей которые больше вам подходят:</h2>
-        </div>
-        <div id="icon-radio-group">
-          <div class="option">
-            <label for="goal1" class="option-label">
-              <img src="up.svg" alt="Icon 1" width='20px' height='20px'>
-              <span style="margin-top: 2px;margin-left: 10px;">Набор массы</span>
-              <input type="radio" id="goal1" name="goal" value="Набор массы" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 190px;">
-            </label>
+      <div class="slide">
+          <div class="sliderTitle">
+              <h1 class="greeting">Цели</h1>
+              <h2 class="under_greeting">Выберите одну или несколько целей которые больше вам подходят:</h2>
           </div>
-          <br>
-          <div class="option">
-            <label for="goal2" class="option-label">
-              <img src="down.svg" alt="Icon 1"  width='20px' height='20px'>
-              <span style="margin-top: 2px;margin-left: 10px;">Снижение веса</span>
-              <input type="radio" id="goal2" name="goal" value="Снижение веса" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 175px;">
-            </label>
+          <div id="icon-radio-group">
+              <label class="option">
+                  <img src="up.svg" alt="Icon 1">
+                  <span>Набор массы</span>
+                  <input type="radio" id="goal1" name="goal" value="Набор массы">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="down.svg" alt="Icon 1">
+                  <span>Снижение веса</span>
+                 <input type="radio" id="goal2" name="goal" value="Снижение веса">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="down.svg" alt="Icon 1">
+                  <span>Поддержание текущего веса</span>
+                  <input type="radio" id="goal3" name="goal" value="Поддержание текущего веса">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="heart.svg" alt="Icon 1">
+                  <span>Улучшение здоровья</span>
+                  <input type="radio" id="goal4" name="goal" value="Улучшение здоровья">
+              </label>
+              <br>
+              <label class="option">
+                  <img src="run.svg" alt="Icon 1">
+                  <span>Улучшение спортивных результатов</span>
+                  <input type="radio" id="goal5" name="goal" value="Улучшение спортивных результатов">
+              </label>
+              <br>
+              <button onclick="collectDataAndPrint()">Вывести JSON</button>
           </div>
-          <br>
-          <div class="option">
-            <label for="goal3" class="option-label">
+      </div>
 
-              <img src="ves.svg" alt="Icon 1"  width='22px' height='22px'>
-              <span style="margin-top: 2px;margin-left: 8px;">Поддержание текущего веса</span>
-              <input type="radio" id="goal3" name="goal" value="Поддержание текущего веса" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 110px;">
-            </label>
-          </div>
-          <br>
-          <div class="option">
-            <label for="goal4" class="option-label">
-
-              <img src="heart.svg" alt="Icon 1"  width='20px' height='20px'>
-              <span style="margin-top: 2px;margin-left: 10px;">Улучшение здоровья</span>
-              <input type="radio" id="goal4" name="goal" value="Улучшение здоровья" onMouseDown="this.isChecked=this.checked;" 
-              onClick="this.checked=!this.isChecked;" style="padding-left: 20%; margin-left: 130px;">
-            </label>
-          </div>
-          <br>
-          <div class="option">
-            <label for="goal5" class="option-label">
-
-              <img src="run.svg" alt="Icon 1" width='20px' height='22px'>
-              <span style="margin-top: 2px;margin-left: 10px;">Улучшение спортивных результатов</span>
-              <input type="radio" id="goal5" name="goal" value="Улучшение спортивных результатов" style="padding-left: 20%; margin-left: 100px;">
-            </label>
-          </div>
-          <br>
-            <button onclick="collectDataAndPrint()">Вывести JSON</button>
-
+<!-- 
 
         </div>
         </div>
       </div>
       </div>
+ -->
 
 
 
 
 
 
-
-     <div class="slide">
+    <div class="slide">
       <div class="sliderTitle">
+        <br>
         <h1 class="greeting">Предпочтения</h1>
         <h2 class="under_greeting">Выберите продукты и блюда, которые вы предпочитаете употреблять:</h2>
+      <div class="preferences">
+         <!--  <h1 class="greeting">Предпочтения</h1>
+          <h2 class="under_greeting">Выберите продукты и блюда которые вы предпочитаете употреблять:</h2> -->
+          <div class="preference-cards">
+              <div class="preference-card">
+                  <img src="meat.svg" alt="Говядина">
+                  <div class="preference-title">Говядина</div>
+              </div>
+              <div class="preference-card">
+                  <img src="vegetables.svg" alt="Овощи">
+                  <div class="preference-title">Овощи</div>
+              </div>
+              <div class="preference-card">
+                  <img src="srawberry.svg" alt="Клубника">
+                  <div class="preference-title">Клубника</div>
+              </div>
+              <div class="preference-card">
+                  <img src="potato.svg" alt="Картофель">
+                  <div class="preference-title">Картофель</div>
+              </div>
+              <div class="preference-card">
+                  <img src="paper.svg" alt="Перец">
+                  <div class="preference-title">Перец</div>
+              </div>
+              <div class="preference-card">
+                  <img src="maccoroni.svg" alt="Спагетти">
+                  <div class="preference-title">Спагетти</div>
+              </div>
+              <div class="preference-card">
+                  <img src="macaronni2.svg" alt="Картофель">
+                  <div class="preference-title">Макароны</div>
+              </div>
+              <div class="preference-card">
+                  <img src="bread.svg" alt="Перец">
+                  <div class="preference-title">Хлеб</div>
+              </div>
+              <div class="preference-card">
+                  <img src="cabbage.svg" alt="Спагетти">
+                  <div class="preference-title">Капуста</div>
+              </div>
+              <div class="preference-card">
+                  <img src="grechka.svg" alt="Картофель">
+                  <div class="preference-title">Крупа</div>
+              </div>
+              <div class="preference-card">
+                  <img src="chesse.svg" alt="Перец">
+                  <div class="preference-title">Сыр</div>
+              </div>
+              <div class="preference-card">
+                  <img src="qiwi.svg" alt="Спагетти">
+                  <div class="preference-title">Киви</div>
+              </div>
+              <div class="preference-card">
+                  <img src="potato.svg" alt="Картофель">
+                  <div class="preference-title">Цитрусовые</div>
+              </div>
+              <div class="preference-card">
+                  <img src="rice.svg" alt="Перец">
+                  <div class="preference-title">Рис</div>
+              </div>
+              <div class="preference-card">
+                  <img src="chocolate.svg" alt="Спагетти">
+                  <div class="preference-title">Шоколад</div>
+              </div>
+              <!-- Добавьте больше карточек по необходимости -->
+          </div>
       </div>
-      <div class="preference-cards">
-        <!-- Карточка 1 -->
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Говядина</div> 
-        </div>
-        <!-- Карточка 2 -->
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Овощи</div> 
-        </div>
 
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Клубника</div> 
-        </div>
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Картофель</div> 
-        </div>
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Перец</div> 
-        </div>
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Спагетти</div> 
-        </div>
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Макароны</div> 
-        </div>
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Хлеб</div> 
-        </div>
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Капуста</div> 
-        </div>
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Крупа</div> 
-        </div>
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Сыр</div> 
-        </div>
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Киви</div> 
-        </div>
-
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Цитрусовые</div> 
-        </div>
-
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Рис</div> 
-        </div>
-
-        <div class="preference-card">
-          <h3 class="preference-title"></h3>
-          <div class="card-title">Шоколад</div> 
-        </div>
-
-        <!-- Добавьте другие карточки здесь -->
-      </div>
-      <br><br>
+      <br>
       <div class="additional-options">
         <div class="not-found">Не нашли в списке?</div>
           <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
       </div>
-      <!-- <button onclick="nextSlide()">Продолжить</button> -->
     </div>
+    </div>
+    </div>
+
+    <button class="buttonMain" onclick="nextSlide()">Продолжить</button>
+
+
+
 
 
 
@@ -554,11 +538,11 @@
         tg.backgroundColor = "#FCFCFC"
         tg.headerColor = "#FCFCFC"
         tg.secondary_bg_color = "#FFFFFF"
-        MainButton = tg.MainButton
-        MainButton.text = "Начать"
-        MainButton.textColor = "#FFFFFF"
-        MainButton.color = "#9C6AF9"
-        MainButton.show()
+        // MainButton = tg.MainButton
+        // MainButton.text = "Начать"
+        // MainButton.textColor = "#FFFFFF"
+        // MainButton.color = "#9C6AF9"
+        // MainButton.show()
         tg.onEvent('mainButtonClicked', nextSlide)
 
         BackButton = tg.BackButton
@@ -582,12 +566,12 @@
           if (currentSlide == 0){
             console.log("case 0")
               BackButton.hide()
-              MainButton.text = "Начать"
+              // MainButton.text = "Начать"
           }
           else{
               console.log("case 1")
               BackButton.show()
-              MainButton.text = "Продолжить"
+              // MainButton.text = "Продолжить"
               
           }
           
@@ -608,29 +592,16 @@
           console.log("case 0")
             BackButton.hide()
             console.log("Hidden")
-            MainButton.text = "Начать"
+            // MainButton.text = "Начать"
         }
         else{
             console.log("case 1")
             BackButton.show()
-            MainButton.text = "Продолжить"
+            // MainButton.text = "Продолжить"
             
         }
         
 
-        // switch (currentSlide) {
-        //   case 0:
-        //     console.log("case 0")
-        //     BackButton.hide()
-        //     MainButton.text = "Начать"
-        //     break
-
-        //   case 1:
-        //     console.log("case 1")
-        //     BackButton.show()
-        //     MainButton.text = "Продолжить"
-        //     break
-        //   }
 
         showSlide(currentSlide);
         };
@@ -665,32 +636,6 @@
         });
 
 
-
-        // let age = document.getElementById("age");
-        // // let user__id = tg.initDataUnsafe.user.id;
-        // function printValues() {
-        //   // Получаем значения полей
-        //   const gender = document.getElementById('gender').value;
-        //   const weight = document.getElementById('weight').value;
-        //   const height = document.getElementById('height').value;
-        //   const age = document.getElementById('age').value;
-
-
-        //   let data ={
-        //     // user__id: user__id,
-        //     gender: gender,
-        //     weight: weight,
-        //     height: height,
-        //     age: age
-        //   }
-        //   console.log(data)
-        //   tg.sendData(JSON.stringify(data))
-        //   // Выводим значения в консоль
-        //   // console.log("Пол:", gender);
-        //   // console.log("Вес:", weight, "кг");
-        //   // console.log("Рост:", height, "см");
-        //   // console.log("Возраст:", age, "лет");
-        // }
 
 
 
@@ -730,5 +675,6 @@
         
 
     </script>
+
 </body>
 </html>

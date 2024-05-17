@@ -13,6 +13,7 @@
       font-family: 'Quicksand', sans-serif;
       margin: 6px;
       background-color: #ffffff;
+      margin-bottom: 100px;
     }
     .slideshow {
       position: relative;
@@ -78,11 +79,11 @@
     }
     span{
       -webkit-touch-callout: none;
-    	-webkit-user-select: none;
-    	-khtml-user-select: none;
-    	-moz-user-select: none;
-    	-ms-user-select: none;
-    	user-select: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
     #icon-radio-group {
@@ -245,26 +246,42 @@
         background-color: #e0e0e0;
     }*/
 
-   .buttonMain {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 52px;
-      background-color: #9C6AF9;
-      color: white;
-      font-size: 16px;
-      border-radius: 0; /* Убираем закругление углов */
-      border: none; /* Убираем границу */
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .button-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        z-index: 1000;
+        padding: 10px 0;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .buttonMain {
+        height: 52px;
+        width: 90%;
+        background-color: #9C6AF9;
+        color: white;
+        font-size: 16px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        transition: width 0.3s, background-color 0.3s;
+    }
+
+    .progress-message {
+        font-size: 14px;
+        color: #8F8F8F;
+        margin-top: 8px;
     }
 
 
 
 
-
+    
 
 </style>
 <body>
@@ -508,7 +525,11 @@
     </div>
     </div>
 
-    <button class="buttonMain" onclick="nextSlide()">Продолжить</button>
+    <div class="button-container">
+        <div id="buttonMain" class="buttonMain" onclick="nextSlide()">Продолжить</div>
+        <div id="progressMessage" class="progress-message">Пройди ещё 4 этапа и получи бонус</div>
+    </div>
+
 
 
 
@@ -554,54 +575,42 @@
         const slideshow = document.getElementById('slideshow');
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        const buttonMain = document.getElementById('buttonMain');
+        const progressMessage = document.getElementById('progressMessage');
+
+        function updateButton() {
+            const stagesLeft = totalSlides - currentSlide - 1;
+            const buttonProgress = (currentSlide + 1) / totalSlides;
+            buttonMain.style.backgroundColor = `rgba(156, 106, 249, ${buttonProgress})`;
+            buttonMain.innerText = currentSlide < totalSlides - 1 ? "Продолжить" : "Завершить";
+            if (currentSlide > 0) {
+                progressMessage.innerText = `Пройди ещё ${stagesLeft} этапа и получи бонус`;
+            }
+        }
 
         function nextSlide() {
-          currentSlide++;
-          if (currentSlide >= slides.length) {
-              currentSlide = 0;
-          }
-          if (currentSlide == 0){
-            console.log("case 0")
-              BackButton.hide()
-              // MainButton.text = "Начать"
-          }
-          else{
-              console.log("case 1")
-              BackButton.show()
-              // MainButton.text = "Продолжить"
-              
-          }
-          
-          if (BackButton.isVisible == false) {BackButton.show();}
-
-          showSlide(currentSlide);
-
-        };
+            if (currentSlide < totalSlides - 1) {
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'none';
+                currentSlide++;
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'block';
+                updateButton();
+            }
+        }
 
         function prevSlide() {
-
-        currentSlide--;
-
-        if (currentSlide < 0) {
-            currentSlide = slides.length - 1;
+            if (currentSlide > 0) {
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'none';
+                currentSlide--;
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'block';
+                updateButton();
+            }
         }
-        else if (currentSlide == 0){
-          console.log("case 0")
-            BackButton.hide()
-            console.log("Hidden")
-            // MainButton.text = "Начать"
-        }
-        else{
-            console.log("case 1")
-            BackButton.show()
-            // MainButton.text = "Продолжить"
-            
-        }
-        
 
+        document.addEventListener('DOMContentLoaded', () => {
+            updateButton();
+        });
 
-        showSlide(currentSlide);
-        };
 
         function showSlide(index) {
         slides.forEach((slide, i) => {
