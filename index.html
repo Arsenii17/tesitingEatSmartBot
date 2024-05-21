@@ -192,6 +192,19 @@
       margin-left: 10px;
     }
 
+
+
+
+    .preference-card:active {
+      background-color: rgba(156, 106, 249, 0.2); /* Фон карточки при нажатии */
+    }
+
+    .preference-card.selected {
+      background-color: rgba(156, 106, 249, 0.4); /* Фон карточки после нажатия */
+    }
+
+
+
     .preferences {
 /*      margin-left: 5px;*/
       width: 110%;
@@ -617,6 +630,23 @@
             buttonMain.style.backgroundColor = `rgba(156, 106, 249, ${buttonProgress})`;
         }
 
+                // Обработчики кликов для выбора карточек
+        document.querySelectorAll('.preference-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('.preference-title').innerText;
+                console.log(`Вы выбрали: ${title}`);
+
+                // Удаляем класс selected с других карточек
+                document.querySelectorAll('.preference-card').forEach(c => c.classList.remove('selected'));
+
+                // Добавляем класс selected к текущей карточке
+                card.classList.add('selected');
+            });
+        });
+
+
+
+
 
         function nextSlide() {
             if (currentSlide < totalSlides - 1) {
@@ -661,22 +691,7 @@
 
         }
 
-
-        // Обработчики кликов для выбора карточек
-        const preferenceCards = document.querySelectorAll('.preference-card');
-
-        preferenceCards.forEach(card => {
-          card.addEventListener('click', () => {
-            card.classList.toggle('selected');
-          });
-        });
-
-
-
-
-
      
-
         // Функция для сбора данных и вывода в консоль
         function collectData() {
           // Получение значений с первого экрана
