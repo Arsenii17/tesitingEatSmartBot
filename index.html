@@ -270,7 +270,16 @@
         align-items: center;
         justify-content: center;
         margin: 0 auto;
-        transition: width 0.3s, background-color 0.3s;
+        transition: background-color 0.3s;
+        position: relative;
+        padding-right: 40px; /* Отступ для иконки */
+    }
+
+    .button-icon {
+        position: absolute;
+        right: 15px; /* Расположение иконки на самом краю справа */
+        width: 20px; /* Ширина иконки */
+        height: 20px; /* Высота иконки */
     }
 
     .progress-message {
@@ -278,6 +287,8 @@
         color: #8F8F8F;
         margin-top: 8px;
     }
+
+
 
 
 
@@ -534,9 +545,10 @@
     </div>
     </div>
     <div class="button-container">
-        <div id="buttonMain" class="buttonMain" onclick="nextSlide()">Начать</div>
+        <div id="buttonMain" class="buttonMain" onclick="nextSlide()">Начать<img src="right.svg" alt="Icon" class="button-icon"></div>
         <div id="progressMessage" class="progress-message" style="display: none;"></div>
     </div>
+
 
 
 
@@ -592,17 +604,19 @@
             const stagesLeft = totalSlides - currentSlide - 1;
             const buttonProgress = (currentSlide + 1) / totalSlides;
 
+            const buttonText = currentSlide === 0 ? "Начать" : currentSlide < totalSlides - 1 ? "Продолжить" : "Завершить";
+            buttonMain.innerHTML = `${buttonText}<img src="right.svg" alt="Icon" class="button-icon">`;
+
             if (currentSlide === 0) {
-                buttonMain.innerText = "Начать";
                 progressMessage.style.display = 'none';
             } else {
-                buttonMain.innerText = currentSlide < totalSlides - 1 ? "Продолжить" : "Завершить";
                 progressMessage.innerText = `Пройди ещё ${stagesLeft} этапа и получи бонус`;
                 progressMessage.style.display = 'block';
             }
             
             buttonMain.style.backgroundColor = `rgba(156, 106, 249, ${buttonProgress})`;
         }
+
 
         function nextSlide() {
             if (currentSlide < totalSlides - 1) {
