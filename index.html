@@ -274,7 +274,7 @@
 
     .buttonMain {
         height: 55px;
-        width: 85%;
+        width: 90%;
         background-color: #9C6AF9;
         color: white;
         font-size: 16px;
@@ -285,7 +285,7 @@
         margin: 0 auto;
         transition: background-color 0.3s;
         position: relative;
-        padding-right: 40px; /* Отступ для иконки */
+        padding-right: 10px; /* Отступ для иконки */
     }
 
     .button-icon {
@@ -630,17 +630,20 @@
             buttonMain.style.backgroundColor = `rgba(156, 106, 249, ${buttonProgress})`;
         }
 
-                // Обработчики кликов для выбора карточек
+        // Обработчики кликов для выбора карточек
         document.querySelectorAll('.preference-card').forEach(card => {
             card.addEventListener('click', () => {
                 const title = card.querySelector('.preference-title').innerText;
-                console.log(`Вы выбрали: ${title}`);
+                
+                // Переключение класса selected
+                card.classList.toggle('selected');
 
-                // Удаляем класс selected с других карточек
-                document.querySelectorAll('.preference-card').forEach(c => c.classList.remove('selected'));
-
-                // Добавляем класс selected к текущей карточке
-                card.classList.add('selected');
+                // Логика для отображения в консоли выбранных карточек
+                if (card.classList.contains('selected')) {
+                    console.log(`Вы выбрали: ${title}`);
+                } else {
+                    console.log(`Вы убрали выбор: ${title}`);
+                }
             });
         });
 
