@@ -1,65 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/mobile-select@latest/dist/style/mobile-select.css" />
+    <script type="text/javascript" src="https://unpkg.com/mobile-select@latest/dist/mobile-select.iife.min.js"></script>
+    <title>Number Picker</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .picker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 1em;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .picker h3 {
+            margin: 0 0 1em;
+            color: #333;
+        }
+
+        .window {
+            padding: .5em;
+            border: 1px solid #ddd;
+            border-radius: .5em;
+            min-width: 200px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #333;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        /* Custom styles for the mobile select component */
+        .mobileSelect {
+            font-size: 1.2em;
+        }
+        .mobileSelect .title {
+            color: #333;
+        }
+        .mobileSelect .btnBar {
+            background-color: #f2f2f2;
+        }
+        .mobileSelect .ensure {
+            color: #fff;
+            background-color: #8a2be2;
+        }
+        .mobileSelect .cancel {
+            color: #8a2be2;
+            background-color: #fff;
+        }
+        .mobileSelect .wheels .dw {
+            background-color: #fff;
+        }
+
+        /* Center the mobile select modal */
+        .mobileSelect {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: auto;
+        }
+
+        /* Highlight selected numbers */
+        .mobileSelect .wheels .dw .amplify {
+            color: #8a2be2 !important;
+        }
+    </style>
 </head>
-<style type="text/css">
-	.button-container {
-	  position: fixed;
-	  bottom: 0;
-	  left: 0;
-	  right: 0;
-	  background-color: white;
-	  z-index: 1000;
-	  padding: 10px 0;
-	  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-	  text-align: center;
-	}
-
-	.buttonMain {
-	  height: 52px;
-	  width: 90%;
-	  background-color: #9C6AF9; /* Purple background color */
-	  color: white;
-	  font-size: 16px;
-	  border-radius: 10px;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  margin: 0 auto;
-	  transition: width 0.3s, background-color 0.3s;
-	  position: relative; /* Add relative positioning */
-	}
-
-	.buttonMain::before {
-	  content: '';
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  width: 0%; /* Start with 0% width */
-	  height: 100%;
-	  background-color: #9C6AF9; /* Same color as button */
-	  transition: width 0.3s; /* Animate width on click */
-	}
-
-	.buttonMain:hover .buttonMain::before {
-	  width: 50%; /* Fill 50% on hover */
-	}
-
-	.buttonMain:active .buttonMain::before {
-	  width: 100%; /* Fill 100% on click */
-	}
-
-	.progress-message {
-	  font-size: 14px;
-	  color: #8F8F8F;
-	  margin-top: 8px;
-	}
-
-</style>
 <body>
-
+    <div class="wrapper">
+        <div class="picker">
+            <h3>Введите ваш вес</h3>
+            <div class="window">112,3</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let mobileSelect1 = new MobileSelect({
+            trigger: '.window',
+            title: 'Ваш вес',
+            wheels: [
+                { data: Array.from({ length: 181 }, (_, i) => (i + 110).toString()) },
+                { data: Array.from({ length: 10 }, (_, i) => i.toString()) }
+            ],
+            initValue: '112,3', // Initialize value as a string
+            connector: ',',
+            ensureBtnText: 'Ок',
+            cancelBtnText: 'Отмена',
+            triggerDisplayData: false, // To avoid automatic data display
+            callback: function(indexArr, data) {
+                document.querySelector('.window').innerText = data.join(',');
+            },
+            show: function() {
+                // Apply styles after the mobile select is shown
+                const ensureBtn = document.querySelector('.mobileSelect .ensure');
+                const cancelBtn = document.querySelector('.mobileSelect .cancel');
+                if (ensureBtn) {
+                    ensureBtn.style.backgroundColor = '#8a2be2';
+                    ensureBtn.style.color = '#fff';
+                }
+                if (cancelBtn) {
+                    cancelBtn.style.backgroundColor = '#fff';
+                    cancelBtn.style.color = '#8a2be2';
+                }
+            }
+        });
+    </script>
 </body>
 </html>

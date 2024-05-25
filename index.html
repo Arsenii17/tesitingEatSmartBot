@@ -256,9 +256,6 @@
         margin-top: 8px;
     }
 
-/*  .preference-card:hover {
-        background-color: #e0e0e0;
-    }*/
 
     .button-container {
         position: fixed;
@@ -304,6 +301,172 @@
 
 
 
+    label {
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    #activity-value, #stress-value {
+      font-size: 16px;
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .stress-lifestyle {
+        margin-top: 20px;
+    }
+
+    .slider-section {
+      width: 95%;
+      padding: 20px;
+      box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+      border-radius: 12px;
+    }
+
+    .slider-section label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #333;
+
+    }
+
+    .slider-section input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        background: transparent;
+        margin-bottom: 10px;
+    }
+
+    .slider-section input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        background: transparent;
+        border: none;
+        border-top: 1px dashed #ccc;
+    }
+
+    .slider-section input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        background: #8a2be2;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        cursor: pointer;
+        margin-top: -13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .slider-section input[type="range"]::-moz-range-track {
+        width: 100%;
+        height: 4px;
+        background: transparent;
+        border: none;
+        border-top: 1px dotted #ccc;
+    }
+
+    .slider-section input[type="range"]::-moz-range-thumb {
+        width: 30px;
+        height: 30px;
+        background: #8a2be2;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .slider-section input[type="range"]::-ms-track {
+        width: 100%;
+        height: 4px;
+        background: transparent;
+        border: none;
+        border-top: 1px dotted #ccc;
+        color: transparent;
+    }
+
+    .slider-section input[type="range"]::-ms-thumb {
+        width: 30px;
+        height: 30px;
+        background: #8a2be2;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .slider-section .slider-values {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #8a2be2;
+    }
+
+    .slider-section .slider-values span {
+        font-weight: bold;
+    }
+
+    .slider-section .slider-current-value {
+        text-align: center;
+        font-size: 20px;
+        color: #8a2be2;
+        margin-top: 10px;
+    }
+    .slider-section p{
+      font-family: 'Quicksand', sans-serif;
+      color: #B7B7B7;
+    }
+
+
+    textarea {
+        width: 100%;
+        height: 100px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+/*    #activity-level{
+      -webkit-appearance: none;
+
+
+    }
+*/
+
 
 
     
@@ -326,13 +489,7 @@
 
 
 
-  
 
-      <!-- <div class="slide">
-        <h1 class="greeting">Основное</h1>
-        <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
-      
-      </div> -->
       <div class="slide">
         <h1 class="greeting">Основное</h1>
         <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
@@ -365,10 +522,6 @@
 
         <!-- <button onclick="printValues()">Вывести значения</button> -->
       </div>
-
-
-
-
 
 
       <div class="slide">
@@ -463,19 +616,6 @@
           </div>
       </div>
 
-<!-- 
-
-        </div>
-        </div>
-      </div>
-      </div>
- -->
-
-
-
-
-
-
     <div class="slide">
       <div class="sliderTitle">
         <br>
@@ -552,21 +692,46 @@
       <br>
       <div class="additional-options">
         <div class="not-found">Не нашли в списке?</div>
-          <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+          <textarea class="medical-conditions" placeholder="Введите здесь все продукты и блюда которые вы предпочитаете употреблять. Не более 600 символов"></textarea>
       </div>
+
     </div>
     </div>
+
+
+
+
+    <div class="slide">
+          <div class="sliderTitle">
+            <br>
+            <h1 class="greeting">Стресс и образ жизни</h1>
+            <h2 class="under_greeting">Расскажите нам больше о вашем рационе и распорядке дня:</h2>
+            <div class="stress-lifestyle">
+              <div class="slider-section">
+                <label for="activity-level" style = "margin-bottom: 25px;"><b>Уровень активности</b></label>
+                <input type="range" id="activity-level" name="activity-level" min="1" max="5" value="1">
+                <span id="activity-value">1</span>
+                <p>Выберите свой обычный уровень активности, где <span id="purple_text">1 - минимальный</span>, а 5 - максимальный</p>
+              </div>
+
+              <div class="slider-section">
+                <label for="stress-level" style = "margin-bottom: 25px;"><b>Уровень стресса</b></label>
+                <input type="range" id="stress-level" name="stress-level" min="1" max="5" value="1">
+                <span id="stress-value">1</span>
+                <p>Выберите свой обычный уровень стресса, где <span id="purple_text">1 - минимальный</span>, а 5 - максимальный</p>
+              </div>
+
+              <textarea id="description" placeholder="Введите здесь описание вашей обычной физической активности и стресса. Не более 600 символов." maxlength="600"></textarea>
+
+            </div>
+          </div>
+      </div>
+    <!-- </div> -->
     </div>
     <div class="button-container">
         <div id="buttonMain" class="buttonMain" onclick="nextSlide()">Начать<img src="right.svg" alt="Icon" class="button-icon"></div>
         <div id="progressMessage" class="progress-message" style="display: none;"></div>
     </div>
-
-
-
-
-
-
 
 
 
@@ -590,11 +755,6 @@
         tg.backgroundColor = "#FCFCFC"
         tg.headerColor = "#FCFCFC"
         tg.secondary_bg_color = "#FFFFFF"
-        // MainButton = tg.MainButton
-        // MainButton.text = "Начать"
-        // MainButton.textColor = "#FFFFFF"
-        // MainButton.color = "#9C6AF9"
-        // MainButton.show()
         tg.onEvent('mainButtonClicked', nextSlide)
 
         BackButton = tg.BackButton
@@ -617,7 +777,7 @@
             const stagesLeft = totalSlides - currentSlide - 1;
             const buttonProgress = (currentSlide + 1) / totalSlides;
 
-            const buttonText = currentSlide === 0 ? "Начать" : currentSlide < totalSlides - 1 ? "Продолжить" : "Завершить";
+            const buttonText = currentSlide === 0 ? "Начать" : currentSlide < totalSlides - 1 ? "Продолжить" : "Готово";
             buttonMain.innerHTML = `${buttonText}<img src="right.svg" alt="Icon" class="button-icon">`;
 
             if (currentSlide === 0) {
@@ -680,19 +840,19 @@
             slide.style.display = i === index? 'block' : 'none';
         });
         }
-        const radioGroup = document.getElementById('radio-group');
-        const radios = radioGroup.querySelectorAll('input[type="radio"]');
+        // const radioGroup = document.getElementById('radio-group');
+        // const radios = radioGroup.querySelectorAll('input[type="radio"]');
 
-        radios.forEach(radio => {
-          radio.addEventListener('change', () => {
-            console.log(`Selected option: ${radio.value}`);
-          });
-        });
+        // radios.forEach(radio => {
+        //   radio.addEventListener('change', () => {
+        //     console.log(`Selected option: ${radio.value}`);
+        //   });
+        // });
 
-        function encheckbox(option_num) {
-          console.log(option_num);
+        // function encheckbox(option_num) {
+        //   console.log(option_num);
 
-        }
+        // }
 
      
         // Функция для сбора данных и вывода в консоль
@@ -725,6 +885,19 @@
           collectData();
           console.log(JSON.stringify(userData));
         }
+
+        const activityLevel = document.getElementById('activity-level');
+        const activityValue = document.getElementById('activity-value');
+        const stressLevel = document.getElementById('stress-level');
+        const stressValue = document.getElementById('stress-value');
+
+        activityLevel.addEventListener('input', function() {
+            activityValue.textContent = this.value;
+        });
+
+        stressLevel.addEventListener('input', function() {
+            stressValue.textContent = this.value;
+        });
 
         
 
