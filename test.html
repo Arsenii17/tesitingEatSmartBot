@@ -1,680 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9">
-    <title>EatSmart</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-</head>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-  body{
-      overflow-x: hidden !important;
-      font-family: 'Quicksand', sans-serif;
-      margin: 6px;
-      background-color: #ffffff;
-    }
-    .slideshow {
-      position: relative;
-      height: 200px;
-    }
-
-    @media (min-width: 391px) {
-      .additional-options {
-        width: 415px;
-      }
-      #icon-radio-group{
-        width: 425px;
-      }
-      .option1{
-        width: 380px;
-      }
-    }
-
-
-    .slide {
-      width: 387px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      display: none;
-    }
-
-    .slide:first-child {
-      display: block;
-    }
-    .sliderTitle{
-      margin: auto 16px;
-    }
-    .greeting{
-        font-size: 32px;
-        line-height: 36px;
-    }
-    .under_greeting{
-        margin-top: 4px;
-        font-weight: normal;
-        font-size: 14px;
-        color: #8F8F8F;
-        margin-bottom: 20px;
-    }
-    #purple_text{
-      color: #9C6AF9;
-    }
-    .slide{
-      font-family: "Onest", sans-serif;
-      font-optical-sizing: auto;
-      font-style: normal;
-    }
-    .main_image{
-      max-width: 400px;
-      margin-left: 15px;
-    }
-
-    .page1{
-      width: 116px;
-
-    }
-    span{
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    #icon-radio-group {
-        width: 100%;
-    }
-
-    .option {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 20px;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-/*        margin-bottom: 10px;*/
-        cursor: pointer;
-        transition: background-color 0.3s, color 0.3s;
-        position: relative;
-    }
-
-    .option:hover {
-        background-color: #f0f0f0;
-    }
-
-    .option img {
-        margin-right: 8px;
-    }
-
-    .option span {
-        font-size: 16px;
-        flex-grow: 1;
-        text-align: left;
-    }
-
-    .option input[type="radio"] {
-        margin-left: auto;
-        cursor: pointer;
-    }
-
-    .additional-options {
-        margin-top: 30px;
-        width: 100%;
-    }
-
-    .not-found {
-        font-family: "Quicksand", sans-serif;
-        font-weight: 510;
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-
-    .medical-conditions {
-        width: calc(100% - 20px);
-        height: 80px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        font-size: 14px;
-        resize: none;
-    }
-
-    @media (min-width: 391px) {
-        .slide {
-            max-width: 425px;
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&amp;display=swap" rel="stylesheet">
+    <title>Weight modal</title>
+    <script type="module" crossorigin="" src="index-Dj8ZJJ4K.js"></script>
+    <style type="text/css">
+        ._modal_i3n7h_1 {
+            background-color: #00000080;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            width: 100%;
+            height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
         }
-        .additional-options {
+
+        ._modalContent_i3n7h_14 {
+            background-color: #fcfcfc;
+            width: 500px;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ._title_itplr_1 {
+            font-size: 32px;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        ._select_itplr_8 {
+            margin: 4px auto 16px;
+            position: relative;
+        }
+
+        ._selectContent_itplr_12 {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            font-size: 14px;
+            gap: 4px;
+        }
+
+        ._selectItems_itplr_19 {
+            position: absolute;
+            top: 40px;
+            z-index: 5;
+            left: 0;
+            background-color: #c8c8c8;
+            box-shadow: #00000080;
+            border-radius: 12px;
             width: 100%;
         }
-        #icon-radio-group {
-            width: 110%;
+
+        ._selectItem_itplr_19 {
+            background-color: transparent;
+            padding: 10px;
         }
-    }
 
+        ._item_itplr_34 {
+            color: #969696;
+            font-size: 24px;
+            transition: all ease 0.6s;
+        }
 
+        ._itemActive_itplr_39 {
+            color: #9c6af9;
+            font-size: 36px;
+            font-weight: 500;
+        }
 
+        ._itemWrapper_itplr_44 {
+            position: relative;
+        }
 
+        ._itemDot_itplr_47 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #9c6af9;
+            font-size: 24px;
+            margin: 0;
+        }
 
+        ._buttons_n6e9g_1 {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
 
+        ._buttonsCancel_n6e9g_6, ._buttonsOk_n6e9g_6 {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            font-size: 14px;
+            transition: all ease 0.6s;
+            width: 100%;
+        }
 
+        ._buttonsCancel_n6e9g_6 {
+            background-color: #fff;
+            box-shadow: #0000001a;
+        }
 
-/*    Основное где вес и тд*/
-    .option1 {
-      display: flex;
-      align-items: center;
-      padding: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin: 0px 10px 20px;
-      cursor: pointer; /* Делаем курсор указателем при наведении */
-      transition: background-color 0.3s, color 0.3s; /* Добавляем плавные анимации при наведении */
-    }
+        ._buttonsOk_n6e9g_6 {
+            background-color: #9c6af9;
+            box-shadow: #9c6af940;
+            color: #fff;
+        }
 
-    .option1 span {
-      width: 120px;
-      font-size: 16px; /* Размер текста */
-    }
+        *, *:before, *:after {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+        }
 
-    .option1 select,
-    .option1 input[type="number"] {
-      flex-grow: 1;
-      padding: 8px;
-      border: none; /* Убираем рамку */
-      border-radius: 0; /* Убираем бордер радиус */
-      border-bottom: 1px solid #ccc; /* Добавляем нижнюю границу */
-      font-size: 14px;
-      margin-left: 10px;
-    }
+        html, body, #root {
+            width: 100%;
+            height: 100%;
+            font-family: Onest, sans-serif;
+        }
 
-    .preferences {
-/*      margin-left: 5px;*/
-      width: 110%;
-      max-width: 410px;
-    }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: inherit;
+            font-size: inherit;
+        }
 
-    .greeting {
-      font-size: 32px;
-      line-height: 36px;
-    }
+        img {
+            vertical-align: top;
+        }
 
-    .under_greeting {
-        margin-top: 4px;
-        font-weight: normal;
-        font-size: 14px;
-        color: #8F8F8F;
-        margin-bottom: 20px;
-    }
+        a {
+            text-decoration: none;
+        }
 
-    .preference-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-        gap: 10px;
-    }
+        ul, ol li {
+            list-style: none;
+        }
 
-    .preference-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: 10px;
-/*          background-color: #f0f0f0;*/
-/*          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
-        cursor: pointer;
-        overflow: hidden;
-        transition: background-color 0.3s;
-    }
-
-    .preference-card img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    .preference-title {
-        text-align: center;
-        font-size: 14px;
-        color: #333333;
-        margin-top: 8px;
-    }
-
-/*  .preference-card:hover {
-        background-color: #e0e0e0;
-    }*/
-
-   .buttonMain {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 52px;
-      background-color: #9C6AF9;
-      color: white;
-      font-size: 16px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
-/*    border-radius: 0;  Убираем закругление углов */
-      border: none; /* Убираем границу */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-
-
-
-
-
-</style>
+        button {
+            font-family: Onest, sans-serif;
+            outline: 0;
+        }
+    </style>
+</head>
 <body>
-  <button onclick="prevSlide()">Previous</button>
-<!--  <button onclick="nextSlide()">NEXT</button>-->
-
-    <div class="slideshow">
-      
-      <div class="slide">
-        <div class="sliderTitle">
-          <h1 class="greeting">Добро<br>пожаловать</h1>
-          <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>, твой личный ИИ-гуру питания</h2>
+    <div id="root"></div>
+    <div class="_modal_i3n7h_1">
+        <div class="_modalContent_i3n7h_14">
+            <h2 class="_title_itplr_1">Ваш вес</h2>
+            <div class="_select_itplr_8">
+                <button class="_selectContent_itplr_12">Килограммы<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_1_285)"><path d="M12.5 16L6.5 10H18.5L12.5 16Z" fill="#8F8F8F"></path></g><defs><clipPath id="clip0_1_285"><rect width="24" height="24" fill="white" transform="translate(0.5)"></rect></clipPath></defs></svg></button>
+            </div>
+            <div id="weightCarousel" style="height: 216px; position: relative; display: flex; justify-content: center; overflow: hidden; mask-image: linear-gradient(to top, transparent, transparent 5%, white 20%, white 80%, transparent 95%, transparent);" class="_itemWrapper_itplr_44">
+                <div id="weightValues" style="flex: 1 1 0%; max-height: 100%; transition-property: transform; transition-timing-function: cubic-bezier(0, 0, 0.2, 1); transition-duration: 300ms; transform: translate3d(0px, 0px, 0px);">
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">147</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">148</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">149</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">150</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">151</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">152</div>
+                </div>
+                <p class="_itemDot_itplr_47">,</p>
+                <div id="weightDecimals" style="flex: 1 1 0%; max-height: 100%; transition-property: transform; transition-timing-function: cubic-bezier(0, 0, 0.2, 1); transition-duration: 300ms; transform: translate3d(0px, 0px, 0px);">
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">1</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">2</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">3</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">4</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">5</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">6</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">7</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">8</div>
+                    <div style="height: 36px; display: flex; justify-content: center; align-items: center;" class="_item_itplr_34">9</div>
+                </div>
+                <div style="height: 36px; margin-top: -18px; position: absolute; top: 50%; left: 0px; width: 100%; pointer-events: none;">
+                    <div style="position: absolute; inset: 0px auto auto 0px; width: 100%; height: 1px; background: rgb(217, 217, 217); transform: scaleY(0.5);"></div>
+                    <div style="position: absolute; inset: auto auto 0px 0px; width: 100%; height: 1px; background: rgb(217, 217, 217); transform: scaleY(0.5);"></div>
+                </div>
+            </div>
+            <div class="_buttons_n6e9g_1">
+                <button class="_buttonsCancel_n6e9g_6">Отмена</button>
+                <button class="_buttonsOk_n6e9g_6">ОК</button>
+            </div>
         </div>
-        <img class="main_image" src="main_img.jpg">  
-      </div>
-
-
-
-
-  
-
-      <!-- <div class="slide">
-        <h1 class="greeting">Основное</h1>
-        <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
-      
-      </div> -->
-      <div class="slide">
-        <h1 class="greeting">Основное</h1>
-        <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы сможем вам помочь:</h2>
-        <!-- Пол -->
-        <div class="option1">
-          <span>Пол:</span>
-          <select id="gender" name="gender" style="margin-left: 200px;">
-            <option value="male">Мужской</option>
-            <option value="female">Женский</option>
-          </select>
-        </div>
-        <!-- Вес -->
-        <div class="option1">
-          <span>Вес:</span>
-          <input type="number" id="weight" name="weight" step="1" min="0" max="250" style="margin-left: 252px;">
-          <span>кг</span>
-        </div>
-        <!-- Рост -->
-        <div class="option1">
-          <span>Рост:</span>
-          <input type="number" id="height" name="height" step="1" min="0" max="250" style="margin-left: 245px;">
-          <span>см</span>
-        </div>
-        <!-- Возраст -->
-        <div class="option1">
-          <span>Возраст:</span>
-          <input type="number" id="age" name="age" step="1" min="0" max="100" style="margin-left: 220px;">
-          <span>лет</span>
-        </div>
-
-        <!-- <button onclick="printValues()">Вывести значения</button> -->
-      </div>
-
-
-
-
-
-
-      <div class="slide">
-          <div class="sliderTitle">
-              <h1 class="greeting">Здоровье</h1>
-              <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас медицинские противопоказания:</h2>
-          </div>
-          <div id="icon-radio-group">
-              <label class="option">
-                  <img src="icon1.svg" alt="Icon 1">
-                  <span>Диабет</span>
-                  <input type="radio" id="medical_option1" name="medical_condition" value="Диабет">
-              </label>
-              <br>
-              <label class="option">
-                  <img src="icon2.svg" alt="Icon 2">
-                  <span>Ожирение</span>
-                  <input type="radio" id="medical_option2" name="medical_condition" value="Ожирение">
-              </label>
-              <br>
-              <label class="option">
-                  <img src="icon3.svg" alt="Icon 3">
-                  <span>Гипертония</span>
-                  <input type="radio" id="medical_option3" name="medical_condition" value="Гипертония">
-              </label>
-              <br>
-              <label class="option">
-                  <img src="icon4.svg" alt="Icon 4">
-                  <span>Сердечные заболевания</span>
-                  <input type="radio" id="medical_option4" name="medical_condition" value="Сердечные заболевания">
-              </label>
-              <br>
-              <label class="option">
-                  <img src="icon5.svg" alt="Icon 5">
-                  <span>Аллергия</span>
-                  <input type="radio" id="medical_option5" name="medical_condition" value="Аллергия">
-              </label>
-              <div class="additional-options">
-                  <div class="not-found">Не нашли в списке?</div>
-                  <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
-              </div>
-          </div>
-      </div>
-
-
-
-      <div class="slide">
-          <div class="sliderTitle">
-              <h1 class="greeting">Цели</h1>
-              <h2 class="under_greeting">Выберите одну или несколько целей которые больше вам подходят:</h2>
-          </div>
-          <div id="icon-radio-group">
-              <label class="option">
-                  <img src="up.svg" alt="Icon 1">
-                  <span>Набор массы</span>
-                  <input type="radio" id="goal1" name="goal" value="Набор массы">
-              </label>
-              <br>
-              <label class="option">
-                  <img src="down.svg" alt="Icon 1">
-                  <span>Снижение веса</span>
-                 <input type="radio" id="goal2" name="goal" value="Снижение веса">
-              </label>
-              <br>
-              <label class="option">
-                  <img src="down.svg" alt="Icon 1">
-                  <span>Поддержание текущего веса</span>
-                  <input type="radio" id="goal3" name="goal" value="Поддержание текущего веса">
-              </label>
-              <br>
-              <label class="option">
-                  <img src="heart.svg" alt="Icon 1">
-                  <span>Улучшение здоровья</span>
-                  <input type="radio" id="goal4" name="goal" value="Улучшение здоровья">
-              </label>
-              <br>
-              <label class="option">
-                  <img src="run.svg" alt="Icon 1">
-                  <span>Улучшение спортивных результатов</span>
-                  <input type="radio" id="goal5" name="goal" value="Улучшение спортивных результатов">
-              </label>
-              <br>
-              <button onclick="collectDataAndPrint()">Вывести JSON</button>
-          </div>
-      </div>
-
-<!-- 
-
-        </div>
-        </div>
-      </div>
-      </div>
- -->
-
-
-
-
-
-
-    <div class="slide">
-      <div class="sliderTitle">
-        <br>
-        <h1 class="greeting">Предпочтения</h1>
-        <h2 class="under_greeting">Выберите продукты и блюда, которые вы предпочитаете употреблять:</h2>
-      <div class="preferences">
-         <!--  <h1 class="greeting">Предпочтения</h1>
-          <h2 class="under_greeting">Выберите продукты и блюда которые вы предпочитаете употреблять:</h2> -->
-          <div class="preference-cards">
-              <div class="preference-card">
-                  <img src="meat.svg" alt="Говядина">
-                  <div class="preference-title">Говядина</div>
-              </div>
-              <div class="preference-card">
-                  <img src="vegetables.svg" alt="Овощи">
-                  <div class="preference-title">Овощи</div>
-              </div>
-              <div class="preference-card">
-                  <img src="srawberry.svg" alt="Клубника">
-                  <div class="preference-title">Клубника</div>
-              </div>
-              <div class="preference-card">
-                  <img src="potato.svg" alt="Картофель">
-                  <div class="preference-title">Картофель</div>
-              </div>
-              <div class="preference-card">
-                  <img src="paper.svg" alt="Перец">
-                  <div class="preference-title">Перец</div>
-              </div>
-              <div class="preference-card">
-                  <img src="maccoroni.svg" alt="Спагетти">
-                  <div class="preference-title">Спагетти</div>
-              </div>
-              <div class="preference-card">
-                  <img src="macaronni2.svg" alt="Картофель">
-                  <div class="preference-title">Макароны</div>
-              </div>
-              <div class="preference-card">
-                  <img src="bread.svg" alt="Перец">
-                  <div class="preference-title">Хлеб</div>
-              </div>
-              <div class="preference-card">
-                  <img src="cabbage.svg" alt="Спагетти">
-                  <div class="preference-title">Капуста</div>
-              </div>
-              <div class="preference-card">
-                  <img src="grechka.svg" alt="Картофель">
-                  <div class="preference-title">Крупа</div>
-              </div>
-              <div class="preference-card">
-                  <img src="chesse.svg" alt="Перец">
-                  <div class="preference-title">Сыр</div>
-              </div>
-              <div class="preference-card">
-                  <img src="qiwi.svg" alt="Спагетти">
-                  <div class="preference-title">Киви</div>
-              </div>
-              <div class="preference-card">
-                  <img src="potato.svg" alt="Картофель">
-                  <div class="preference-title">Цитрусовые</div>
-              </div>
-              <div class="preference-card">
-                  <img src="rice.svg" alt="Перец">
-                  <div class="preference-title">Рис</div>
-              </div>
-              <div class="preference-card">
-                  <img src="chocolate.svg" alt="Спагетти">
-                  <div class="preference-title">Шоколад</div>
-              </div>
-              <!-- Добавьте больше карточек по необходимости -->
-          </div>
-      </div>
-
-      <br>
-      <div class="additional-options">
-        <div class="not-found">Не нашли в списке?</div>
-          <textarea class="medical-conditions" placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
-      </div>
     </div>
-    </div>
-    </div>
+    <script>
+        const weightValues = document.getElementById('weightValues');
+        const weightDecimals = document.getElementById('weightDecimals');
+        let startY;
+        let currentTranslate = { values: 0, decimals: 0 };
 
-    <button class="buttonMain" onclick="nextSlide()">Продолжить</button>
-
-
-
-
-
-
-
-    <script>        
-
-
-        let tg = window.Telegram.WebApp;
-
-           // Определение переменных для хранения данных
-        let userData = {
-          gender: "",
-          weight: "",
-          height: "",
-          age: "",
-          medicalCondition: "",
-          goal: ""
-        };
-
-        tg.expand()
-        tg.backgroundColor = "#FCFCFC"
-        tg.headerColor = "#FCFCFC"
-        tg.secondary_bg_color = "#FFFFFF"
-        // MainButton = tg.MainButton
-        // MainButton.text = "Начать"
-        // MainButton.textColor = "#FFFFFF"
-        // MainButton.color = "#9C6AF9"
-        // MainButton.show()
-        tg.onEvent('mainButtonClicked', nextSlide)
-
-        BackButton = tg.BackButton
-        BackButton.color = "#3881F0"
-
-        tg.onEvent('backButtonClicked', prevSlide)
-
-        tg.SettingsButton.show()
-        // tg.extend()
-        // tg.expand()
-
-        const slideshow = document.getElementById('slideshow');
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-
-        function nextSlide() {
-          currentSlide++;
-          if (currentSlide >= slides.length) {
-              currentSlide = 0;
-          }
-          if (currentSlide == 0){
-            console.log("case 0")
-              BackButton.hide()
-              // MainButton.text = "Начать"
-          }
-          else{
-              console.log("case 1")
-              BackButton.show()
-              // MainButton.text = "Продолжить"
-              
-          }
-          
-          if (BackButton.isVisible == false) {BackButton.show();}
-
-          showSlide(currentSlide);
-
-        };
-
-        function prevSlide() {
-
-        currentSlide--;
-
-        if (currentSlide < 0) {
-            currentSlide = slides.length - 1;
-        }
-        else if (currentSlide == 0){
-          console.log("case 0")
-            BackButton.hide()
-            console.log("Hidden")
-            // MainButton.text = "Начать"
-        }
-        else{
-            console.log("case 1")
-            BackButton.show()
-            // MainButton.text = "Продолжить"
-            
-        }
-        
-
-
-        showSlide(currentSlide);
-        };
-
-        function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.style.display = i === index? 'block' : 'none';
-        });
-        }
-        const radioGroup = document.getElementById('radio-group');
-        const radios = radioGroup.querySelectorAll('input[type="radio"]');
-
-        radios.forEach(radio => {
-          radio.addEventListener('change', () => {
-            console.log(`Selected option: ${radio.value}`);
-          });
-        });
-
-        function encheckbox(option_num) {
-          console.log(option_num);
-
+        function handleTouchStart(event) {
+            startY = event.touches[0].clientY;
         }
 
+        function handleTouchMove(event, type) {
+            const deltaY = event.touches[0].clientY - startY;
+            const direction = deltaY > 0 ? 1 : -1;
+            const maxTranslate = type === 'values' ? -180 : -288;
 
-        // Обработчики кликов для выбора карточек
-        const preferenceCards = document.querySelectorAll('.preference-card');
-
-        preferenceCards.forEach(card => {
-          card.addEventListener('click', () => {
-            card.classList.toggle('selected');
-          });
-        });
-
-
-
-
-
-     
-
-        // Функция для сбора данных и вывода в консоль
-        function collectData() {
-          // Получение значений с первого экрана
-          userData.gender = document.getElementById('gender').value;
-          userData.weight = document.getElementById('weight').value;
-          userData.height = document.getElementById('height').value;
-          userData.age = document.getElementById('age').value;
-
-          // Получение выбранного медицинского состояния со второго экрана
-          const medicalConditions = document.querySelectorAll('input[name="medical_condition"]');
-          medicalConditions.forEach(condition => {
-            if (condition.checked) {
-              userData.medicalCondition = condition.value;
+            if ((currentTranslate[type] === 0 && direction > 0) || (currentTranslate[type] === maxTranslate && direction < 0)) {
+                return;
             }
-          });
 
-          // Получение выбранной цели с третьего экрана
-          const goals = document.querySelectorAll('input[name="goal"]');
-          goals.forEach(goal => {
-            if (goal.checked) {
-              userData.goal = goal.value;
-            }
-          });
+            currentTranslate[type] += 36 * direction;
+            if (currentTranslate[type] > 0) currentTranslate[type] = 0;
+            if (currentTranslate[type] < maxTranslate) currentTranslate[type] = maxTranslate;
 
-          // console.log(JSON.stringify(userData));
-        }
-        function collectDataAndPrint() {
-          collectData();
-          console.log(JSON.stringify(userData));
+            const translateValue = `translate3d(0px, ${currentTranslate[type]}px, 0px)`;
+            document.getElementById(type === 'values' ? 'weightValues' : 'weightDecimals').style.transform = translateValue;
         }
 
-        
+        weightValues.addEventListener('touchstart', handleTouchStart);
+        weightValues.addEventListener('touchmove', (event) => handleTouchMove(event, 'values'));
 
+        weightDecimals.addEventListener('touchstart', handleTouchStart);
+        weightDecimals.addEventListener('touchmove', (event) => handleTouchMove(event, 'decimals'));
     </script>
-
 </body>
 </html>
