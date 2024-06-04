@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>EatSmart</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
@@ -17,11 +18,13 @@
       margin: 6px auto;
       max-width: 440px;
     }
+    .container{
+
+    }
     .slideshow {
       position: relative;
       height: 200px;
     }
-
 .activity-level-input,.slider-section-input{
   display: flex;
   justify-content:space-between;
@@ -178,7 +181,6 @@
     .option1 {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 16px;
       border-radius: 8px;
       border: 1px solid #ccc;
@@ -188,16 +190,8 @@
     }
 
     .option1 span {
+      width: 120px;
       font-size: 16px; /* Размер текста */
-    }
-    .option1 > div {
-     display: flex;
-    align-items: center;
-    }
-    .option1 > div >img{
-      margin-top: 1px;
-      width: 20px;
-      margin-left: 10px;
     }
 
     .option1 select,
@@ -426,7 +420,6 @@
         color: #fff;
         font-size: 14px;
         font-weight: bold;
-        position: relative;
     }
 
     .slider-section input[type="range"]::-moz-range-track {
@@ -570,17 +563,6 @@
             font-size: 18px;
             cursor: pointer;
         }
-        .activity-level-renge{
-          position: relative;
-          width: 100%;
-        }
-        .activity-level-renge > .test{
-          position: absolute;
-          z-index: 10;
-          left: 12px;
-          color: #fff;
-          top: 0;
-        }
         .popup-header h3 {
             margin: 0;
             font-size: 36px;
@@ -722,399 +704,391 @@
 </style>
   <body>
     <div class="container">
-      <button onclick="prevSlide()">Previous</button>
-      <!--  <button onclick="nextSlide()">NEXT</button>-->
+    <button onclick="prevSlide()">Previous</button>
+    <!--  <button onclick="nextSlide()">NEXT</button>-->
+    <button id='Get_stat_data'>Get user history data</button>
 
-      <div class="slideshow">
 
-        <div class="slide">
-          <div class="sliderTitle">
-            <h1 class="greeting">Добро<br>пожаловать</h1>
-            <h2 class="under_greeting">Это <span
-                id="purple_text">EatSmart</span>,
-              твой личный ИИ-гуру питания</h2>
-          </div>
-          <img class="main_image" src="main_img.jpg">
+    <div class="slideshow">
+
+      <div class="slide">
+        <div class="sliderTitle">
+          <h1 class="greeting">Добро<br>пожаловать</h1>
+          <h2 class="under_greeting">Это <span id="purple_text">EatSmart</span>,
+            твой личный ИИ-гуру питания</h2>
         </div>
-
-        <div class="slide">
-          <h1 class="greeting">Основное</h1>
-          <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы
-            сможем вам помочь:</h2>
-          <!-- Пол -->
-          <div class="option1">
-            <span>Пол:</span>
-            <select id="gender" name="gender" style="margin-left: 200px;">
-              <option value="male">Мужской</option>
-              <option value="female">Женский</option>
-            </select>
-          </div>
-          <!-- Вес -->
-          <div class="option1" id="openPopupButton">
-            <span>Вес:</span>
-            <div>
-              <span id="weight">Выберите вес</span>
-              <img src="./down-arrow-svgrepo-com.svg" />
-            </div>
-          </div>
-          <!-- Рост -->
-          <div class="option1" id="openPopupButton_2">
-            <span>Рост:</span>
-            <div>
-              <span id="height">Выберите рост</span>
-              <img src="./down-arrow-svgrepo-com.svg" />
-            </div>
-          </div>
-          <!-- Возраст -->
-          <div class="option1" id="openPopupButton_3">
-            <span>Возраст:</span>
-            <div>
-              <span id="age">Выберите возраст</span>
-              <img src="./down-arrow-svgrepo-com.svg" />
-            </div>
-          </div>
-
-          <!-- <button onclick="printValues()">Вывести значения</button> -->
-        </div>
-
-        <div class="slide">
-          <div class="sliderTitle">
-            <h1 class="greeting">Здоровье</h1>
-            <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас
-              медицинские противопоказания:</h2>
-          </div>
-          <div id="icon-radio-group">
-            <label class="option">
-              <img src="icon1.svg" alt="Icon 1">
-              <span>Диабет</span>
-              <input type="radio" id="medical_option1" name="medical_condition"
-                value="Диабет">
-            </label>
-            <br>
-            <label class="option">
-              <img src="icon2.svg" alt="Icon 2">
-              <span>Ожирение</span>
-              <input type="radio" id="medical_option2" name="medical_condition"
-                value="Ожирение">
-            </label>
-            <br>
-            <label class="option">
-              <img src="icon3.svg" alt="Icon 3">
-              <span>Гипертония</span>
-              <input type="radio" id="medical_option3" name="medical_condition"
-                value="Гипертония">
-            </label>
-            <br>
-            <label class="option">
-              <img src="icon4.svg" alt="Icon 4">
-              <span>Сердечные заболевания</span>
-              <input type="radio" id="medical_option4" name="medical_condition"
-                value="Сердечные заболевания">
-            </label>
-            <br>
-            <label class="option">
-              <img src="icon5.svg" alt="Icon 5">
-              <span>Аллергия</span>
-              <input type="radio" id="medical_option5" name="medical_condition"
-                value="Аллергия">
-            </label>
-            <div class="additional-options">
-              <div class="not-found">Не нашли в списке?</div>
-              <textarea class="medical-conditions"
-                placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
-            </div>
-            <br>
-            <br>
-            <br>
-
-          </div>
-        </div>
-
-        <div class="slide">
-          <div class="sliderTitle">
-            <h1 class="greeting">Цели</h1>
-            <h2 class="under_greeting">Выберите одну или несколько целей которые
-              больше вам подходят:</h2>
-          </div>
-          <div id="icon-radio-group">
-            <label class="option">
-              <img src="up.svg" alt="Icon 1">
-              <span>Набор массы</span>
-              <input type="radio" id="goal1" name="goal" value="Набор массы">
-            </label>
-            <br>
-            <label class="option">
-              <img src="down.svg" alt="Icon 1">
-              <span>Снижение веса</span>
-              <input type="radio" id="goal2" name="goal" value="Снижение веса">
-            </label>
-            <br>
-            <label class="option">
-              <img src="down.svg" alt="Icon 1">
-              <span>Поддержание текущего веса</span>
-              <input type="radio" id="goal3" name="goal"
-                value="Поддержание текущего веса">
-            </label>
-            <br>
-            <label class="option">
-              <img src="heart.svg" alt="Icon 1">
-              <span>Улучшение здоровья</span>
-              <input type="radio" id="goal4" name="goal"
-                value="Улучшение здоровья">
-            </label>
-            <br>
-            <label class="option">
-              <img src="run.svg" alt="Icon 1">
-              <span>Улучшение спортивных результатов</span>
-              <input type="radio" id="goal5" name="goal"
-                value="Улучшение спортивных результатов">
-            </label>
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <button onclick="collectDataAndPrint()">Вывести JSON</button>
-          </div>
-        </div>
-
-        <div class="slide">
-          <div class="sliderTitle">
-            <br>
-            <h1 class="greeting">Предпочтения</h1>
-            <h2 class="under_greeting">Выберите продукты и блюда, которые вы
-              предпочитаете употреблять:</h2>
-            <div class="preferences">
-              <!--  <h1 class="greeting">Предпочтения</h1>
-          <h2 class="under_greeting">Выберите продукты и блюда которые вы предпочитаете употреблять:</h2> -->
-              <div class="preference-cards">
-                <div class="preference-card">
-                  <img src="meat.svg" alt="Говядина">
-                  <div class="preference-title">Говядина</div>
-                </div>
-                <div class="preference-card">
-                  <img src="vegetables.svg" alt="Овощи">
-                  <div class="preference-title">Овощи</div>
-                </div>
-                <div class="preference-card">
-                  <img src="srawberry.svg" alt="Клубника">
-                  <div class="preference-title">Клубника</div>
-                </div>
-                <div class="preference-card">
-                  <img src="potato.svg" alt="Картофель">
-                  <div class="preference-title">Картофель</div>
-                </div>
-                <div class="preference-card">
-                  <img src="paper.svg" alt="Перец">
-                  <div class="preference-title">Перец</div>
-                </div>
-                <div class="preference-card">
-                  <img src="maccoroni.svg" alt="Спагетти">
-                  <div class="preference-title">Спагетти</div>
-                </div>
-                <div class="preference-card">
-                  <img src="macaronni2.svg" alt="Картофель">
-                  <div class="preference-title">Макароны</div>
-                </div>
-                <div class="preference-card">
-                  <img src="bread.svg" alt="Перец">
-                  <div class="preference-title">Хлеб</div>
-                </div>
-                <div class="preference-card">
-                  <img src="cabbage.svg" alt="Спагетти">
-                  <div class="preference-title">Капуста</div>
-                </div>
-                <div class="preference-card">
-                  <img src="grechka.svg" alt="Картофель">
-                  <div class="preference-title">Крупа</div>
-                </div>
-                <div class="preference-card">
-                  <img src="chesse.svg" alt="Перец">
-                  <div class="preference-title">Сыр</div>
-                </div>
-                <div class="preference-card">
-                  <img src="qiwi.svg" alt="Спагетти">
-                  <div class="preference-title">Киви</div>
-                </div>
-                <div class="preference-card">
-                  <img src="potato.svg" alt="Картофель">
-                  <div class="preference-title">Цитрусовые</div>
-                </div>
-                <div class="preference-card">
-                  <img src="rice.svg" alt="Перец">
-                  <div class="preference-title">Рис</div>
-                </div>
-                <div class="preference-card">
-                  <img src="chocolate.svg" alt="Спагетти">
-                  <div class="preference-title">Шоколад</div>
-                </div>
-                <!-- Добавьте больше карточек по необходимости -->
-              </div>
-            </div>
-
-            <br>
-            <div class="additional-options">
-              <div class="not-found">Не нашли в списке?</div>
-              <textarea class="medical-conditions"
-                placeholder="Введите здесь все продукты и блюда которые вы предпочитаете употреблять. Не более 600 символов"></textarea>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="slide">
-          <div class="sliderTitle">
-            <br>
-            <h1 class="greeting">Стресс и образ жизни</h1>
-            <h2 class="under_greeting">Расскажите нам больше о вашем рационе и
-              распорядке дня:</h2>
-            <div class="stress-lifestyle">
-              <div class="slider-section">
-                <label for="activity-level"
-                  style="margin-bottom: 25px;"><b>Уровень активности</b><b
-                    id="activity-section-level">минимальный</b></label>
-                <div class="activity-level-input">
-                  <div class="activity-level-renge">
-                    <div id="test" class='test'>1</div>
-                    <input type="range" id="activity-level"
-                      name="activity-level"
-                      min="1" max="5" value="1">
-                  </div>
-                  <span>5</span>
-                </div>
-                <span id="activity-value">1</span>
-                <p>Выберите свой обычный уровень активности, где <span
-                    id="purple_text">1 - минимальный</span>, а 5 -
-                  максимальный</p>
-              </div>
-              <div class="slider-section">
-                <label for="stress-level" style="margin-bottom: 25px;">
-                  <b>Уровень
-                    стресса</b>
-                  <b id="slider-section_level">минимальный</b>
-                </label>
-                <div class="slider-section-input">
-                  <div class="activity-level-renge">
-                    <div id="test_2" class='test'>1</div>
-                    <input type="range" id="stress-level" name="stress-level"
-                      min="1"
-                      max="5" value="1">
-                  </div>
-                  <span>5</span>
-                </div>
-                <span id="stress-value">1</span>
-                <p>Выберите свой обычный уровень стресса, где <span
-                    id="purple_text">1 - минимальный</span>, а 5 -
-                  максимальный</p>
-              </div>
-
-              <textarea id="description"
-                placeholder="Введите здесь описание вашей обычной физической активности и стресса. Не более 600 символов."
-                maxlength="600"></textarea>
-
-            </div>
-          </div>
-        </div>
-        <!-- </div> -->
-      </div>
-      <div class="button-container">
-        <div id="buttonMain" class="buttonMain" onclick="nextSlide()">Начать<img
-            src="right.svg" alt="Icon" class="button-icon"><div
-            style="width:100%"
-            id='progres'
-            class="progres"></div></div>
-        <div id="progressMessage" class="progress-message"
-          style="display: none;"></div>
+        <img class="main_image" src="main_img.jpg">
       </div>
 
-      <div class="overlay" id="overlay"></div>
-
-      <div class="popup" id="weightPopup">
-        <div class="popup-header">
-          <h3>Ваш вес</h3>
-        </div>
-        <div class="option_1">
-          <select id="gender_1" name="gender_1">
-            <option value="kg">Килограммы</option>
-            <option value="fn">Фунты</option>
+      <div class="slide">
+        <h1 class="greeting">Основное</h1>
+        <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы
+          сможем вам помочь:</h2>
+        <!-- Пол -->
+        <div class="option1">
+          <span>Пол:</span>
+          <select id="gender" name="gender" style="margin-left: 200px;">
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
           </select>
         </div>
-        <div class="weight-picker-section">
-          <div class="weight-picker-container">
-            <div id="weightPicker" class="weight-picker">
-              <!-- Options will be populated by JavaScript -->
-            </div>
-            <div class="highlight"></div>
-          </div>
-          <div class="comma">
-            <span>,</span>
-          </div>
-          <div class="weight-picker-container">
-            <div id="weightPicker_2" class="weight-picker">
-              <!-- Options will be populated by JavaScript -->
-            </div>
-            <div class="highlight_2"></div>
-          </div>
-          <div class="comma" id="comma_type">
-            <span>кг</span>
-          </div>
+        <!-- Вес -->
+        <div class="option1" id="openPopupButton">
+          <span>Вес:</span>
+          <input type="number" id="weight" name="weight" step="1" min="0"
+            max="250" style="margin-left: 252px;">
+          <span>кг</span>
         </div>
-        <div class="buttons">
-          <button id="cancelButton" class="cancel_button">Отмена</button>
-          <button id="confirmButton" class="confirm_button">OK</button>
+        <!-- Рост -->
+        <div class="option1" id="openPopupButton_2">
+          <span>Рост:</span>
+          <input type="number" id="height" name="height" step="1" min="0"
+            max="250" style="margin-left: 245px;">
+          <span>см</span>
+        </div>
+        <!-- Возраст -->
+        <div class="option1" id="openPopupButton_3">
+          <span>Возраст:</span>
+          <input type="number" id="age" name="age" step="1" min="0" max="100"
+            style="margin-left: 220px;">
+          <span>лет</span>
+        </div>
+
+        <!-- <button onclick="printValues()">Вывести значения</button> -->
+      </div>
+
+      <div class="slide">
+        <div class="sliderTitle">
+          <h1 class="greeting">Здоровье</h1>
+          <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас
+            медицинские противопоказания:</h2>
+        </div>
+        <div id="icon-radio-group">
+          <label class="option">
+            <img src="icon1.svg" alt="Icon 1">
+            <span>Диабет</span>
+            <input type="radio" id="medical_option1" name="medical_condition"
+              value="Диабет">
+          </label>
+          <br>
+          <label class="option">
+            <img src="icon2.svg" alt="Icon 2">
+            <span>Ожирение</span>
+            <input type="radio" id="medical_option2" name="medical_condition"
+              value="Ожирение">
+          </label>
+          <br>
+          <label class="option">
+            <img src="icon3.svg" alt="Icon 3">
+            <span>Гипертония</span>
+            <input type="radio" id="medical_option3" name="medical_condition"
+              value="Гипертония">
+          </label>
+          <br>
+          <label class="option">
+            <img src="icon4.svg" alt="Icon 4">
+            <span>Сердечные заболевания</span>
+            <input type="radio" id="medical_option4" name="medical_condition"
+              value="Сердечные заболевания">
+          </label>
+          <br>
+          <label class="option">
+            <img src="icon5.svg" alt="Icon 5">
+            <span>Аллергия</span>
+            <input type="radio" id="medical_option5" name="medical_condition"
+              value="Аллергия">
+          </label>
+          <div class="additional-options">
+            <div class="not-found">Не нашли в списке?</div>
+            <textarea class="medical-conditions"
+              placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+          </div>
+          <br>
+          <br>
+          <br>
+
         </div>
       </div>
 
-      <div class="overlay" id="overlay_2"></div>
+      <div class="slide">
+        <div class="sliderTitle">
+          <h1 class="greeting">Цели</h1>
+          <h2 class="under_greeting">Выберите одну или несколько целей которые
+            больше вам подходят:</h2>
+        </div>
+        <div id="icon-radio-group">
+          <label class="option">
+            <img src="up.svg" alt="Icon 1">
+            <span>Набор массы</span>
+            <input type="radio" id="goal1" name="goal" value="Набор массы">
+          </label>
+          <br>
+          <label class="option">
+            <img src="down.svg" alt="Icon 1">
+            <span>Снижение веса</span>
+            <input type="radio" id="goal2" name="goal" value="Снижение веса">
+          </label>
+          <br>
+          <label class="option">
+            <img src="down.svg" alt="Icon 1">
+            <span>Поддержание текущего веса</span>
+            <input type="radio" id="goal3" name="goal"
+              value="Поддержание текущего веса">
+          </label>
+          <br>
+          <label class="option">
+            <img src="heart.svg" alt="Icon 1">
+            <span>Улучшение здоровья</span>
+            <input type="radio" id="goal4" name="goal"
+              value="Улучшение здоровья">
+          </label>
+          <br>
+          <label class="option">
+            <img src="run.svg" alt="Icon 1">
+            <span>Улучшение спортивных результатов</span>
+            <input type="radio" id="goal5" name="goal"
+              value="Улучшение спортивных результатов">
+          </label>
+          <br>
+          <br>
+          <br>
+          <br>
 
-      <div class="popup" id="weightPopup_2">
-        <div class="popup-header">
-          <h3>Ваш рост</h3>
-        </div>
-        <div class="weight-picker-section">
-          <div class="weight-picker-container">
-            <div id="weightPicker_2_1" class="weight-picker">
-            </div>
-            <div class="highlight_3"></div>
-          </div>
-          <div class="comma">
-            <span>,</span>
-          </div>
-          <div class="weight-picker-container">
-            <div id="weightPicker_2_2" class="weight-picker">
-            </div>
-            <div class="highlight_4"></div>
-          </div>
-          <div class="comma" id="comma_type_2">
-            <span>см</span>
-          </div>
-        </div>
-        <div class="buttons">
-          <button id="cancelButton_2" class="cancel_button">Отмена</button>
-          <button id="confirmButton_2" class="confirm_button">OK</button>
+          <button onclick="collectDataAndPrint()">Вывести JSON</button>
         </div>
       </div>
 
-      <div class="overlay" id="overlay_3"></div>
-
-      <div class="popup" id="weightPopup_3">
-        <div class="popup-header">
-          <h3>Ваш рост</h3>
-        </div>
-        <div class="weight-picker-section">
-          <div class="weight-picker-container">
-            <div id="weightPicker_3_1" class="weight-picker">
+      <div class="slide">
+        <div class="sliderTitle">
+          <br>
+          <h1 class="greeting">Предпочтения</h1>
+          <h2 class="under_greeting">Выберите продукты и блюда, которые вы
+            предпочитаете употреблять:</h2>
+          <div class="preferences">
+            <!--  <h1 class="greeting">Предпочтения</h1>
+          <h2 class="under_greeting">Выберите продукты и блюда которые вы предпочитаете употреблять:</h2> -->
+            <div class="preference-cards">
+              <div class="preference-card">
+                <img src="meat.svg" alt="Говядина">
+                <div class="preference-title">Говядина</div>
+              </div>
+              <div class="preference-card">
+                <img src="vegetables.svg" alt="Овощи">
+                <div class="preference-title">Овощи</div>
+              </div>
+              <div class="preference-card">
+                <img src="srawberry.svg" alt="Клубника">
+                <div class="preference-title">Клубника</div>
+              </div>
+              <div class="preference-card">
+                <img src="potato.svg" alt="Картофель">
+                <div class="preference-title">Картофель</div>
+              </div>
+              <div class="preference-card">
+                <img src="paper.svg" alt="Перец">
+                <div class="preference-title">Перец</div>
+              </div>
+              <div class="preference-card">
+                <img src="maccoroni.svg" alt="Спагетти">
+                <div class="preference-title">Спагетти</div>
+              </div>
+              <div class="preference-card">
+                <img src="macaronni2.svg" alt="Картофель">
+                <div class="preference-title">Макароны</div>
+              </div>
+              <div class="preference-card">
+                <img src="bread.svg" alt="Перец">
+                <div class="preference-title">Хлеб</div>
+              </div>
+              <div class="preference-card">
+                <img src="cabbage.svg" alt="Спагетти">
+                <div class="preference-title">Капуста</div>
+              </div>
+              <div class="preference-card">
+                <img src="grechka.svg" alt="Картофель">
+                <div class="preference-title">Крупа</div>
+              </div>
+              <div class="preference-card">
+                <img src="chesse.svg" alt="Перец">
+                <div class="preference-title">Сыр</div>
+              </div>
+              <div class="preference-card">
+                <img src="qiwi.svg" alt="Спагетти">
+                <div class="preference-title">Киви</div>
+              </div>
+              <div class="preference-card">
+                <img src="potato.svg" alt="Картофель">
+                <div class="preference-title">Цитрусовые</div>
+              </div>
+              <div class="preference-card">
+                <img src="rice.svg" alt="Перец">
+                <div class="preference-title">Рис</div>
+              </div>
+              <div class="preference-card">
+                <img src="chocolate.svg" alt="Спагетти">
+                <div class="preference-title">Шоколад</div>
+              </div>
+              <!-- Добавьте больше карточек по необходимости -->
             </div>
-            <div class="highlight_5"></div>
           </div>
-        </div>
-        <div class="buttons">
-          <button id="cancelButton_3" class="cancel_button">Отмена</button>
-          <button id="confirmButton_3" class="confirm_button">OK</button>
+
+          <br>
+          <div class="additional-options">
+            <div class="not-found">Не нашли в списке?</div>
+            <textarea class="medical-conditions"
+              placeholder="Введите здесь все продукты и блюда которые вы предпочитаете употреблять. Не более 600 символов"></textarea>
+          </div>
+
         </div>
       </div>
 
-      <script>        
+      <div class="slide">
+        <div class="sliderTitle">
+          <br>
+          <h1 class="greeting">Стресс и образ жизни</h1>
+          <h2 class="under_greeting">Расскажите нам больше о вашем рационе и
+            распорядке дня:</h2>
+          <div class="stress-lifestyle">
+            <div class="slider-section">
+              <label for="activity-level"
+                style="margin-bottom: 25px;"><b>Уровень активности</b><b
+                  id="activity-section-level">минимальный</b></label>
+              <div class="activity-level-input">
+                <input type="range" id="activity-level" name="activity-level"
+                  min="1" max="5" value="1">
+                <span>5</span>
+              </div>
+              <span id="activity-value">1</span>
+              <p>Выберите свой обычный уровень активности, где <span
+                  id="purple_text">1 - минимальный</span>, а 5 -
+                максимальный</p>
+            </div>
+            <div class="slider-section">
+              <label for="stress-level" style="margin-bottom: 25px;">
+                <b>Уровень
+                  стресса</b>
+                <b id="slider-section_level">минимальный</b>
+              </label>
+              <div class="slider-section-input">
+                <input type="range" id="stress-level" name="stress-level"
+                  min="1"
+                  max="5" value="1">
+                <span>5</span>
+              </div>
+              <span id="stress-value">1</span>
+              <p>Выберите свой обычный уровень стресса, где <span
+                  id="purple_text">1 - минимальный</span>, а 5 -
+                максимальный</p>
+            </div>
+
+            <textarea id="description"
+              placeholder="Введите здесь описание вашей обычной физической активности и стресса. Не более 600 символов."
+              maxlength="600"></textarea>
+
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+    <div class="button-container">
+      <div id="buttonMain" class="buttonMain" onclick="nextSlide()">Начать<img
+          src="right.svg" alt="Icon" class="button-icon"><div style="width:100%"
+          id='progres'
+          class="progres"></div></div>
+      <div id="progressMessage" class="progress-message"
+        style="display: none;"></div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="popup" id="weightPopup">
+      <div class="popup-header">
+        <h3>Ваш вес</h3>
+      </div>
+      <div class="option_1">
+        <select id="gender_1" name="gender_1">
+          <option value="kg">Килограммы</option>
+          <option value="fn">Фунты</option>
+        </select>
+      </div>
+      <div class="weight-picker-section">
+        <div class="weight-picker-container">
+          <div id="weightPicker" class="weight-picker">
+            <!-- Options will be populated by JavaScript -->
+          </div>
+          <div class="highlight"></div>
+        </div>
+        <div class="comma">
+          <span>,</span>
+        </div>
+        <div class="weight-picker-container">
+          <div id="weightPicker_2" class="weight-picker">
+            <!-- Options will be populated by JavaScript -->
+          </div>
+          <div class="highlight_2"></div>
+        </div>
+        <div class="comma" id="comma_type">
+          <span>кг</span>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="cancelButton" class="cancel_button">Отмена</button>
+        <button id="confirmButton" class="confirm_button">OK</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay_2"></div>
+
+    <div class="popup" id="weightPopup_2">
+      <div class="popup-header">
+        <h3>Ваш рост</h3>
+      </div>
+      <div class="weight-picker-section">
+        <div class="weight-picker-container">
+          <div id="weightPicker_2_1" class="weight-picker">
+          </div>
+          <div class="highlight_3"></div>
+        </div>
+        <div class="comma">
+          <span>,</span>
+        </div>
+        <div class="weight-picker-container">
+          <div id="weightPicker_2_2" class="weight-picker">
+          </div>
+          <div class="highlight_4"></div>
+        </div>
+        <div class="comma" id="comma_type_2">
+          <span>см</span>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="cancelButton_2" class="cancel_button">Отмена</button>
+        <button id="confirmButton_2" class="confirm_button">OK</button>
+      </div>
+    </div>
+
+
+    
+    <div class="overlay" id="overlay_3"></div>
+
+    <div class="popup" id="weightPopup_3">
+      <div class="popup-header">
+        <h3>Ваш рост</h3>
+      </div>
+      <div class="weight-picker-section">
+        <div class="weight-picker-container">
+          <div id="weightPicker_3_1" class="weight-picker">
+          </div>
+          <div class="highlight_5"></div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="cancelButton_3" class="cancel_button">Отмена</button>
+        <button id="confirmButton_3" class="confirm_button">OK</button>
+      </div>
+    </div>
+
+    <script>        
 
 
         let tg = window.Telegram.WebApp;
@@ -1281,55 +1255,17 @@
         const stressValue = document.getElementById('stress-value');
         const sliderSectionLevel = document.getElementById('slider-section_level');
         const activitySectionLevel = document.getElementById('activity-section-level');
-        const test = document.getElementById('test');
-        const test_2 = document.getElementById('test_2');
         
+        const rx = document.querySelector('.slider-section > input[type="range"]::-webkit-slider-thumb')
         activityLevel.addEventListener('input', function() {
             activityValue.textContent = this.value;
             activitySectionLevel.textContent = this.value > 4 ? 'максимальный' :this.value < 2 ? 'минимальный' : 'средний';
-           let x = 12;
-            if(this.value == 1){
-              x = 12;
-            }
-            if(this.value == 2){
-              x = 86
-            }
-            if(this.value == 3){
-              x = 158
-            }
-            if(this.value == 4){
-              x = 232
-            }
-            if(this.value == 5){
-              x = 304
-            }
-            test.style.left = x + "px";
-            test.innerText = this.value
           });
           
           stressLevel.addEventListener('input', function() {
             sliderSectionLevel.textContent =  this.value > 4 ? 'максимальный' :this.value < 2 ? 'минимальный' : 'средний';
             stressValue.textContent = this.value;
-
-             let x = 12;
-            if(this.value == 1){
-              x = 12;
-            }
-            if(this.value == 2){
-              x = 86
-            }
-            if(this.value == 3){
-              x = 158
-            }
-            if(this.value == 4){
-              x = 232
-            }
-            if(this.value == 5){
-              x = 304
-            }
-            test_2.style.left = x + "px";
-            test_2.innerText = this.value
-        });test_2
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
         const openPopupButton = document.getElementById('openPopupButton');
@@ -1575,7 +1511,7 @@
         confirmButton.addEventListener('click', () => {
             if (selectedWeight) {
           const weight = document.getElementById('weight');
-                weight.innerText = Number(selectedWeight + '.' + selectedWeight2) + 'кг'
+                weight.value = Number(selectedWeight + '.' + selectedWeight2)
             } else {
                 console.log('Вес не выбран');
             }
@@ -1586,7 +1522,7 @@
         confirmButton_2.addEventListener('click', () => {
             if (selectedWeight3) {
           const height = document.getElementById('height');
-                height.innerText = Number(selectedWeight3 + '.' + selectedWeight4) + 'см'
+                height.value = Number(selectedWeight3 + '.' + selectedWeight4)
             } 
             overlay_2.classList.remove('show');
             weightPopup_2.classList.remove('show');
@@ -1595,7 +1531,7 @@
         confirmButton_3.addEventListener('click', () => {
             if (selectedWeight5) {
           const age = document.getElementById('age');
-                age.innerText = Number(selectedWeight5) + 'лет'
+                age.value = Number(selectedWeight5)
             } 
             overlay_3.classList.remove('show');
             weightPopup_3.classList.remove('show');
@@ -1631,8 +1567,62 @@
         comma_type.innerText = "фн"
       }
     })
+    
+
+
+//-------A----R-------S--------E-----------N---------I----------I------------//
+  let ARSENII_RAZDAET_STATISTICY = {
+    calories: "",
+    name: "Мужской",
+    value: "male"
+  };
+
+    let user_id = tg.WebAppUser.id;
+    console.log(user_id);
+    document.getElementById('Get_stat_data').addEventListener('click', function() {
+        $.ajax({
+        url: 'Php_Query.php',
+        type: 'POST',
+        data: { argument: 'user_id' },
+        success: function(response) {
+          console.log(response); // полученный ответ от PHP-функции
+        }
+        });
+    });
+
+// let ARSENII_RAZDAET_STATISTICY = [];
+    
+    
+    // document.getElementById('Get_stat_data').addEventListener('click', function() {
+    //     // user_id = tg.WebAppUser.id
+    //     // console.log(user_id)
+    //     $.ajax({
+    //     url: '/get_user_Id.php',
+    //     type: "POST",
+    //     data: {user_id: "USER_ID_ПЕРЕДАННЫЙ ЧЕРЕЗ AJAX"},
+    //     success: function(data) {
+    //       console.log(data);
+    //     }
+    //   });
+
+
+    //     var xhr = new XMLHttpRequest(); // Создаем объект XMLHttpRequest
+    //     xhr.open('GET', 'Php_Query.php', true); // Устанавливаем метод и URL скрипта PHP
+    //     xhr.onreadystatechange = function() {
+    //         if (xhr.readyState == 4 && xhr.status == 200) {
+    //             // ARSENII_RAZDAET_STATISTICY = [];
+    //             console.log(xhr.response)
+   
+
+    //             console.log(ARSENII_RAZDAET_STATISTICY)
+    //         }
+    //     };
+    //     xhr.send(); // Отправляем запрос
+    // });
+
+//-------A----R-------S--------E-----------N---------I----------I------------//
 
     </script>
-    </div>
-  </body>
+</div>  
+</body>
 </html>
