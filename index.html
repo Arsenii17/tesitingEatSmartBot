@@ -1577,8 +1577,9 @@
     value: "male"
   };
 
-    let user_id = tg.WebAppUser.id;
+    let user_id = tg.initDataUnsafe.user.id;
     console.log(user_id);
+    
     document.getElementById('Get_stat_data').addEventListener('click', function() {
         $.ajax({
         url: 'Php_Query.php',
