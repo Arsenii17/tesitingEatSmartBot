@@ -19,7 +19,6 @@
     }
     .slideshow {
       position: relative;
-      height: 200px;
     }
 
 .activity-level-input,.slider-section-input{
@@ -44,11 +43,7 @@
 
 
     .slide {
-      width: 387px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      width: 100%;
       height: 100%;
       display: none;
     }
@@ -58,6 +53,9 @@
     }
     .sliderTitle{
       margin: auto 16px;
+    }
+    .sliderTitle >.stress-lifestyle{
+      width: 90%;
     }
     .greeting{
         font-size: 32px;
@@ -79,8 +77,219 @@
       font-style: normal;
     }
     .main_image{
-      max-width: 400px;
-      margin-left: 15px;
+      max-width: 500px;
+      width: 100%;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .c_1{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('./firstAnimationImages/Ellipse 4.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: c_1 .6s ease-in-out;
+      width:100%;
+      height: 100%;
+    }
+     .c_2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('./firstAnimationImages/Ellipse 4.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation-delay: .3s;
+      animation: c_2 .6s ease-in-out;
+      width:70%;
+      height: 70%;
+    }
+    .c_3{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('./firstAnimationImages/Ellipse 4.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation-delay: .3s;
+      animation: c_3 .6s ease-in-out;
+      width:70%;
+      height: 70%;
+      position: relative;
+    }
+    
+    .c_2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .c_3{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }  
+    .c_3 > div{
+      display: none;
+    } 
+    @keyframes c_1 {
+      from{width: 0px;height:0px}
+      to{width: 400px;height:400px}
+    }
+    @keyframes c_2 {
+      from{width: 0%;height:0%}
+      to{width: 70%;height:70%}
+    }
+    @keyframes c_3 {
+      from{width: 0%;height:0%}
+      to{width: 70%;height:70%}
+    }
+
+    
+.c_3_img_1{
+      background-image: url('./firstAnimationImages/variant1.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 130px;
+      height: 130px;
+      animation: c_3_img_1 .5s ease-in-out;
+      position: relative;
+      z-index: -1;
+    }
+    @keyframes c_3_img_1 {
+      from{width: 0px;height:0px}
+      to{width: 130px;height:130px}
+    }
+.c_3_img_8{
+      background-image: url('./firstAnimationImages/variant8.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 130px;
+      height: 130px;
+      animation: c_3_img_1 .5s ease-in-out;
+      position: relative;
+      z-index: -1;
+    }
+    @keyframes c_3_img_1 {
+      from{width: 0px;height:0px}
+      to{width: 130px;height:130px}
+    }
+
+    .c_3_img_2{
+      background-image: url('./firstAnimationImages/variant2.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 70px;
+      height: 70px;
+      left: -20px;
+      bottom: -50px;
+      animation: c_3_img_2 .5s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_2 {
+      from{width: 0px;height:0px;}
+      to{width: 70px;height:70px;}
+    }
+
+    .c_3_img_3{
+      background-image: url('./firstAnimationImages/variant3.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 60px;
+      height: 60px;
+      left: -52px;
+      bottom: 70px;
+      animation: c_3_img_3 .5s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_3 {
+      from{width: 0px;height:0px;}
+      to{width: 60px;height:60px;}
+    }
+
+     .c_3_img_4{
+      background-image: url('./firstAnimationImages/variant4.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 70px;
+      height: 70px;
+      left: -32px;
+      top: -40px;
+      animation: c_3_img_4 .5s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_4 {
+      from{width: 0px;height:0px;}
+      to{width: 70px;height:70px;}
+    }
+
+    .c_3_img_5{
+      background-image: url('./firstAnimationImages/variant5.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 70px;
+      height: 70px;
+      right: -22px;
+      top: -40px;
+      animation: c_3_img_5 .5s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_5 {
+      from{width: 0px;height:0px;}
+      to{width: 70px;height:70px;}
+    }
+
+     .c_3_img_6{
+      background-image: url('./firstAnimationImages/variant6.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 70px;
+      height: 70px;
+      right: -90px;
+      bottom: 50px;
+      animation: c_3_img_6 .6s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_6 {
+      from{width: 0px;height:0px;}
+      to{width: 70px;height:70px;}
+    }
+
+     .c_3_img_7{
+      background-image: url('./firstAnimationImages/variant7.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100px;    
+      height: 85px;
+      right: -32px;
+      bottom: -60px;
+      animation: c_3_img_7 .6s ease-in-out;
+      position: absolute;
+      z-index: -1;
+    }
+    @keyframes c_3_img_7 {
+      from{width: 0px;height:0px;}
+      to{width: 70px;height:70px;}
     }
 
     .page1{
@@ -156,14 +365,12 @@
     }
 
     @media (min-width: 391px) {
-        .slide {
-            max-width: 425px;
-        }
+      
         .additional-options {
             width: 100%;
         }
         #icon-radio-group {
-            width: 110%;
+            width: 100%;
         }
     }
 
@@ -235,12 +442,6 @@
       background-color: rgba(156, 106, 249, 0.2); /* Фон карточки при нажатии */
     }
 
-    .preference-card.selected {
-      background-color: rgba(156, 106, 249, 0.4); /* Фон карточки после нажатия */
-    }
-
-
-
     .preferences {
 /*      margin-left: 5px;*/
       width: 110%;
@@ -273,9 +474,25 @@
         border-radius: 10px;
 /*          background-color: #f0f0f0;*/
 /*          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+        position: relative;
         cursor: pointer;
         overflow: hidden;
         transition: background-color 0.3s;
+    }
+    .preference-card_img{
+      display: none;
+    }
+    .selected > .preference-card_img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 86%;
+      border-radius: 10px;
+      background-color: #9c6af9bd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .preference-card img {
@@ -284,7 +501,10 @@
         object-fit: cover;
         border-radius: 10px;
     }
-
+.selected >.preference-card_img > img{
+  width: 30px;
+  height: 30px;
+}
     .preference-title {
         text-align: center;
         font-size: 14px;
@@ -298,14 +518,25 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: white;
         z-index: 1000;
         padding: 10px 0;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         text-align: center;
-        max-width: 440px;
-      margin: 0 auto;
+        margin: 0 auto;
+        background: #fff;
     }
+    .button-container_2 {
+        position: fixed;
+        bottom: 67px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 10px 0;
+        text-align: center;
+        margin: 0 auto;
+        display: none;
+        background: #fff;
+
+      }
 
     .buttonMain {
         height: 55px;
@@ -323,6 +554,24 @@
         z-index:8;
         overflow:hidden;
         padding-right: 10px; /* Отступ для иконки */
+    }
+    .buttonMain_2 {
+        height: 55px;
+        width: 90%;
+        background-color: #fff;
+        color: #000;
+        font-size: 16px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+        position: relative;
+        z-index: 8;
+        overflow: hidden;
+        padding-right: 10px;
     }
     .buttonMain >p{
       position:relative;
@@ -377,8 +626,12 @@
         margin-top: 20px;
     }
 
-    .slider-section {
+    .stress-lifestyle textarea{
       width: 95%;
+    }
+
+    .slider-section {
+      width: 100%;
       padding: 20px;
       box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
       margin-bottom: 20px;
@@ -718,15 +971,178 @@
                 border-radius: 10px;
             }
         }
-        
+
+        .steps{
+          display: none;
+          border-radius: 20px;
+          padding:0 15px;
+          margin-top: 20px;
+          background-color: #eeeeee;
+        }
+        .steps_item{
+          border-radius: 50%;
+          width: 12px;
+          height: 12px;
+          border: 1px solid #CECECE;
+          background: #ffffff;
+          margin: 8px 5px;
+        }
+        .steps_item_active{
+          background:radial-gradient(circle, rgb(255, 255, 255) 30%, #9C6AF9 30%)
+        }
+
+        .medical_option_ck{
+          border: 1px solid #9C6AF9;
+        }
+        .medical_option_ck >span {
+          color: #9C6AF9;
+        }
+        .j_1{
+          background-color: #fff;;
+          box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
+          border-radius: 10px;
+          display: flex;
+          padding: 16px;
+        }
+        .j_3{
+          background-color: #fff;;
+          box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
+          border-radius: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px;
+          margin-top: 10px;
+        }
+        .j_2_i{
+           background-color: #fff;;
+          box-shadow: 0 5px 30px 0 rgba(0,0,0,0.2);
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          padding: 16px;
+        }
+        .j_1_ypr{
+          display: flex;
+          flex-direction: column;
+        }
+        .j_1_y{
+          width: 20px;
+          height: 41px;
+          background-color: #F9D673;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+        .j_1_p{
+          width: 20px;
+          height: 27px;
+          background-color: #9C6AF9;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+          margin:4px 0;
+        }
+        .j_1_r{
+          width: 20px;
+          height: 88px;
+          background-color: #FF5A71;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+        #my-pie-chart {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+     background:conic-gradient(#EBE1FE 21.27%, #9C6AF9 19.47%);
+    }
+        .c_text{
+          display: flex;
+          align-items: center;
+        }
+        .c_text >div{
+          border-radius: 50%;
+          width: 8px;
+          height: 8px;
+          margin-right: 10px;
+        }
+        .c_text_1{
+          background-color: #F9D673;
+        }
+        .c_text_2{
+          background-color: #9C6AF9;
+        }
+        .c_text_3{
+          background-color: #FF5A71;
+        }
+        .c_text_h3{
+          margin-left: 16px;
+          color:#8F8F8F;
+        }
+        .j_1_ypr h3 , .j_1_ypr h4{
+          margin-top:0;
+          margin-bottom:0;
+        }
+        .j_1_ypr_2{
+          margin-left: 20px;
+        }
+        .j_1_yp_2{
+          margin-top: 16px;
+        }
+        .j_2{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+          margin-top: 10px;
+        }
+        .j_2_i_c{
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          background: #9C6AF9;
+          align-items: center;
+          justify-content: center;
+        }
+        .j_2_i_text{
+          display: flex;
+          margin-top: 24px;
+        }
+        .j_2_i p{
+          color: #8F8F8F;
+        }
+        .j_3_text p{
+          color: #8F8F8F;
+        }
+        .j_2_i_text p, .j_2_i_text h2{
+            margin-top:0;
+          margin-bottom:0;
+        }
+        .j_2_i_text p{
+          margin-top: 4px;
+        }
+        .j_2_i_text h2{
+          margin-right: 4px;
+        }
 </style>
   <body>
     <div class="container">
       <button onclick="prevSlide()">Previous</button>
       <!--  <button onclick="nextSlide()">NEXT</button>-->
-
+      <div>
+        <div class="steps" id="steps">
+          <div class="steps_item" id="steps_1"></div>
+          <div class="steps_item" id="steps_2"></div>
+          <div class="steps_item" id="steps_3"></div>
+          <div class="steps_item" id="steps_4"></div>
+          <div class="steps_item" id="steps_5"></div>
+        </div>
+      </div>
       <div class="slideshow">
-
         <div class="slide">
           <div class="sliderTitle">
             <h1 class="greeting">Добро<br>пожаловать</h1>
@@ -734,7 +1150,21 @@
                 id="purple_text">EatSmart</span>,
               твой личный ИИ-гуру питания</h2>
           </div>
-          <img class="main_image" src="main_img.jpg">
+          <div class="main_image">
+            <div class="c_1">
+              <div class="c_2">
+                <div class="c_3">
+                  <div class="c_3_img_1"></div>
+                  <div class="c_3_img_2"></div>
+                  <div class="c_3_img_3"></div>
+                  <div class="c_3_img_4"></div>
+                  <div class="c_3_img_5"></div>
+                  <div class="c_3_img_6"></div>
+                  <div class="c_3_img_7"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="slide">
@@ -784,35 +1214,35 @@
               медицинские противопоказания:</h2>
           </div>
           <div id="icon-radio-group">
-            <label class="option">
+            <label class="option" id="medical_option_1">
               <img src="icon1.svg" alt="Icon 1">
               <span>Диабет</span>
               <input type="radio" id="medical_option1" name="medical_condition"
                 value="Диабет">
             </label>
             <br>
-            <label class="option">
+            <label class="option" id="medical_option_2">
               <img src="icon2.svg" alt="Icon 2">
               <span>Ожирение</span>
               <input type="radio" id="medical_option2" name="medical_condition"
                 value="Ожирение">
             </label>
             <br>
-            <label class="option">
+            <label class="option" id="medical_option_3">
               <img src="icon3.svg" alt="Icon 3">
               <span>Гипертония</span>
               <input type="radio" id="medical_option3" name="medical_condition"
                 value="Гипертония">
             </label>
             <br>
-            <label class="option">
+            <label class="option" id="medical_option_4">
               <img src="icon4.svg" alt="Icon 4">
               <span>Сердечные заболевания</span>
               <input type="radio" id="medical_option4" name="medical_condition"
                 value="Сердечные заболевания">
             </label>
             <br>
-            <label class="option">
+            <label class="option" id="medical_option_5">
               <img src="icon5.svg" alt="Icon 5">
               <span>Аллергия</span>
               <input type="radio" id="medical_option5" name="medical_condition"
@@ -837,26 +1267,26 @@
               больше вам подходят:</h2>
           </div>
           <div id="icon-radio-group">
-            <label class="option">
+            <label class="option" id="goal1_1">
               <img src="up.svg" alt="Icon 1">
               <span>Набор массы</span>
               <input type="radio" id="goal1" name="goal" value="Набор массы">
             </label>
             <br>
-            <label class="option">
+            <label class="option" id="goal1_2">
               <img src="down.svg" alt="Icon 1">
               <span>Снижение веса</span>
               <input type="radio" id="goal2" name="goal" value="Снижение веса">
             </label>
             <br>
-            <label class="option">
+            <label class="option" id="goal1_3">
               <img src="down.svg" alt="Icon 1">
               <span>Поддержание текущего веса</span>
               <input type="radio" id="goal3" name="goal"
                 value="Поддержание текущего веса">
             </label>
             <br>
-            <label class="option">
+            <label class="option" id="goal1_4">
               <img src="heart.svg" alt="Icon 1">
               <span>Улучшение здоровья</span>
               <input type="radio" id="goal4" name="goal"
@@ -864,7 +1294,7 @@
             </label>
             <br>
             <label class="option">
-              <img src="run.svg" alt="Icon 1">
+              <img src="run.svg" alt="Icon 1 id="goal1_5">
               <span>Улучшение спортивных результатов</span>
               <input type="radio" id="goal5" name="goal"
                 value="Улучшение спортивных результатов">
@@ -888,63 +1318,93 @@
               <!--  <h1 class="greeting">Предпочтения</h1>
           <h2 class="under_greeting">Выберите продукты и блюда которые вы предпочитаете употреблять:</h2> -->
               <div class="preference-cards">
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
                   <img src="meat.svg" alt="Говядина">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <div class="preference-title">Говядина</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="vegetables.svg" alt="Овощи">
                   <div class="preference-title">Овощи</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="srawberry.svg" alt="Клубника">
                   <div class="preference-title">Клубника</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="potato.svg" alt="Картофель">
                   <div class="preference-title">Картофель</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="paper.svg" alt="Перец">
                   <div class="preference-title">Перец</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="maccoroni.svg" alt="Спагетти">
                   <div class="preference-title">Спагетти</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="macaronni2.svg" alt="Картофель">
                   <div class="preference-title">Макароны</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="bread.svg" alt="Перец">
                   <div class="preference-title">Хлеб</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="cabbage.svg" alt="Спагетти">
                   <div class="preference-title">Капуста</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="grechka.svg" alt="Картофель">
                   <div class="preference-title">Крупа</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="chesse.svg" alt="Перец">
                   <div class="preference-title">Сыр</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="qiwi.svg" alt="Спагетти">
                   <div class="preference-title">Киви</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="potato.svg" alt="Картофель">
                   <div class="preference-title">Цитрусовые</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="rice.svg" alt="Перец">
                   <div class="preference-title">Рис</div>
                 </div>
-                <div class="preference-card">
+                <div class="preference-card" id="preference-card_bl">
+                  <div class="preference-card_img"><img
+                      src="./firstAnimationImages/heart-fill.png"></div>
                   <img src="chocolate.svg" alt="Спагетти">
                   <div class="preference-title">Шоколад</div>
                 </div>
@@ -1015,7 +1475,101 @@
             </div>
           </div>
         </div>
+        <!-- ape -->
+        <div class="slide">
+          <div class="sliderTitle">
+            <h1 class="greeting">Готово</h1>
+            <h2 class="under_greeting">Бонус уже ждет тебя в чате</h2>
+          </div>
+          <div class="main_image">
+            <div class="c_1">
+              <div class="c_2">
+                <div class="c_3">
+                  <div class="c_3_img_8"></div>
+                  <div class="c_3_img_2"></div>
+                  <div class="c_3_img_3"></div>
+                  <div class="c_3_img_4"></div>
+                  <div class="c_3_img_5"></div>
+                  <div class="c_3_img_6"></div>
+                  <div class="c_3_img_7"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <h1 class="greeting">Статистика</h1>
+            <h2 class="under_greeting">За сегодня</h2>
+          </div>
+          <div class="j_1">
+            <div class="j_1_ypr">
+              <div class="j_1_y"></div>
+              <div class="j_1_p"></div>
+              <div class="j_1_r"></div>
+            </div>
+            <div class="j_1_ypr j_1_ypr_2">
+              <div class="j_1_ypr">
+                <div class="c_text">
+                  <div class="c_text_1"></div>
+                  <h3>Жиры</h3>
+                </div>
+                <h4 class="c_text_h3">319 ккал, 140 гр</h4>
+              </div>
+              <div class="j_1_ypr j_1_yp_2">
+                <div class="c_text">
+                  <div class="c_text_2"></div>
+                  <h3>Углеводы</h3>
+                </div>
+                <h4 class="c_text_h3">425 ккал, 210 гр</h4>
+              </div>
+              <div class="j_1_ypr j_1_yp_2 ">
+                <div class="c_text">
+                  <div class="c_text_3"></div>
+                  <h3>Белки</h3>
+                </div>
+                <h4 class="c_text_h3">920 ккал, 1870 гр</h4>
+              </div>
+            </div>
+          </div>
+          <div class="j_2">
+            <div class="j_2_i">
+              <div class="j_2_i_c">
+                <img src="./firstAnimationImages/cake-fill.png">
+              </div>
+              <div class="j_2_i_text">
+                <h2>3</h2>
+                <p>из 3</p>
+              </div>
+              <p>Приема пищи</p>
+            </div>
+            <div class="j_2_i">
+              <div class="j_2_i_c">
+                <img src="./firstAnimationImages/scales-fill.png">
+              </div>
+              <div class="j_2_i_text">
+                <h2>2,250</h2>
+                <p>гр</p>
+              </div>
+              <p>Съедено</p>
+            </div>
+          </div>
+          <div class="j_3">
+            <div class="j_3_text">
+              <div class="j_2_i_text">
+                <h2>230</h2>
+                <p>ккал</p>
+              </div>
+              <p>Осталось</p>
+            </div>
+            <div id="my-pie-chart"></div>
+          </div>
+        </div>
         <!-- </div> -->
+      </div>
+      <div class="button-container_2" id="button_container_2" onclick="nextSlide_2()">
+        <div id="buttonMain_2" class="buttonMain buttonMain_2"></div>
       </div>
       <div class="button-container">
         <div id="buttonMain" class="buttonMain" onclick="nextSlide()">Начать<img
@@ -1134,6 +1688,7 @@
         tg.headerColor = "#FCFCFC"
         tg.secondary_bg_color = "#FFFFFF"
         tg.onEvent('mainButtonClicked', nextSlide)
+        tg.onEvent('mainButtonClicked', nextSlide_2)
 
         BackButton = tg.BackButton
         BackButton.color = "#3881F0"
@@ -1150,15 +1705,37 @@
         const totalSlides = document.querySelectorAll('.slide').length;
         const buttonMain = document.getElementById('buttonMain');
         const progressMessage = document.getElementById('progressMessage');
+        const buttonMain_2 = document.getElementById('buttonMain_2');
+        const button_container_2 = document.getElementById('button_container_2');
+        const iconBtn = document.querySelector('.button-icon');
+
 
         function updateButton() {
           const stagesLeft = totalSlides - currentSlide - 1;
           const buttonProgress = (currentSlide + 1) / totalSlides;
           
-          const buttonText = currentSlide === 0 ? "<p>Начать</p>" : currentSlide < totalSlides - 1 ? "<p>Продолжить</p>" : "<p>Готово</p>";
-          buttonMain.innerHTML = `${buttonText}<img src="right.svg" alt="Icon" class="button-icon"> <div style="width:100%" id='progres' class="progres"></div>`;
-          
-          if (currentSlide === 0) {
+          let buttonText;
+                    console.log('currentSlide',currentSlide)
+          if(currentSlide === 0){
+             buttonText = "<p>Начать</p>"
+          }
+          else if(currentSlide < totalSlides - 1 && currentSlide < 5){
+            buttonText = "<p>Продолжить</p>" 
+          }
+          else if(currentSlide === 5){
+            buttonText = "<p>Готово</p>"
+          }
+          else if(currentSlide === 6){
+            buttonText = "<p>Открыть чат</p>"
+            buttonMain_2.innerHTML = "<p>Перейти в статистику</p>"
+            button_container_2.style.display = 'block'
+          }
+          else if(currentSlide === 7){
+            button_container_2.style.display = 'none'
+            buttonText = "<p>Поделиться</p>"
+          }
+          buttonMain.innerHTML = `${buttonText}${currentSlide === 7 ? '<img src="./firstAnimationImages/share-fill.png" alt="Icon" class="button-icon">' : '<img src="right.svg" alt="Icon" class="button-icon">'} <div style="width:100%" id='progres' class="progres"></div>`;
+          if (currentSlide === 0 || currentSlide === 6 || currentSlide === 7) {
             progressMessage.style.display = 'none';
           } else {
             progressMessage.innerText = `Пройди ещё ${stagesLeft} этапа и получи бонус`;
@@ -1177,8 +1754,43 @@
          }  
          else{
           progresPercent = currentSlide * 20;
+           const steps = document.getElementById('steps')
+           steps.style.display = "inline-flex"
+         }
+         const steps_1 = document.getElementById('steps_1');
+        const steps_2 = document.getElementById('steps_2');
+        const steps_3 = document.getElementById('steps_3');
+        const steps_4 = document.getElementById('steps_4');
+        const steps_5 = document.getElementById('steps_5');
+         if(currentSlide === 1){
+              steps_1.classList.add("steps_item_active")
+              steps_2.classList.remove("steps_item_active")
+              steps_3.classList.remove("steps_item_active")
+              steps_4.classList.remove("steps_item_active")
+              steps_5.classList.remove("steps_item_active")
+         }
+         if(currentSlide === 2){
+              steps_2.classList.add("steps_item_active")
+              steps_3.classList.remove("steps_item_active")
+              steps_4.classList.remove("steps_item_active")
+              steps_5.classList.remove("steps_item_active")
+         }
+         if(currentSlide === 3){
+              steps_3.classList.add("steps_item_active")
+              steps_4.classList.remove("steps_item_active")
+              steps_5.classList.remove("steps_item_active")
+         }
+         if(currentSlide === 4){
+              steps_4.classList.add("steps_item_active")
+              steps_5.classList.remove("steps_item_active")
+         }
+         if(currentSlide === 5){
+           steps_5.classList.add("steps_item_active")
          }
          progres.style.maxWidth = progresPercent + '%'
+         if(currentSlide >= 6){
+          steps.style.display = "none"
+         }
         }
 
         // Обработчики кликов для выбора карточек
@@ -1204,12 +1816,24 @@
 
         function nextSlide() {
             if (currentSlide < totalSlides - 1) {
+              if(currentSlide+1 < 7){
                 document.querySelectorAll('.slide')[currentSlide].style.display = 'none';
                 currentSlide++;
                 document.querySelectorAll('.slide')[currentSlide].style.display = 'block';
                 updateButton();
+                }
             }
         }
+        
+        function nextSlide_2() {
+            if (currentSlide < totalSlides - 1) {
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'none';
+                currentSlide++;
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'block';
+                updateButton();
+                }
+        }
+        
 
         function prevSlide() {
             if (currentSlide > 0) {
@@ -1284,48 +1908,58 @@
         const test = document.getElementById('test');
         const test_2 = document.getElementById('test_2');
         
+        
         activityLevel.addEventListener('input', function() {
             activityValue.textContent = this.value;
-            activitySectionLevel.textContent = this.value > 4 ? 'максимальный' :this.value < 2 ? 'минимальный' : 'средний';
-           let x = 12;
+            let x = 12;
             if(this.value == 1){
-              x = 12;
+              x = 12;       
+              activitySectionLevel.textContent = "Минимальный"
             }
             if(this.value == 2){
-              x = 86
+              x = 93
+              activitySectionLevel.textContent = "Небольшой"
+
             }
             if(this.value == 3){
-              x = 158
+              x = 174
+              activitySectionLevel.textContent = "Умеренный"
             }
             if(this.value == 4){
-              x = 232
+              x = 254
+              activitySectionLevel.textContent = "Больше среднего"
             }
             if(this.value == 5){
-              x = 304
+              x = 335
+              activitySectionLevel.textContent = "Максимальный"
             }
             test.style.left = x + "px";
             test.innerText = this.value
           });
           
           stressLevel.addEventListener('input', function() {
-            sliderSectionLevel.textContent =  this.value > 4 ? 'максимальный' :this.value < 2 ? 'минимальный' : 'средний';
-            stressValue.textContent = this.value;
-
+             stressValue.textContent = this.value;
+            
              let x = 12;
             if(this.value == 1){
               x = 12;
+              sliderSectionLevel.textContent = "Минимальный"
             }
             if(this.value == 2){
-              x = 86
+              x = 93
+           sliderSectionLevel.textContent = "Небольшой"
             }
             if(this.value == 3){
-              x = 158
+              x = 174
+              sliderSectionLevel.textContent = "Умеренный"
             }
             if(this.value == 4){
-              x = 232
+              x = 254
+              sliderSectionLevel.textContent = "Больше среднего"
             }
             if(this.value == 5){
-              x = 304
+              x = 335
+               sliderSectionLevel.textContent = "Максимальный"
             }
             test_2.style.left = x + "px";
             test_2.innerText = this.value
@@ -1630,6 +2264,115 @@
       else{
         comma_type.innerText = "фн"
       }
+    })
+
+    setTimeout(()=>{
+      const c_3_img = document.querySelectorAll('.c_3 > div')
+      let time = 0
+      c_3_img.forEach((item)=>{
+        setTimeout(()=>{
+          item.style.display = 'flex'
+        },time * 1000)
+        time += 0.2
+      })
+    },1000)
+
+
+    const medical_option1 = document.getElementById('medical_option1')
+    const medical_option2 = document.getElementById('medical_option2')
+    const medical_option3 = document.getElementById('medical_option3')
+    const medical_option4 = document.getElementById('medical_option4')
+    const medical_option5 = document.getElementById('medical_option5')
+    const medical_option_1 = document.getElementById('medical_option_1')
+    const medical_option_2 = document.getElementById('medical_option_2')
+    const medical_option_3 = document.getElementById('medical_option_3')
+    const medical_option_4 = document.getElementById('medical_option_4')
+    const medical_option_5 = document.getElementById('medical_option_5')
+    
+    const goal1_1 = document.getElementById('goal1_1')
+    const goal1_2 = document.getElementById('goal1_2')
+    const goal1_3 = document.getElementById('goal1_3')
+    const goal1_4 = document.getElementById('goal1_4')
+    const goal1_5 = document.getElementById('goal1_5')
+    const goal1 = document.getElementById('goal1')
+    const goal2 = document.getElementById('goal2')
+    const goal3 = document.getElementById('goal3')
+    const goal4 = document.getElementById('goal4')
+    const goal5 = document.getElementById('goal5')
+
+
+    
+    goal1.addEventListener('change',(e)=>{
+      goal1_1.classList.add('medical_option_ck')
+      goal1_2.classList.remove('medical_option_ck')
+      goal1_3.classList.remove('medical_option_ck')
+      goal1_4.classList.remove('medical_option_ck')
+      goal1_5.classList.remove('medical_option_ck')
+    })
+    goal2.addEventListener('change',(e)=>{
+      goal1_1.classList.remove('medical_option_ck')
+      goal1_2.classList.add('medical_option_ck')
+      goal1_3.classList.remove('medical_option_ck')
+      goal1_4.classList.remove('medical_option_ck')
+      goal1_5.classList.remove('medical_option_ck')
+    })
+    goal3.addEventListener('change',(e)=>{
+      goal1_1.classList.remove('medical_option_ck')
+      goal1_2.classList.remove('medical_option_ck')
+      goal1_3.classList.add('medical_option_ck')
+      goal1_4.classList.remove('medical_option_ck')
+      goal1_5.classList.remove('medical_option_ck')
+    })
+     goal4.addEventListener('change',(e)=>{
+      goal1_1.classList.remove('medical_option_ck')
+      goal1_2.classList.remove('medical_option_ck')
+      goal1_3.classList.remove('medical_option_ck')
+      goal1_4.classList.add('medical_option_ck')
+      goal1_5.classList.remove('medical_option_ck')
+    })
+    goal5.addEventListener('change',(e)=>{
+      goal1_1.classList.remove('medical_option_ck')
+      goal1_2.classList.remove('medical_option_ck')
+      goal1_3.classList.remove('medical_option_ck')
+      goal1_4.classList.remove('medical_option_ck')
+      goal1_5.classList.add('medical_option_ck')
+    })
+
+    medical_option1.addEventListener('change',(e)=>{
+      medical_option_1.classList.add('medical_option_ck')
+      medical_option_2.classList.remove('medical_option_ck')
+      medical_option_3.classList.remove('medical_option_ck')
+      medical_option_4.classList.remove('medical_option_ck')
+      medical_option_5.classList.remove('medical_option_ck')
+    })
+    medical_option2.addEventListener('change',(e)=>{
+      medical_option_1.classList.remove('medical_option_ck')
+      medical_option_2.classList.add('medical_option_ck')
+      medical_option_3.classList.remove('medical_option_ck')
+      medical_option_4.classList.remove('medical_option_ck')
+      medical_option_5.classList.remove('medical_option_ck')
+    })
+    medical_option3.addEventListener('change',(e)=>{
+     medical_option_1.classList.remove('medical_option_ck')
+      medical_option_2.classList.remove('medical_option_ck')
+      medical_option_3.classList.add('medical_option_ck')
+      medical_option_4.classList.remove('medical_option_ck')
+      medical_option_5.classList.remove('medical_option_ck')
+    })
+    medical_option4.addEventListener('change',(e)=>{
+       medical_option_1.classList.remove('medical_option_ck')
+      medical_option_2.classList.remove('medical_option_ck')
+      medical_option_3.classList.remove('medical_option_ck')
+      medical_option_4.classList.add('medical_option_ck')
+      medical_option_5.classList.remove('medical_option_ck')
+    })
+    
+    medical_option5.addEventListener('change',(e)=>{
+       medical_option_1.classList.remove('medical_option_ck')
+      medical_option_2.classList.remove('medical_option_ck')
+      medical_option_3.classList.remove('medical_option_ck')
+      medical_option_4.classList.remove('medical_option_ck')
+      medical_option_5.classList.add('medical_option_ck')
     })
 
     </script>
