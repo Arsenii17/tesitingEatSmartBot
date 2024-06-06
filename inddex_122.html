@@ -1,0 +1,915 @@
+  <body>
+    <div class="container">
+      <button onclick="prevSlide()">Previous</button>
+      <!--  <button onclick="nextSlide()">NEXT</button>-->
+
+      <div class="slideshow">
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <h1 class="greeting">Добро<br>пожаловать</h1>
+            <h2 class="under_greeting">Это <span
+                id="purple_text">EatSmart</span>,
+              твой личный ИИ-гуру питания</h2>
+          </div>
+          <img class="main_image" src="main_img.jpg">
+        </div>
+
+        <div class="slide">
+          <h1 class="greeting">Основное</h1>
+          <h2 class="under_greeting">Чем больше мы о вас знаем, тем лучше мы
+            сможем вам помочь:</h2>
+          <!-- Пол -->
+          <div class="option1">
+            <span>Пол:</span>
+            <select id="gender" name="gender" style="margin-left: 200px;">
+              <option value="male">Мужской</option>
+              <option value="female">Женский</option>
+            </select>
+          </div>
+          <!-- Вес -->
+          <div class="option1" id="openPopupButton">
+            <span>Вес:</span>
+            <div>
+              <span id="weight">Выберите вес</span>
+              <img src="./down-arrow-svgrepo-com.svg" />
+            </div>
+          </div>
+          <!-- Рост -->
+          <div class="option1" id="openPopupButton_2">
+            <span>Рост:</span>
+            <div>
+              <span id="height">Выберите рост</span>
+              <img src="./down-arrow-svgrepo-com.svg" />
+            </div>
+          </div>
+          <!-- Возраст -->
+          <div class="option1" id="openPopupButton_3">
+            <span>Возраст:</span>
+            <div>
+              <span id="age">Выберите возраст</span>
+              <img src="./down-arrow-svgrepo-com.svg" />
+            </div>
+          </div>
+
+          <!-- <button onclick="printValues()">Вывести значения</button> -->
+        </div>
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <h1 class="greeting">Здоровье</h1>
+            <h2 class="under_greeting">Пожалуйста, укажите все имеющиеся у вас
+              медицинские противопоказания:</h2>
+          </div>
+          <div id="icon-radio-group">
+            <label class="option">
+              <img src="icon1.svg" alt="Icon 1">
+              <span>Диабет</span>
+              <input type="radio" id="medical_option1" name="medical_condition"
+                value="Диабет">
+            </label>
+            <br>
+            <label class="option">
+              <img src="icon2.svg" alt="Icon 2">
+              <span>Ожирение</span>
+              <input type="radio" id="medical_option2" name="medical_condition"
+                value="Ожирение">
+            </label>
+            <br>
+            <label class="option">
+              <img src="icon3.svg" alt="Icon 3">
+              <span>Гипертония</span>
+              <input type="radio" id="medical_option3" name="medical_condition"
+                value="Гипертония">
+            </label>
+            <br>
+            <label class="option">
+              <img src="icon4.svg" alt="Icon 4">
+              <span>Сердечные заболевания</span>
+              <input type="radio" id="medical_option4" name="medical_condition"
+                value="Сердечные заболевания">
+            </label>
+            <br>
+            <label class="option">
+              <img src="icon5.svg" alt="Icon 5">
+              <span>Аллергия</span>
+              <input type="radio" id="medical_option5" name="medical_condition"
+                value="Аллергия">
+            </label>
+            <div class="additional-options">
+              <div class="not-found">Не нашли в списке?</div>
+              <textarea class="medical-conditions"
+                placeholder="Введите здесь все имеющиеся медицинские противопоказания. Не более 600 символов"></textarea>
+            </div>
+            <br>
+            <br>
+            <br>
+
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <h1 class="greeting">Цели</h1>
+            <h2 class="under_greeting">Выберите одну или несколько целей которые
+              больше вам подходят:</h2>
+          </div>
+          <div id="icon-radio-group">
+            <label class="option">
+              <img src="up.svg" alt="Icon 1">
+              <span>Набор массы</span>
+              <input type="radio" id="goal1" name="goal" value="Набор массы">
+            </label>
+            <br>
+            <label class="option">
+              <img src="down.svg" alt="Icon 1">
+              <span>Снижение веса</span>
+              <input type="radio" id="goal2" name="goal" value="Снижение веса">
+            </label>
+            <br>
+            <label class="option">
+              <img src="down.svg" alt="Icon 1">
+              <span>Поддержание текущего веса</span>
+              <input type="radio" id="goal3" name="goal"
+                value="Поддержание текущего веса">
+            </label>
+            <br>
+            <label class="option">
+              <img src="heart.svg" alt="Icon 1">
+              <span>Улучшение здоровья</span>
+              <input type="radio" id="goal4" name="goal"
+                value="Улучшение здоровья">
+            </label>
+            <br>
+            <label class="option">
+              <img src="run.svg" alt="Icon 1">
+              <span>Улучшение спортивных результатов</span>
+              <input type="radio" id="goal5" name="goal"
+                value="Улучшение спортивных результатов">
+            </label>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <button onclick="collectDataAndPrint()">Вывести JSON</button>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <br>
+            <h1 class="greeting">Предпочтения</h1>
+            <h2 class="under_greeting">Выберите продукты и блюда, которые вы
+              предпочитаете употреблять:</h2>
+            <div class="preferences">
+              <!--  <h1 class="greeting">Предпочтения</h1>
+          <h2 class="under_greeting">Выберите продукты и блюда которые вы предпочитаете употреблять:</h2> -->
+              <div class="preference-cards">
+                <div class="preference-card">
+                  <img src="meat.svg" alt="Говядина">
+                  <div class="preference-title">Говядина</div>
+                </div>
+                <div class="preference-card">
+                  <img src="vegetables.svg" alt="Овощи">
+                  <div class="preference-title">Овощи</div>
+                </div>
+                <div class="preference-card">
+                  <img src="srawberry.svg" alt="Клубника">
+                  <div class="preference-title">Клубника</div>
+                </div>
+                <div class="preference-card">
+                  <img src="potato.svg" alt="Картофель">
+                  <div class="preference-title">Картофель</div>
+                </div>
+                <div class="preference-card">
+                  <img src="paper.svg" alt="Перец">
+                  <div class="preference-title">Перец</div>
+                </div>
+                <div class="preference-card">
+                  <img src="maccoroni.svg" alt="Спагетти">
+                  <div class="preference-title">Спагетти</div>
+                </div>
+                <div class="preference-card">
+                  <img src="macaronni2.svg" alt="Картофель">
+                  <div class="preference-title">Макароны</div>
+                </div>
+                <div class="preference-card">
+                  <img src="bread.svg" alt="Перец">
+                  <div class="preference-title">Хлеб</div>
+                </div>
+                <div class="preference-card">
+                  <img src="cabbage.svg" alt="Спагетти">
+                  <div class="preference-title">Капуста</div>
+                </div>
+                <div class="preference-card">
+                  <img src="grechka.svg" alt="Картофель">
+                  <div class="preference-title">Крупа</div>
+                </div>
+                <div class="preference-card">
+                  <img src="chesse.svg" alt="Перец">
+                  <div class="preference-title">Сыр</div>
+                </div>
+                <div class="preference-card">
+                  <img src="qiwi.svg" alt="Спагетти">
+                  <div class="preference-title">Киви</div>
+                </div>
+                <div class="preference-card">
+                  <img src="potato.svg" alt="Картофель">
+                  <div class="preference-title">Цитрусовые</div>
+                </div>
+                <div class="preference-card">
+                  <img src="rice.svg" alt="Перец">
+                  <div class="preference-title">Рис</div>
+                </div>
+                <div class="preference-card">
+                  <img src="chocolate.svg" alt="Спагетти">
+                  <div class="preference-title">Шоколад</div>
+                </div>
+                <!-- Добавьте больше карточек по необходимости -->
+              </div>
+            </div>
+
+            <br>
+            <div class="additional-options">
+              <div class="not-found">Не нашли в списке?</div>
+              <textarea class="medical-conditions"
+                placeholder="Введите здесь все продукты и блюда которые вы предпочитаете употреблять. Не более 600 символов"></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="sliderTitle">
+            <br>
+            <h1 class="greeting">Стресс и образ жизни</h1>
+            <h2 class="under_greeting">Расскажите нам больше о вашем рационе и
+              распорядке дня:</h2>
+            <div class="stress-lifestyle">
+              <div class="slider-section">
+                <label for="activity-level"
+                  style="margin-bottom: 25px;"><b>Уровень активности</b><b
+                    id="activity-section-level">минимальный</b></label>
+                <div class="activity-level-input">
+                  <div class="activity-level-renge">
+                    <div id="test" class='test'>1</div>
+                    <input type="range" id="activity-level"
+                      name="activity-level"
+                      min="1" max="5" value="1">
+                  </div>
+                  <span>5</span>
+                </div>
+                <span id="activity-value">1</span>
+                <p>Выберите свой обычный уровень активности, где <span
+                    id="purple_text">1 - минимальный</span>, а 5 -
+                  максимальный</p>
+              </div>
+              <div class="slider-section">
+                <label for="stress-level" style="margin-bottom: 25px;">
+                  <b>Уровень
+                    стресса</b>
+                  <b id="slider-section_level">минимальный</b>
+                </label>
+                <div class="slider-section-input">
+                  <div class="activity-level-renge">
+                    <div id="test_2" class='test'>1</div>
+                    <input type="range" id="stress-level" name="stress-level"
+                      min="1"
+                      max="5" value="1">
+                  </div>
+                  <span>5</span>
+                </div>
+                <span id="stress-value">1</span>
+                <p>Выберите свой обычный уровень стресса, где <span
+                    id="purple_text">1 - минимальный</span>, а 5 -
+                  максимальный</p>
+              </div>
+
+              <textarea id="description"
+                placeholder="Введите здесь описание вашей обычной физической активности и стресса. Не более 600 символов."
+                maxlength="600"></textarea>
+
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+      <div class="button-container">
+        <div id="buttonMain" class="buttonMain" onclick="nextSlide()">Начать<img
+            src="right.svg" alt="Icon" class="button-icon"><div
+            style="width:100%"
+            id='progres'
+            class="progres"></div></div>
+        <div id="progressMessage" class="progress-message"
+          style="display: none;"></div>
+      </div>
+
+      <div class="overlay" id="overlay"></div>
+
+      <div class="popup" id="weightPopup">
+        <div class="popup-header">
+          <h3>Ваш вес</h3>
+        </div>
+        <div class="option_1">
+          <select id="gender_1" name="gender_1">
+            <option value="kg">Килограммы</option>
+            <option value="fn">Фунты</option>
+          </select>
+        </div>
+        <div class="weight-picker-section">
+          <div class="weight-picker-container">
+            <div id="weightPicker" class="weight-picker">
+              <!-- Options will be populated by JavaScript -->
+            </div>
+            <div class="highlight"></div>
+          </div>
+          <div class="comma">
+            <span>,</span>
+          </div>
+          <div class="weight-picker-container">
+            <div id="weightPicker_2" class="weight-picker">
+              <!-- Options will be populated by JavaScript -->
+            </div>
+            <div class="highlight_2"></div>
+          </div>
+          <div class="comma" id="comma_type">
+            <span>кг</span>
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="cancelButton" class="cancel_button">Отмена</button>
+          <button id="confirmButton" class="confirm_button">OK</button>
+        </div>
+      </div>
+
+      <div class="overlay" id="overlay_2"></div>
+
+      <div class="popup" id="weightPopup_2">
+        <div class="popup-header">
+          <h3>Ваш рост</h3>
+        </div>
+        <div class="weight-picker-section">
+          <div class="weight-picker-container">
+            <div id="weightPicker_2_1" class="weight-picker">
+            </div>
+            <div class="highlight_3"></div>
+          </div>
+          <div class="comma">
+            <span>,</span>
+          </div>
+          <div class="weight-picker-container">
+            <div id="weightPicker_2_2" class="weight-picker">
+            </div>
+            <div class="highlight_4"></div>
+          </div>
+          <div class="comma" id="comma_type_2">
+            <span>см</span>
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="cancelButton_2" class="cancel_button">Отмена</button>
+          <button id="confirmButton_2" class="confirm_button">OK</button>
+        </div>
+      </div>
+
+      <div class="overlay" id="overlay_3"></div>
+
+      <div class="popup" id="weightPopup_3">
+        <div class="popup-header">
+          <h3>Ваш рост</h3>
+        </div>
+        <div class="weight-picker-section">
+          <div class="weight-picker-container">
+            <div id="weightPicker_3_1" class="weight-picker">
+            </div>
+            <div class="highlight_5"></div>
+          </div>
+        </div>
+        <div class="buttons">
+          <button id="cancelButton_3" class="cancel_button">Отмена</button>
+          <button id="confirmButton_3" class="confirm_button">OK</button>
+        </div>
+      </div>
+
+      <script>        
+
+
+        let tg = window.Telegram.WebApp;
+
+           // Определение переменных для хранения данных
+        let userData = {
+          gender: "",
+          weight: "",
+          height: "",
+          age: "",
+          medicalCondition: "",
+          goal: ""
+        };
+
+        tg.expand()
+        tg.backgroundColor = "#FCFCFC"
+        tg.headerColor = "#FCFCFC"
+        tg.secondary_bg_color = "#FFFFFF"
+        tg.onEvent('mainButtonClicked', nextSlide)
+
+        BackButton = tg.BackButton
+        BackButton.color = "#3881F0"
+
+        tg.onEvent('backButtonClicked', prevSlide)
+
+        tg.SettingsButton.show()
+        // tg.extend()
+        // tg.expand()
+
+        const slideshow = document.getElementById('slideshow');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        const buttonMain = document.getElementById('buttonMain');
+        const progressMessage = document.getElementById('progressMessage');
+
+        function updateButton() {
+          const stagesLeft = totalSlides - currentSlide - 1;
+          const buttonProgress = (currentSlide + 1) / totalSlides;
+          
+          const buttonText = currentSlide === 0 ? "<p>Начать</p>" : currentSlide < totalSlides - 1 ? "<p>Продолжить</p>" : "<p>Готово</p>";
+          buttonMain.innerHTML = `${buttonText}<img src="right.svg" alt="Icon" class="button-icon"> <div style="width:100%" id='progres' class="progres"></div>`;
+          
+          if (currentSlide === 0) {
+            progressMessage.style.display = 'none';
+          } else {
+            progressMessage.innerText = `Пройди ещё ${stagesLeft} этапа и получи бонус`;
+            progressMessage.style.display = 'block';
+          }
+          
+          buttonMain.style.backgroundColor = `rgba(156, 106, 249, ${buttonProgress})`;
+          progresButton()
+        }
+
+        function progresButton (){
+          const progres = document.getElementById('progres');
+          let progresPercent = 0;
+          if(currentSlide === 0 || currentSlide === 5){
+            progresPercent = 100;
+         }  
+         else{
+          progresPercent = currentSlide * 20;
+         }
+         progres.style.maxWidth = progresPercent + '%'
+        }
+
+        // Обработчики кликов для выбора карточек
+        document.querySelectorAll('.preference-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('.preference-title').innerText;
+                
+                // Переключение класса selected
+                card.classList.toggle('selected');
+
+                // Логика для отображения в консоли выбранных карточек
+                if (card.classList.contains('selected')) {
+                    console.log(`Вы выбрали: ${title}`);
+                } else {
+                    console.log(`Вы убрали выбор: ${title}`);
+                }
+            });
+        });
+
+
+
+
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'none';
+                currentSlide++;
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'block';
+                updateButton();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'none';
+                currentSlide--;
+                document.querySelectorAll('.slide')[currentSlide].style.display = 'block';
+                updateButton();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateButton();
+        });
+
+
+
+        function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index? 'block' : 'none';
+        });
+        }
+        // const radioGroup = document.getElementById('radio-group');
+        // const radios = radioGroup.querySelectorAll('input[type="radio"]');
+
+        // radios.forEach(radio => {
+        //   radio.addEventListener('change', () => {
+        //     console.log(`Selected option: ${radio.value}`);
+        //   });
+        // });
+
+        // function encheckbox(option_num) {
+        //   console.log(option_num);
+
+        // }
+
+     
+        // Функция для сбора данных и вывода в консоль
+        function collectData() {
+          // Получение значений с первого экрана
+          userData.gender = document.getElementById('gender').value;
+          userData.height = document.getElementById('height').value;
+          userData.age = document.getElementById('age').value;
+
+          // Получение выбранного медицинского состояния со второго экрана
+          const medicalConditions = document.querySelectorAll('input[name="medical_condition"]');
+          medicalConditions.forEach(condition => {
+            if (condition.checked) {
+              userData.medicalCondition = condition.value;
+            }
+          });
+
+          // Получение выбранной цели с третьего экрана
+          const goals = document.querySelectorAll('input[name="goal"]');
+          goals.forEach(goal => {
+            if (goal.checked) {
+              userData.goal = goal.value;
+            }
+          });
+
+          // console.log(JSON.stringify(userData));
+        }
+        function collectDataAndPrint() {
+          collectData();
+        }
+
+        const activityLevel = document.getElementById('activity-level');
+        const activityValue = document.getElementById('activity-value');
+        const stressLevel = document.getElementById('stress-level');
+        const stressValue = document.getElementById('stress-value');
+        const sliderSectionLevel = document.getElementById('slider-section_level');
+        const activitySectionLevel = document.getElementById('activity-section-level');
+        const test = document.getElementById('test');
+        const test_2 = document.getElementById('test_2');
+        
+        activityLevel.addEventListener('input', function() {
+            activityValue.textContent = this.value;
+            activitySectionLevel.textContent = this.value > 4 ? 'максимальный' :this.value < 2 ? 'минимальный' : 'средний';
+           let x = 12;
+            if(this.value == 1){
+              x = 12;
+            }
+            if(this.value == 2){
+              x = 86
+            }
+            if(this.value == 3){
+              x = 158
+            }
+            if(this.value == 4){
+              x = 232
+            }
+            if(this.value == 5){
+              x = 304
+            }
+            test.style.left = x + "px";
+            test.innerText = this.value
+          });
+          
+          stressLevel.addEventListener('input', function() {
+            sliderSectionLevel.textContent =  this.value > 4 ? 'максимальный' :this.value < 2 ? 'минимальный' : 'средний';
+            stressValue.textContent = this.value;
+
+             let x = 12;
+            if(this.value == 1){
+              x = 12;
+            }
+            if(this.value == 2){
+              x = 86
+            }
+            if(this.value == 3){
+              x = 158
+            }
+            if(this.value == 4){
+              x = 232
+            }
+            if(this.value == 5){
+              x = 304
+            }
+            test_2.style.left = x + "px";
+            test_2.innerText = this.value
+        });test_2
+
+        document.addEventListener('DOMContentLoaded', () => {
+        const openPopupButton = document.getElementById('openPopupButton');
+        const openPopupButton_2 = document.getElementById('openPopupButton_2');
+        const openPopupButton_3 = document.getElementById('openPopupButton_3');
+        const overlay = document.getElementById('overlay');
+        const overlay_2 = document.getElementById('overlay_2');
+        const overlay_3 = document.getElementById('overlay_3');
+        const weightPopup = document.getElementById('weightPopup');
+        const weightPopup_2 = document.getElementById('weightPopup_2');
+        const weightPopup_3 = document.getElementById('weightPopup_3');
+        const weightPicker = document.getElementById('weightPicker');
+        const weightPicker_2_1 = document.getElementById('weightPicker_2_1');
+        const weightPicker_2_2 = document.getElementById('weightPicker_2_2');
+        const weightPicker_3_1 = document.getElementById('weightPicker_3_1');
+        const weightPicker_2 = document.getElementById('weightPicker_2');
+        const confirmButton = document.getElementById('confirmButton');
+        const confirmButton_2 = document.getElementById('confirmButton_2');
+        const confirmButton_3 = document.getElementById('confirmButton_3');
+        const cancelButton_3 = document.getElementById('cancelButton_3');
+        const cancelButton = document.getElementById('cancelButton');
+        const cancelButton_2 = document.getElementById('cancelButton_2');
+
+        // Populate weight picker
+        for (let i = 26; i <= 154; i++) {
+          if(i < 30 || i > 150){
+            let weightOption = document.createElement('div');
+            weightPicker.appendChild(weightOption);
+          }
+          else{
+            let weightOption = document.createElement('div');
+            weightOption.textContent = `${i}`;
+            weightOption.dataset.value = i;
+            weightPicker.appendChild(weightOption);
+        }
+       }
+
+        for (let i = 46; i <= 200; i++) {
+               if(i < 50 || i > 196){
+            let weightOption = document.createElement('div');
+            weightPicker_2_1.appendChild(weightOption);
+          }
+          else{
+            let weightOption = document.createElement('div');
+            weightOption.textContent = `${i}`;
+            weightOption.dataset.value = i;
+            weightPicker_2_1.appendChild(weightOption);
+        }
+        }
+
+        for (let i = 12; i <= 79; i++) {
+               if(i < 16 || i > 75){
+            let weightOption = document.createElement('div');
+            weightPicker_3_1.appendChild(weightOption);
+          }
+          else{
+            let weightOption = document.createElement('div');
+            weightOption.textContent = `${i}`;
+            weightOption.dataset.value = i;
+            weightPicker_3_1.appendChild(weightOption);
+        }
+        }
+
+       for (let i = -3; i <= 13; i++) {
+          if(i < 1 || i > 9){
+            let weightOption = document.createElement('div');
+            let weightOption_2 = document.createElement('div');
+            weightPicker_2.appendChild(weightOption);
+            weightPicker_2_2.appendChild(weightOption_2);
+          }
+          else{
+            let weightOption = document.createElement('div');
+            let weightOption_2 = document.createElement('div');
+            weightOption.textContent = `${i} `;
+            weightOption.dataset.value = i;
+            weightOption_2.textContent = `${i} `;
+            weightOption_2.dataset.value = i;
+            weightPicker_2.appendChild(weightOption);
+            weightPicker_2_2.appendChild(weightOption_2);
+
+        }
+       }
+
+        openPopupButton.addEventListener('click', () => {
+            overlay.classList.add('show');
+            weightPopup.classList.add('show');
+        });
+
+         openPopupButton_2.addEventListener('click', () => {
+            overlay_2.classList.add('show');
+            weightPopup_2.classList.add('show');
+        });
+         openPopupButton_3.addEventListener('click', () => {
+            overlay_3.classList.add('show');
+            weightPopup_3.classList.add('show');
+        });
+
+        cancelButton.addEventListener('click', () => {
+            overlay.classList.remove('show');
+            weightPopup.classList.remove('show');
+        });
+
+        cancelButton_2.addEventListener('click', () => {
+            overlay_2.classList.remove('show');
+            weightPopup_2.classList.remove('show');
+        });
+
+        cancelButton_3.addEventListener('click', () => {
+            overlay_3.classList.remove('show');
+            weightPopup_3.classList.remove('show');
+        });
+
+        let selectedWeight = null;
+        let selectedWeight2 = null;
+        let selectedWeight3 = null;
+        let selectedWeight4 = null;
+        let selectedWeight5 = null;
+
+        const updateSelection = () => {
+            const rect = weightPicker.getBoundingClientRect();
+            const rect_2 = weightPicker_2.getBoundingClientRect();
+            const rect_3 = weightPicker_2_1.getBoundingClientRect();
+            const rect_4 = weightPicker_2_2.getBoundingClientRect();
+            const rect_5 = weightPicker_3_1.getBoundingClientRect();
+            const center = rect.top + rect.height / 2;
+            const center_2 = rect_2.top + rect_2.height / 2;
+            const center_3 = rect_3.top + rect_3.height / 2;
+            const center_4 = rect_4.top + rect_4.height / 2;
+            const center_5 = rect_5.top + rect_5.height / 2;
+
+            const items = Array.from(weightPicker.children);
+            const items_2 = Array.from(weightPicker_2.children);
+            const items_3 = Array.from(weightPicker_2_1.children);
+            const items_4 = Array.from(weightPicker_2_2.children);
+            const items_5 = Array.from(weightPicker_3_1.children);
+            let closest = null;
+            let closest_2 = null;
+            let closest_3 = null;
+            let closest_4 = null;
+            let closest_5 = null;
+
+            let minDiff = Infinity;
+            let minDiff_2 = Infinity;
+            let minDiff_3 = Infinity;
+            let minDiff_4 = Infinity;
+            let minDiff_5 = Infinity;
+
+            items.forEach(item => {
+              const itemRect = item.getBoundingClientRect();
+              const itemCenter = itemRect.top + itemRect.height / 2;
+              const diff = Math.abs(center - itemCenter);
+              if (diff < minDiff) {
+                minDiff = diff;
+                closest = item;
+              }
+            });
+            items_2.forEach(item => {
+                const itemRect = item.getBoundingClientRect();
+                const itemCenter = itemRect.top + itemRect.height / 2;
+                const diff = Math.abs(center_2 - itemCenter);
+                if (diff < minDiff_2) {
+                    minDiff_2 = diff;
+                    closest_2 = item;
+                }
+            })
+
+            items_3.forEach(item => {
+                const itemRect = item.getBoundingClientRect();
+                const itemCenter = itemRect.top + itemRect.height / 2;
+                const diff = Math.abs(center_3 - itemCenter);
+
+                if (diff < minDiff_3) {
+                    minDiff_3 = diff;
+                    closest_3 = item;
+                }
+            })
+
+            items_4.forEach(item => {
+              const itemRect = item.getBoundingClientRect();
+              const itemCenter = itemRect.top + itemRect.height / 2;
+              const diff = Math.abs(center_4 - itemCenter);
+
+              if (diff < minDiff_4) {
+                minDiff_4 = diff;
+                closest_4 = item;
+              }
+            })
+
+            items_5.forEach(item => {
+              const itemRect = item.getBoundingClientRect();
+              const itemCenter = itemRect.top + itemRect.height / 2;
+              const diff = Math.abs(center_5 - itemCenter);
+
+              if (diff < minDiff_5) {
+                minDiff_5 = diff;
+                closest_5 = item;
+              }
+            })
+
+            if (closest) {
+                items.forEach(item => item.classList.remove('selected'));
+                closest.classList.add('selected');
+                selectedWeight = closest.dataset.value;
+              }
+              if(closest_2){
+                items_2.forEach(item => item.classList.remove('selected'));
+                closest_2.classList.add('selected');
+                selectedWeight2 = closest_2.dataset.value;
+              }
+              if(closest_3){
+                items_3.forEach(item => item.classList.remove('selected'));
+                closest_3.classList.add('selected');
+                selectedWeight3 = closest_3.dataset.value;
+              }
+              if(closest_4){
+                items_4.forEach(item => item.classList.remove('selected'));
+                closest_4.classList.add('selected');
+                selectedWeight4 = closest_4.dataset.value;  
+             }
+              if(closest_5){
+                items_5.forEach(item => item.classList.remove('selected'));
+                closest_5.classList.add('selected');
+                selectedWeight5 = closest_5.dataset.value;  
+             }
+        };
+
+        weightPicker.addEventListener('scroll', () => {
+            updateSelection();
+        });
+        weightPicker_2.addEventListener('scroll', () => {
+            updateSelection();
+        });
+        weightPicker_2_1.addEventListener('scroll', () => {
+            updateSelection();
+        });
+        weightPicker_2_2.addEventListener('scroll', () => {
+            updateSelection();
+        });
+        weightPicker_3_1.addEventListener('scroll', () => {
+            updateSelection();
+        });
+
+        confirmButton.addEventListener('click', () => {
+            if (selectedWeight) {
+          const weight = document.getElementById('weight');
+                weight.innerText = Number(selectedWeight + '.' + selectedWeight2) + 'кг'
+            } else {
+                console.log('Вес не выбран');
+            }
+            overlay.classList.remove('show');
+            weightPopup.classList.remove('show');
+        });
+
+        confirmButton_2.addEventListener('click', () => {
+            if (selectedWeight3) {
+          const height = document.getElementById('height');
+                height.innerText = Number(selectedWeight3 + '.' + selectedWeight4) + 'см'
+            } 
+            overlay_2.classList.remove('show');
+            weightPopup_2.classList.remove('show');
+        });
+
+        confirmButton_3.addEventListener('click', () => {
+            if (selectedWeight5) {
+          const age = document.getElementById('age');
+                age.innerText = Number(selectedWeight5) + 'лет'
+            } 
+            overlay_3.classList.remove('show');
+            weightPopup_3.classList.remove('show');
+        });
+
+        overlay.addEventListener('click', () => {
+            overlay.classList.remove('show');
+            weightPopup.classList.remove('show');
+        });
+
+        overlay_2.addEventListener('click', () => {
+            overlay_2.classList.remove('show');
+            weightPopup_2.classList.remove('show');
+        });
+
+         overlay_3.addEventListener('click', () => {
+            overlay_3.classList.remove('show');
+            weightPopup_3.classList.remove('show');
+        });
+
+        // Initial update to set the selection correctly
+        updateSelection();
+    });
+
+    const gender_1 = document.getElementById('gender_1')
+    const comma_type = document.getElementById('comma_type')
+    
+    gender_1.addEventListener('change',(e)=>{
+      if(e.target.value === 'kg'){
+        comma_type.innerText = "кг"
+      }
+      else{
+        comma_type.innerText = "фн"
+      }
+    })
+
+    </script>
+    </div>
+  </body>

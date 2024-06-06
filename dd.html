@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Picker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 1000;
+            width: 80%;
+            max-width: 300px;
+        }
+        .popup.show {
+            display: block;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .overlay.show {
+            display: block;
+        }
+        .weight-picker {
+            height: 150px;
+            overflow-y: scroll;
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .weight-picker div {
+            padding: 10px;
+        }
+        .weight-picker div:hover {
+            background-color: #f0f0f0;
+        }
+        @media (min-width: 600px) {
+            .popup {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<button id="openPopupButton">Выбрать вес</button>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="popup" id="weightPopup">
+    <h3>Выберите вес</h3>
+    <div id="weightPicker" class="weight-picker">
+        <!-- Options will be populated by JavaScript -->
+    </div>
+    <button id="confirmButton">OK</button>
+    <button id="cancelButton">Отмена</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const openPopupButton = document.getElementById('openPopupButton');
+        const overlay = document.getElementById('overlay');
+        const weightPopup = document.getElementById('weightPopup');
+        const weightPicker = document.getElementById('weightPicker');
+        const confirmButton = document.getElementById('confirmButton');
+        const cancelButton = document.getElementById('cancelButton');
+
+        // Populate weight picker
+        for (let i = 30; i <= 150; i++) {
+            let weightOption = document.createElement('div');
+            weightOption.textContent = `${i} кг`;
+            weightOption.dataset.value = i;
+            weightPicker.appendChild(weightOption);
+        }
+
+        openPopupButton.addEventListener('click', () => {
+            overlay.classList.add('show');
+            weightPopup.classList.add('show');
+        });
+
+        cancelButton.addEventListener('click', () => {
+            overlay.classList.remove('show');
+            weightPopup.classList.remove('show');
+        });
+
+        let selectedWeight = null;
+
+        weightPicker.addEventListener('click', (event) => {
+            if (event.target.dataset.value) {
+                selectedWeight = event.target.dataset.value;
+                // Highlight the selected item
+                Array.from(weightPicker.children).forEach(child => child.style.backgroundColor = '');
+                event.target.style.backgroundColor = '#e0e0e0';
+            }
+        });
+
+        confirmButton.addEventListener('click', () => {
+            if (selectedWeight) {
+                console.log(`Выбранный вес: ${selectedWeight} кг`);
+            } else {
+                console.log('Вес не выбран');
+            }
+            overlay.classList.remove('show');
+            weightPopup.classList.remove('show');
+        });
+
+        overlay.addEventListener('click', () => {
+            overlay.classList.remove('show');
+            weightPopup.classList.remove('show');
+        });
+    });
+</script>
+
+</body>
+</html>
