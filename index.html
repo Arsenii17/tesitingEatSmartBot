@@ -154,7 +154,7 @@
 
     
 .c_3_img_1{
-      background-image: url('./firstAnimationImages/variant1.png');
+      background-image: url('./firstAnimationImages/Vector1.svg');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -169,7 +169,7 @@
       to{width: 130px;height:130px}
     }
 .c_3_img_8{
-      background-image: url('./firstAnimationImages/variant8.png');
+      background-image: url('./firstAnimationImages/Vector8.svg');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -185,7 +185,7 @@
     }
 
     .c_3_img_2{
-      background-image: url('./firstAnimationImages/variant2.png');
+      background-image: url('./firstAnimationImages/Vector2.svg');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -203,7 +203,7 @@
     }
 
     .c_3_img_3{
-      background-image: url('./firstAnimationImages/variant3.png');
+      background-image: url('./firstAnimationImages/Vector3.svg');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -221,7 +221,7 @@
     }
 
      .c_3_img_4{
-      background-image: url('./firstAnimationImages/variant4.png');
+      background-image: url('./firstAnimationImages/Vector4.svg');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -239,7 +239,7 @@
     }
 
     .c_3_img_5{
-      background-image: url('./firstAnimationImages/variant5.png');
+      background-image: url('./firstAnimationImages/Vector5.svg');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -257,7 +257,7 @@
     }
 
      .c_3_img_6{
-      background-image: url('./firstAnimationImages/variant6.png');
+      background-image: url('./firstAnimationImages/Vector6.svg');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -275,7 +275,7 @@
     }
 
      .c_3_img_7{
-      background-image: url('./firstAnimationImages/variant7.png');
+      background-image: url('./firstAnimationImages/Vector7.svg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -376,7 +376,25 @@
 
 
 
-
+    .row_line , .row_line_2{
+      display: flex;
+      position: relative;
+      top:6px;
+      justify-content: space-between;
+      align-items: center;
+    }
+.row_line_item , .row_line_item_2{
+    position: relative;
+    width: 15%;
+    height: 5px;
+    background:#8F8F8F;
+}
+.row_line_item_c , .row_line_item_c_2{
+    background: #8F8F8F;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
 
 
 
@@ -405,6 +423,7 @@
       margin-top: 1px;
       width: 20px;
       margin-left: 10px;
+      margin-right: 12px;
     }
 
     .option1 select,
@@ -656,12 +675,8 @@
         margin-bottom: 10px;
     }
 
-    .slider-section input[type="range"]::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 4px;
-        background: transparent;
-        border: none;
-        border-top: 1px dashed #ccc;
+    .activity-level-renge{
+
     }
 
     .slider-section input[type="range"]::-webkit-slider-thumb {
@@ -976,8 +991,18 @@
           display: none;
           border-radius: 20px;
           padding:0 15px;
-          margin-top: 20px;
           background-color: #eeeeee;
+        }
+        .steps_row_icon{ 
+            display: none;
+            background-image: url('./firstAnimationImages/Ellipse 4.png');
+            background-size: cover;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            box-shadow: 0 0 22px 10px #e1dbdb;
         }
         .steps_item{
           border-radius: 50%;
@@ -1076,6 +1101,21 @@
         .c_text_2{
           background-color: #9C6AF9;
         }
+        #gender{
+            appearance: none;
+            -webkit-appearance: none; 
+            -moz-appearance: none;
+            background: url('./down-arrow-svgrepo-com.svg') no-repeat right 10px center;
+            background-size: 20px; 
+            padding: 10px;
+            padding-right: 40px; 
+            border-radius: 5px; 
+            font-size: 16px; 
+        }
+        #activity-section-level,
+        #slider-section_level{
+          color:#9C6AF9;
+        }
         .c_text_3{
           background-color: #FF5A71;
         }
@@ -1128,18 +1168,67 @@
         .j_2_i_text h2{
           margin-right: 4px;
         }
+
+          input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            font-size: 2rem;
+            padding: 0.1rem;
+            border: 0.25rem solid #909090;
+            border-radius: 50%;
+          }
+          input[type="checkbox"]:checked{ 
+            background-color: #9c6af9;
+            border: 0.25rem solid #9c6af9;
+          }
+          input[type="checkbox"]::before {
+            content: "";
+            width: 1.4rem;
+            height: 1.4rem;
+            clip-path: polygon(21% 39%, 6% 53%, 21% 64%, 30% 70%, 38% 77%, 45% 82%, 50% 86%, 72% 57%, 83% 40%, 92% 26%, 82% 8%, 44% 57%);
+            transform: scale(0);
+            background-color: rgb(255, 255, 255);
+          }
+
+          input[type="checkbox"]:checked::before {
+            transform: scale(1);
+          }
+          .row_line_item_c:nth-child(1){
+            background-color: #9c6af9;
+          }
+
+          .row_line_item_c_2:nth-child(1){
+            background-color: #9c6af9;
+          }
+          .row_line_item_c_act{
+            background-color: #9c6af9;
+          }
+
+          .steps_row{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+          }
+
 </style>
   <body>
     <div class="container">
       <button onclick="prevSlide()">Previous</button>
       <!--  <button onclick="nextSlide()">NEXT</button>-->
-      <div>
+      <div class="steps_row">
         <div class="steps" id="steps">
           <div class="steps_item" id="steps_1"></div>
           <div class="steps_item" id="steps_2"></div>
           <div class="steps_item" id="steps_3"></div>
           <div class="steps_item" id="steps_4"></div>
           <div class="steps_item" id="steps_5"></div>
+        </div>
+        <div class="steps_row_icon" id="steps_row_icon"> 
+           <img id="steps_row_icon_img" src="./firstAnimationImages/Vector9.svg" />
         </div>
       </div>
       <div class="slideshow">
@@ -1217,35 +1306,40 @@
             <label class="option" id="medical_option_1">
               <img src="icon1.svg" alt="Icon 1">
               <span>Диабет</span>
-              <input type="radio" id="medical_option1" name="medical_condition"
+              <input type="checkbox" class="medical_option_checkbox"
+                name="medical_condition"
                 value="Диабет">
             </label>
             <br>
             <label class="option" id="medical_option_2">
               <img src="icon2.svg" alt="Icon 2">
               <span>Ожирение</span>
-              <input type="radio" id="medical_option2" name="medical_condition"
+              <input type="checkbox" class="medical_option_checkbox"
+                name="medical_condition"
                 value="Ожирение">
             </label>
             <br>
             <label class="option" id="medical_option_3">
               <img src="icon3.svg" alt="Icon 3">
               <span>Гипертония</span>
-              <input type="radio" id="medical_option3" name="medical_condition"
+              <input type="checkbox" class="medical_option_checkbox"
+                name="medical_condition"
                 value="Гипертония">
             </label>
             <br>
             <label class="option" id="medical_option_4">
               <img src="icon4.svg" alt="Icon 4">
               <span>Сердечные заболевания</span>
-              <input type="radio" id="medical_option4" name="medical_condition"
+              <input type="checkbox" class="medical_option_checkbox"
+                name="medical_condition"
                 value="Сердечные заболевания">
             </label>
             <br>
             <label class="option" id="medical_option_5">
               <img src="icon5.svg" alt="Icon 5">
               <span>Аллергия</span>
-              <input type="radio" id="medical_option5" name="medical_condition"
+              <input type="checkbox" class="medical_option_checkbox"
+                name="medical_condition"
                 value="Аллергия">
             </label>
             <div class="additional-options">
@@ -1270,33 +1364,35 @@
             <label class="option" id="goal1_1">
               <img src="up.svg" alt="Icon 1">
               <span>Набор массы</span>
-              <input type="radio" id="goal1" name="goal" value="Набор массы">
+              <input type="checkbox" class="medical_option_checkbox"
+                name="goal1_1" value="Набор массы">
             </label>
             <br>
             <label class="option" id="goal1_2">
               <img src="down.svg" alt="Icon 1">
               <span>Снижение веса</span>
-              <input type="radio" id="goal2" name="goal" value="Снижение веса">
+              <input type="checkbox" class="medical_option_checkbox"
+                name="goal1_2" value="Снижение веса">
             </label>
             <br>
             <label class="option" id="goal1_3">
               <img src="down.svg" alt="Icon 1">
               <span>Поддержание текущего веса</span>
-              <input type="radio" id="goal3" name="goal"
+              <input type="checkbox" class="medical_option_checkbox" name="goal"
                 value="Поддержание текущего веса">
             </label>
             <br>
             <label class="option" id="goal1_4">
               <img src="heart.svg" alt="Icon 1">
               <span>Улучшение здоровья</span>
-              <input type="radio" id="goal4" name="goal"
+              <input type="checkbox" class="medical_option_checkbox" name="goal"
                 value="Улучшение здоровья">
             </label>
             <br>
             <label class="option">
               <img src="run.svg" alt="Icon 1 id="goal1_5">
               <span>Улучшение спортивных результатов</span>
-              <input type="radio" id="goal5" name="goal"
+              <input type="checkbox" class="medical_option_checkbox" name="goal"
                 value="Улучшение спортивных результатов">
             </label>
             <br>
@@ -1435,6 +1531,17 @@
                     id="activity-section-level">минимальный</b></label>
                 <div class="activity-level-input">
                   <div class="activity-level-renge">
+                    <div class="row_line">
+                      <div class="row_line_item_c"></div>
+                      <div class="row_line_item"></div>
+                      <div class="row_line_item_c"></div>
+                      <div class="row_line_item"></div>
+                      <div class="row_line_item_c"></div>
+                      <div class="row_line_item"></div>
+                      <div class="row_line_item_c"></div>
+                      <div class="row_line_item"></div>
+                      <div class="row_line_item_c"></div>
+                    </div>
                     <div id="test" class='test'>1</div>
                     <input type="range" id="activity-level"
                       name="activity-level"
@@ -1455,6 +1562,18 @@
                 </label>
                 <div class="slider-section-input">
                   <div class="activity-level-renge">
+                    <div class="row_line_2">
+                      <div class="row_line_item_c_2"></div>
+                      <div class="row_line_item_2"></div>
+                      <div class="row_line_item_c_2"></div>
+                      <div class="row_line_item_2"></div>
+                      <div class="row_line_item_c_2"></div>
+                      <div class="row_line_item_2"></div>
+                      <div class="row_line_item_c_2"></div>
+                      <div class="row_line_item_2"></div>
+                      <div class="row_line_item_c_2"></div>
+                    </div>
+                    <div id="test" class='test'>1</div>
                     <div id="test_2" class='test'>1</div>
                     <input type="range" id="stress-level" name="stress-level"
                       min="1"
@@ -1568,7 +1687,8 @@
         </div>
         <!-- </div> -->
       </div>
-      <div class="button-container_2" id="button_container_2" onclick="nextSlide_2()">
+      <div class="button-container_2" id="button_container_2"
+        onclick="nextSlide_2()">
         <div id="buttonMain_2" class="buttonMain buttonMain_2"></div>
       </div>
       <div class="button-container">
@@ -1715,15 +1835,17 @@
           const buttonProgress = (currentSlide + 1) / totalSlides;
           
           let buttonText;
-                    console.log('currentSlide',currentSlide)
           if(currentSlide === 0){
              buttonText = "<p>Начать</p>"
+            button_container_2.style.display = 'none'
           }
           else if(currentSlide < totalSlides - 1 && currentSlide < 5){
             buttonText = "<p>Продолжить</p>" 
+            button_container_2.style.display = 'none'
           }
           else if(currentSlide === 5){
             buttonText = "<p>Готово</p>"
+            button_container_2.style.display = 'none'
           }
           else if(currentSlide === 6){
             buttonText = "<p>Открыть чат</p>"
@@ -1738,7 +1860,7 @@
           if (currentSlide === 0 || currentSlide === 6 || currentSlide === 7) {
             progressMessage.style.display = 'none';
           } else {
-            progressMessage.innerText = `Пройди ещё ${stagesLeft} этапа и получи бонус`;
+            progressMessage.innerText = `Пройди ещё ${stagesLeft - 1} этапа и получи бонус`;
             progressMessage.style.display = 'block';
           }
           
@@ -1755,41 +1877,53 @@
          else{
           progresPercent = currentSlide * 20;
            const steps = document.getElementById('steps')
+           const steps_row_icon = document.getElementById('steps_row_icon')
+           const steps_row_icon_img = document.getElementById('steps_row_icon_img')
            steps.style.display = "inline-flex"
+           steps_row_icon.style.display = "inline-flex"
          }
          const steps_1 = document.getElementById('steps_1');
-        const steps_2 = document.getElementById('steps_2');
-        const steps_3 = document.getElementById('steps_3');
-        const steps_4 = document.getElementById('steps_4');
-        const steps_5 = document.getElementById('steps_5');
+         const steps_2 = document.getElementById('steps_2');
+         const steps_3 = document.getElementById('steps_3');
+         const steps_4 = document.getElementById('steps_4');
+         const steps_5 = document.getElementById('steps_5');
+         console.log(currentSlide)
          if(currentSlide === 1){
               steps_1.classList.add("steps_item_active")
               steps_2.classList.remove("steps_item_active")
               steps_3.classList.remove("steps_item_active")
               steps_4.classList.remove("steps_item_active")
               steps_5.classList.remove("steps_item_active")
+              steps_row_icon_img.src = './firstAnimationImages/Vector9.svg'
          }
          if(currentSlide === 2){
               steps_2.classList.add("steps_item_active")
               steps_3.classList.remove("steps_item_active")
               steps_4.classList.remove("steps_item_active")
               steps_5.classList.remove("steps_item_active")
-         }
+              steps_row_icon_img.src = './firstAnimationImages/Vector10.svg'
+        
+            }
          if(currentSlide === 3){
               steps_3.classList.add("steps_item_active")
               steps_4.classList.remove("steps_item_active")
               steps_5.classList.remove("steps_item_active")
+              steps_row_icon_img.src = './firstAnimationImages/Vector11.svg'
          }
          if(currentSlide === 4){
               steps_4.classList.add("steps_item_active")
               steps_5.classList.remove("steps_item_active")
-         }
+              steps_row_icon_img.src = './firstAnimationImages/Vector12.svg'        
+            }
          if(currentSlide === 5){
            steps_5.classList.add("steps_item_active")
+              steps_row_icon_img.src = './firstAnimationImages/Vector13.svg'
          }
          progres.style.maxWidth = progresPercent + '%'
-         if(currentSlide >= 6){
+         if(currentSlide >= 6 || currentSlide === 0){
           steps.style.display = "none"
+           steps_row_icon.style.display = "none"
+
          }
         }
 
@@ -1911,6 +2045,8 @@
         
         activityLevel.addEventListener('input', function() {
             activityValue.textContent = this.value;
+            const row_line_item_c = document.querySelectorAll('.row_line_item_c')
+            const row_line_item = document.querySelectorAll('.row_line_item')
             let x = 12;
             if(this.value == 1){
               x = 12;       
@@ -1919,7 +2055,6 @@
             if(this.value == 2){
               x = 93
               activitySectionLevel.textContent = "Небольшой"
-
             }
             if(this.value == 3){
               x = 174
@@ -1933,13 +2068,30 @@
               x = 335
               activitySectionLevel.textContent = "Максимальный"
             }
+            row_line_item_c.forEach((item,index)=>{
+                if(index < this.value){
+                  item.classList.add('row_line_item_c_act')
+                }
+                else{
+                  item.classList.remove('row_line_item_c_act')
+                }
+              })
+            row_line_item.forEach((item,index)=>{
+                if(index + 1 < this.value){
+                  item.classList.add('row_line_item_c_act')
+                }
+                else{
+                  item.classList.remove('row_line_item_c_act')
+                }
+              })
             test.style.left = x + "px";
             test.innerText = this.value
           });
           
           stressLevel.addEventListener('input', function() {
              stressValue.textContent = this.value;
-            
+            const row_line_item_c = document.querySelectorAll('.row_line_item_c_2')
+            const row_line_item = document.querySelectorAll('.row_line_item_2')
              let x = 12;
             if(this.value == 1){
               x = 12;
@@ -1961,6 +2113,22 @@
               x = 335
                sliderSectionLevel.textContent = "Максимальный"
             }
+            row_line_item_c.forEach((item,index)=>{
+                if(index < this.value){
+                  item.classList.add('row_line_item_c_act')
+                }
+                else{
+                  item.classList.remove('row_line_item_c_act')
+                }
+              })
+            row_line_item.forEach((item,index)=>{
+                if(index + 1 < this.value){
+                  item.classList.add('row_line_item_c_act')
+                }
+                else{
+                  item.classList.remove('row_line_item_c_act')
+                }
+              })
             test_2.style.left = x + "px";
             test_2.innerText = this.value
         });test_2
@@ -2277,103 +2445,114 @@
       })
     },1000)
 
+    const medical_option_checkbox = document.querySelectorAll('.medical_option_checkbox')
+    medical_option_checkbox.forEach((item)=>{
+        item.addEventListener('change',(elm)=>{
+          if(elm.target.checked){
+            elm.target.parentElement.classList.add('medical_option_ck')
+          }
+          else{
+            elm.target.parentElement.classList.remove('medical_option_ck')
+          }
+        })
+    })
 
-    const medical_option1 = document.getElementById('medical_option1')
-    const medical_option2 = document.getElementById('medical_option2')
-    const medical_option3 = document.getElementById('medical_option3')
-    const medical_option4 = document.getElementById('medical_option4')
-    const medical_option5 = document.getElementById('medical_option5')
-    const medical_option_1 = document.getElementById('medical_option_1')
-    const medical_option_2 = document.getElementById('medical_option_2')
-    const medical_option_3 = document.getElementById('medical_option_3')
-    const medical_option_4 = document.getElementById('medical_option_4')
-    const medical_option_5 = document.getElementById('medical_option_5')
+    // const medical_option1 = document.getElementById('medical_option1')
+    // const medical_option2 = document.getElementById('medical_option2')
+    // const medical_option3 = document.getElementById('medical_option3')
+    // const medical_option4 = document.getElementById('medical_option4')
+    // const medical_option5 = document.getElementById('medical_option5')
+    // const medical_option_1 = document.getElementById('medical_option_1')
+    // const medical_option_2 = document.getElementById('medical_option_2')
+    // const medical_option_3 = document.getElementById('medical_option_3')
+    // const medical_option_4 = document.getElementById('medical_option_4')
+    // const medical_option_5 = document.getElementById('medical_option_5')
     
-    const goal1_1 = document.getElementById('goal1_1')
-    const goal1_2 = document.getElementById('goal1_2')
-    const goal1_3 = document.getElementById('goal1_3')
-    const goal1_4 = document.getElementById('goal1_4')
-    const goal1_5 = document.getElementById('goal1_5')
-    const goal1 = document.getElementById('goal1')
-    const goal2 = document.getElementById('goal2')
-    const goal3 = document.getElementById('goal3')
-    const goal4 = document.getElementById('goal4')
-    const goal5 = document.getElementById('goal5')
+    // const goal1_1 = document.getElementById('goal1_1')
+    // const goal1_2 = document.getElementById('goal1_2')
+    // const goal1_3 = document.getElementById('goal1_3')
+    // const goal1_4 = document.getElementById('goal1_4')
+    // const goal1_5 = document.getElementById('goal1_5')
+    // const goal1 = document.getElementById('goal1')
+    // const goal2 = document.getElementById('goal2')
+    // const goal3 = document.getElementById('goal3')
+    // const goal4 = document.getElementById('goal4')
+    // const goal5 = document.getElementById('goal5')
 
 
     
-    goal1.addEventListener('change',(e)=>{
-      goal1_1.classList.add('medical_option_ck')
-      goal1_2.classList.remove('medical_option_ck')
-      goal1_3.classList.remove('medical_option_ck')
-      goal1_4.classList.remove('medical_option_ck')
-      goal1_5.classList.remove('medical_option_ck')
-    })
-    goal2.addEventListener('change',(e)=>{
-      goal1_1.classList.remove('medical_option_ck')
-      goal1_2.classList.add('medical_option_ck')
-      goal1_3.classList.remove('medical_option_ck')
-      goal1_4.classList.remove('medical_option_ck')
-      goal1_5.classList.remove('medical_option_ck')
-    })
-    goal3.addEventListener('change',(e)=>{
-      goal1_1.classList.remove('medical_option_ck')
-      goal1_2.classList.remove('medical_option_ck')
-      goal1_3.classList.add('medical_option_ck')
-      goal1_4.classList.remove('medical_option_ck')
-      goal1_5.classList.remove('medical_option_ck')
-    })
-     goal4.addEventListener('change',(e)=>{
-      goal1_1.classList.remove('medical_option_ck')
-      goal1_2.classList.remove('medical_option_ck')
-      goal1_3.classList.remove('medical_option_ck')
-      goal1_4.classList.add('medical_option_ck')
-      goal1_5.classList.remove('medical_option_ck')
-    })
-    goal5.addEventListener('change',(e)=>{
-      goal1_1.classList.remove('medical_option_ck')
-      goal1_2.classList.remove('medical_option_ck')
-      goal1_3.classList.remove('medical_option_ck')
-      goal1_4.classList.remove('medical_option_ck')
-      goal1_5.classList.add('medical_option_ck')
-    })
+    // goal1.addEventListener('change',(e)=>{
+    //   goal1_1.classList.add('medical_option_ck')
+    //   goal1_2.classList.remove('medical_option_ck')
+    //   goal1_3.classList.remove('medical_option_ck')
+    //   goal1_4.classList.remove('medical_option_ck')
+    //   goal1_5.classList.remove('medical_option_ck')
+    // })
+    // goal2.addEventListener('change',(e)=>{
+    //   goal1_1.classList.remove('medical_option_ck')
+    //   goal1_2.classList.add('medical_option_ck')
+    //   goal1_3.classList.remove('medical_option_ck')
+    //   goal1_4.classList.remove('medical_option_ck')
+    //   goal1_5.classList.remove('medical_option_ck')
+    // })
+    // goal3.addEventListener('change',(e)=>{
+    //   goal1_1.classList.remove('medical_option_ck')
+    //   goal1_2.classList.remove('medical_option_ck')
+    //   goal1_3.classList.add('medical_option_ck')
+    //   goal1_4.classList.remove('medical_option_ck')
+    //   goal1_5.classList.remove('medical_option_ck')
+    // })
+    //  goal4.addEventListener('change',(e)=>{
+    //   goal1_1.classList.remove('medical_option_ck')
+    //   goal1_2.classList.remove('medical_option_ck')
+    //   goal1_3.classList.remove('medical_option_ck')
+    //   goal1_4.classList.add('medical_option_ck')
+    //   goal1_5.classList.remove('medical_option_ck')
+    // })
+    // goal5.addEventListener('change',(e)=>{
+    //   goal1_1.classList.remove('medical_option_ck')
+    //   goal1_2.classList.remove('medical_option_ck')
+    //   goal1_3.classList.remove('medical_option_ck')
+    //   goal1_4.classList.remove('medical_option_ck')
+    //   goal1_5.classList.add('medical_option_ck')
+    // })
 
-    medical_option1.addEventListener('change',(e)=>{
-      medical_option_1.classList.add('medical_option_ck')
-      medical_option_2.classList.remove('medical_option_ck')
-      medical_option_3.classList.remove('medical_option_ck')
-      medical_option_4.classList.remove('medical_option_ck')
-      medical_option_5.classList.remove('medical_option_ck')
-    })
-    medical_option2.addEventListener('change',(e)=>{
-      medical_option_1.classList.remove('medical_option_ck')
-      medical_option_2.classList.add('medical_option_ck')
-      medical_option_3.classList.remove('medical_option_ck')
-      medical_option_4.classList.remove('medical_option_ck')
-      medical_option_5.classList.remove('medical_option_ck')
-    })
-    medical_option3.addEventListener('change',(e)=>{
-     medical_option_1.classList.remove('medical_option_ck')
-      medical_option_2.classList.remove('medical_option_ck')
-      medical_option_3.classList.add('medical_option_ck')
-      medical_option_4.classList.remove('medical_option_ck')
-      medical_option_5.classList.remove('medical_option_ck')
-    })
-    medical_option4.addEventListener('change',(e)=>{
-       medical_option_1.classList.remove('medical_option_ck')
-      medical_option_2.classList.remove('medical_option_ck')
-      medical_option_3.classList.remove('medical_option_ck')
-      medical_option_4.classList.add('medical_option_ck')
-      medical_option_5.classList.remove('medical_option_ck')
-    })
+    // medical_option1.addEventListener('change',(e)=>{
+    //   medical_option_1.classList.add('medical_option_ck')
+    //   medical_option_2.classList.remove('medical_option_ck')
+    //   medical_option_3.classList.remove('medical_option_ck')
+    //   medical_option_4.classList.remove('medical_option_ck')
+    //   medical_option_5.classList.remove('medical_option_ck')
+    // })
+    // medical_option2.addEventListener('change',(e)=>{
+    //   medical_option_1.classList.remove('medical_option_ck')
+    //   medical_option_2.classList.add('medical_option_ck')
+    //   medical_option_3.classList.remove('medical_option_ck')
+    //   medical_option_4.classList.remove('medical_option_ck')
+    //   medical_option_5.classList.remove('medical_option_ck')
+    // })
+    // medical_option3.addEventListener('change',(e)=>{
+    //  medical_option_1.classList.remove('medical_option_ck')
+    //   medical_option_2.classList.remove('medical_option_ck')
+    //   medical_option_3.classList.add('medical_option_ck')
+    //   medical_option_4.classList.remove('medical_option_ck')
+    //   medical_option_5.classList.remove('medical_option_ck')
+    // })
+    // medical_option4.addEventListener('change',(e)=>{
+    //    medical_option_1.classList.remove('medical_option_ck')
+    //   medical_option_2.classList.remove('medical_option_ck')
+    //   medical_option_3.classList.remove('medical_option_ck')
+    //   medical_option_4.classList.add('medical_option_ck')
+    //   medical_option_5.classList.remove('medical_option_ck')
+    // })
     
-    medical_option5.addEventListener('change',(e)=>{
-       medical_option_1.classList.remove('medical_option_ck')
-      medical_option_2.classList.remove('medical_option_ck')
-      medical_option_3.classList.remove('medical_option_ck')
-      medical_option_4.classList.remove('medical_option_ck')
-      medical_option_5.classList.add('medical_option_ck')
-    })
+    // medical_option5.addEventListener('change',(e)=>{
+    //    medical_option_1.classList.remove('medical_option_ck')
+    //   medical_option_2.classList.remove('medical_option_ck')
+    //   medical_option_3.classList.remove('medical_option_ck')
+    //   medical_option_4.classList.remove('medical_option_ck')
+    //   medical_option_5.classList.add('medical_option_ck')
+    // })
 
     </script>
     </div>
