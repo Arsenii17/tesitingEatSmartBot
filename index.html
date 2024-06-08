@@ -681,8 +681,8 @@
 
     .slider-section input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
         background: #8a2be2;
         border-radius: 50%;
         border: 2px solid #fff;
@@ -845,7 +845,7 @@
         .activity-level-renge > .test{
           position: absolute;
           z-index: 10;
-          left: 12px;
+          left: 15px;
           color: #fff;
           top: 0;
         }
@@ -1176,7 +1176,6 @@
             align-content: center;
             justify-content: center;
             font-size: 2rem;
-            padding: 0.1rem;
             border: 0.25rem solid #909090;
             border-radius: 50%;
           }
@@ -1188,9 +1187,13 @@
             content: "";
             width: 1.4rem;
             height: 1.4rem;
-            clip-path: polygon(21% 39%, 6% 53%, 21% 64%, 30% 70%, 38% 77%, 45% 82%, 50% 86%, 72% 57%, 83% 40%, 92% 26%, 82% 8%, 44% 57%);
+            background-image: url('./firstAnimationImages/Vector.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             transform: scale(0);
-            background-color: rgb(255, 255, 255);
+            background-color: #ffffff;
+            border-radius:50%;
           }
 
           input[type="checkbox"]:checked::before {
@@ -1212,6 +1215,7 @@
             align-items: center;
             justify-content: space-between;
             margin-top: 20px;
+            margin-right: 20px;
           }
 
 </style>
@@ -1528,8 +1532,9 @@
               <div class="slider-section">
                 <label for="activity-level"
                   style="margin-bottom: 25px;"><b>Уровень активности</b><b
-                    id="activity-section-level">минимальный</b></label>
+                    id="activity-section-level">Минимальный</b></label>
                 <div class="activity-level-input">
+                  <span>1</span>
                   <div class="activity-level-renge">
                     <div class="row_line">
                       <div class="row_line_item_c"></div>
@@ -1551,16 +1556,17 @@
                 </div>
                 <span id="activity-value">1</span>
                 <p>Выберите свой обычный уровень активности, где <span
-                    id="purple_text">1 - минимальный</span>, а 5 -
-                  максимальный</p>
+                    id="purple_text">1 - Минимальный</span>, а 5 -
+                  Максимальный</p>
               </div>
               <div class="slider-section">
                 <label for="stress-level" style="margin-bottom: 25px;">
                   <b>Уровень
                     стресса</b>
-                  <b id="slider-section_level">минимальный</b>
+                  <b id="slider-section_level">Минимальный</b>
                 </label>
                 <div class="slider-section-input">
+                  <span>1</span>
                   <div class="activity-level-renge">
                     <div class="row_line_2">
                       <div class="row_line_item_c_2"></div>
@@ -1583,8 +1589,8 @@
                 </div>
                 <span id="stress-value">1</span>
                 <p>Выберите свой обычный уровень стресса, где <span
-                    id="purple_text">1 - минимальный</span>, а 5 -
-                  максимальный</p>
+                    id="purple_text">1 - Минимальный</span>, а 5 -
+                  Максимальный</p>
               </div>
 
               <textarea id="description"
@@ -2047,25 +2053,25 @@
             activityValue.textContent = this.value;
             const row_line_item_c = document.querySelectorAll('.row_line_item_c')
             const row_line_item = document.querySelectorAll('.row_line_item')
-            let x = 12;
+            let x = 15;
             if(this.value == 1){
-              x = 12;       
+              x = 15;       
               activitySectionLevel.textContent = "Минимальный"
             }
             if(this.value == 2){
-              x = 93
+              x = 92
               activitySectionLevel.textContent = "Небольшой"
             }
             if(this.value == 3){
-              x = 174
+              x = 166
               activitySectionLevel.textContent = "Умеренный"
             }
             if(this.value == 4){
-              x = 254
+              x = 241
               activitySectionLevel.textContent = "Больше среднего"
             }
             if(this.value == 5){
-              x = 335
+              x = 319
               activitySectionLevel.textContent = "Максимальный"
             }
             row_line_item_c.forEach((item,index)=>{
@@ -2092,25 +2098,25 @@
              stressValue.textContent = this.value;
             const row_line_item_c = document.querySelectorAll('.row_line_item_c_2')
             const row_line_item = document.querySelectorAll('.row_line_item_2')
-             let x = 12;
+             let x = 15;
             if(this.value == 1){
-              x = 12;
+              x = 15;
               sliderSectionLevel.textContent = "Минимальный"
             }
             if(this.value == 2){
-              x = 93
+              x = 92
            sliderSectionLevel.textContent = "Небольшой"
             }
             if(this.value == 3){
-              x = 174
+              x = 166
               sliderSectionLevel.textContent = "Умеренный"
             }
             if(this.value == 4){
-              x = 254
+              x = 241
               sliderSectionLevel.textContent = "Больше среднего"
             }
             if(this.value == 5){
-              x = 335
+              x = 319
                sliderSectionLevel.textContent = "Максимальный"
             }
             row_line_item_c.forEach((item,index)=>{
