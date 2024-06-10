@@ -1185,7 +1185,7 @@
           }
           input[type="checkbox"]::before {
             content: "";
-            width: 1.4rem !important;
+            width: 1.4rem;
             height: 1.4rem;
             background-image: url('./firstAnimationImages/Vector.svg');
             background-size: cover;
@@ -1218,11 +1218,25 @@
             margin-right: 20px;
           }
 
+
+.item_checked{
+  display: none;
+  margin-right: 0 !important;
+  width: 30px;
+  height: 30px;
+}
+.medical_option_item{
+  width: 21px;
+  display: inline-block;
+  height: 21px;
+  border: 5px solid #8F8F8F;
+  border-radius: 50%;
+}
+
 </style>
   <body>
     <div class="container">
       <button onclick="prevSlide()">Previous</button>
-    
       <!--  <button onclick="nextSlide()">NEXT</button>-->
       <div class="steps_row">
         <div class="steps" id="steps">
@@ -1232,8 +1246,9 @@
           <div class="steps_item" id="steps_4"></div>
           <div class="steps_item" id="steps_5"></div>
         </div>
-        <div class="steps_row_icon" id="steps_row_icon"> 
-           <img id="steps_row_icon_img" src="./firstAnimationImages/Vector9.svg" />
+        <div class="steps_row_icon" id="steps_row_icon">
+          <img id="steps_row_icon_img"
+            src="./firstAnimationImages/Vector9.svg" />
         </div>
       </div>
       <div class="slideshow">
@@ -1308,44 +1323,44 @@
               медицинские противопоказания:</h2>
           </div>
           <div id="icon-radio-group">
-            <label class="option" id="medical_option_1">
+            <label class="option medical_option_parent" id="medical_option_1">
               <img src="icon1.svg" alt="Icon 1">
               <span>Диабет</span>
-              <input type="checkbox" class="medical_option_checkbox"
-                name="medical_condition"
-                value="Диабет">
+              <div class="medical_option_item"></div>
+              <img class="item_checked" src="./firstAnimationImages/Vector.svg"
+                alt="Icon 1">
             </label>
             <br>
-            <label class="option" id="medical_option_2">
+            <label class="option medical_option_parent" id="medical_option_2">
               <img src="icon2.svg" alt="Icon 2">
               <span>Ожирение</span>
-              <input type="checkbox" class="medical_option_checkbox"
-                name="medical_condition"
-                value="Ожирение">
+                 <div class="medical_option_item"></div>
+              <img class="item_checked" src="./firstAnimationImages/Vector.svg"
+                alt="Icon 1">
             </label>
             <br>
-            <label class="option" id="medical_option_3">
+            <label class="option medical_option_parent" id="medical_option_3">
               <img src="icon3.svg" alt="Icon 3">
               <span>Гипертония</span>
-              <input type="checkbox" class="medical_option_checkbox"
-                name="medical_condition"
-                value="Гипертония">
+           <div class="medical_option_item"></div>
+              <img class="item_checked" src="./firstAnimationImages/Vector.svg"
+                alt="Icon 1">
             </label>
             <br>
-            <label class="option" id="medical_option_4">
+            <label class="option medical_option_parent" id="medical_option_4">
               <img src="icon4.svg" alt="Icon 4">
               <span>Сердечные заболевания</span>
-              <input type="checkbox" class="medical_option_checkbox"
-                name="medical_condition"
-                value="Сердечные заболевания">
+             <div class="medical_option_item"></div>
+              <img class="item_checked" src="./firstAnimationImages/Vector.svg"
+                alt="Icon 1">
             </label>
             <br>
-            <label class="option" id="medical_option_5">
+            <label class="option medical_option_parent" id="medical_option_5">
               <img src="icon5.svg" alt="Icon 5">
               <span>Аллергия</span>
-              <input type="checkbox" class="medical_option_checkbox"
-                name="medical_condition"
-                value="Аллергия">
+             <div class="medical_option_item"></div>
+              <img class="item_checked" src="./firstAnimationImages/Vector.svg"
+                alt="Icon 1">
             </label>
             <div class="additional-options">
               <div class="not-found">Не нашли в списке?</div>
@@ -1366,39 +1381,44 @@
               больше вам подходят:</h2>
           </div>
           <div id="icon-radio-group">
-            <label class="option" id="goal1_1">
+            <label class="option medical_option_parent" id="goal1_1">
               <img src="up.svg" alt="Icon 1">
               <span>Набор массы</span>
-              <input type="checkbox" class="medical_option_checkbox"
-                name="goal1_1" value="Набор массы">
+               <div class="medical_option_item"></div>
+              <img class="item_checked" src="./firstAnimationImages/Vector.svg"
+                alt="Icon 1">
             </label>
             <br>
-            <label class="option" id="goal1_2">
+            <label class="option medical_option_parent" id="goal1_2">
               <img src="down.svg" alt="Icon 1">
               <span>Снижение веса</span>
-              <input type="checkbox" class="medical_option_checkbox"
-                name="goal1_2" value="Снижение веса">
+               <div class="medical_option_item"></div>
+              <img class="item_checked" src="./firstAnimationImages/Vector.svg"
+                alt="Icon 1">
             </label>
             <br>
-            <label class="option" id="goal1_3">
+            <label class="option medical_option_parent" id="goal1_3">
               <img src="down.svg" alt="Icon 1">
               <span>Поддержание текущего веса</span>
-              <input type="checkbox" class="medical_option_checkbox" name="goal"
-                value="Поддержание текущего веса">
+               <div class="medical_option_item"></div>
+              <img class="item_checked" src="./firstAnimationImages/Vector.svg"
+                alt="Icon 1">
             </label>
             <br>
-            <label class="option" id="goal1_4">
+            <label class="option medical_option_parent" id="goal1_4">
               <img src="heart.svg" alt="Icon 1">
               <span>Улучшение здоровья</span>
-              <input type="checkbox" class="medical_option_checkbox" name="goal"
-                value="Улучшение здоровья">
+                <div class="medical_option_item"></div>
+              <img class="item_checked" src="./firstAnimationImages/Vector.svg"
+                alt="Icon 1">
             </label>
             <br>
-            <label class="option">
+            <label class="option medical_option_parent">
               <img src="run.svg" alt="Icon 1 id="goal1_5">
               <span>Улучшение спортивных результатов</span>
-              <input type="checkbox" class="medical_option_checkbox" name="goal"
-                value="Улучшение спортивных результатов">
+              <div class="medical_option_item"></div>
+              <img class="item_checked" src="./firstAnimationImages/Vector.svg"
+                alt="Icon 1">
             </label>
             <br>
             <br>
@@ -1641,21 +1661,21 @@
                   <div class="c_text_1"></div>
                   <h3>Жиры</h3>
                 </div>
-                <h4 class="c_text_h3">319 ккал, 140 гр</h4>
+                <h4 class="c_text_h3" id="kkl_j_1" ></h4>
               </div>
               <div class="j_1_ypr j_1_yp_2">
                 <div class="c_text">
                   <div class="c_text_2"></div>
                   <h3>Углеводы</h3>
                 </div>
-                <h4 class="c_text_h3">425 ккал, 210 гр</h4>
+                <h4 class="c_text_h3" id="kkl_j_2"></h4>
               </div>
               <div class="j_1_ypr j_1_yp_2 ">
                 <div class="c_text">
                   <div class="c_text_3"></div>
                   <h3>Белки</h3>
                 </div>
-                <h4 class="c_text_h3">920 ккал, 1870 гр</h4>
+                <h4 class="c_text_h3" id="kkl_j_3"></h4>
               </div>
             </div>
           </div>
@@ -1665,8 +1685,8 @@
                 <img src="./firstAnimationImages/cake-fill.png">
               </div>
               <div class="j_2_i_text">
-                <h2>3</h2>
-                <p>из 3</p>
+                <h2 id="meals_all"></h2>
+                <p id="meals_curent"></p>
               </div>
               <p>Приема пищи</p>
             </div>
@@ -1675,7 +1695,7 @@
                 <img src="./firstAnimationImages/scales-fill.png">
               </div>
               <div class="j_2_i_text">
-                <h2>2,250</h2>
+                <h2 id="eaten"></h2>
                 <p>гр</p>
               </div>
               <p>Съедено</p>
@@ -1684,7 +1704,7 @@
           <div class="j_3">
             <div class="j_3_text">
               <div class="j_2_i_text">
-                <h2>230</h2>
+                <h2 id='left'></h2>
                 <p>ккал</p>
               </div>
               <p>Осталось</p>
@@ -1817,17 +1837,12 @@
         tg.onEvent('mainButtonClicked', nextSlide)
         tg.onEvent('mainButtonClicked', nextSlide_2)
 
-
-
         BackButton = tg.BackButton
         BackButton.color = "#3881F0"
-        BackButton.text = "Назад"
-        
-        
+
         tg.onEvent('backButtonClicked', prevSlide)
-        
-        
-        // tg.SettingsButton.show()
+
+        tg.SettingsButton.show()
         // tg.extend()
         // tg.expand()
 
@@ -1850,12 +1865,10 @@
           if(currentSlide === 0){
              buttonText = "<p>Начать</p>"
             button_container_2.style.display = 'none'
-            BackButton.hide()
           }
           else if(currentSlide < totalSlides - 1 && currentSlide < 5){
             buttonText = "<p>Продолжить</p>" 
             button_container_2.style.display = 'none'
-            BackButton.show()
           }
           else if(currentSlide === 5){
             buttonText = "<p>Готово</p>"
@@ -1867,7 +1880,6 @@
             button_container_2.style.display = 'block'
           }
           else if(currentSlide === 7){
-            BackButton.hide()
             button_container_2.style.display = 'none'
             buttonText = "<p>Поделиться</p>"
           }
@@ -2472,159 +2484,59 @@
         })
     })
 
-    // const medical_option1 = document.getElementById('medical_option1')
-    // const medical_option2 = document.getElementById('medical_option2')
-    // const medical_option3 = document.getElementById('medical_option3')
-    // const medical_option4 = document.getElementById('medical_option4')
-    // const medical_option5 = document.getElementById('medical_option5')
-    // const medical_option_1 = document.getElementById('medical_option_1')
-    // const medical_option_2 = document.getElementById('medical_option_2')
-    // const medical_option_3 = document.getElementById('medical_option_3')
-    // const medical_option_4 = document.getElementById('medical_option_4')
-    // const medical_option_5 = document.getElementById('medical_option_5')
-    
-    // const goal1_1 = document.getElementById('goal1_1')
-    // const goal1_2 = document.getElementById('goal1_2')
-    // const goal1_3 = document.getElementById('goal1_3')
-    // const goal1_4 = document.getElementById('goal1_4')
-    // const goal1_5 = document.getElementById('goal1_5')
-    // const goal1 = document.getElementById('goal1')
-    // const goal2 = document.getElementById('goal2')
-    // const goal3 = document.getElementById('goal3')
-    // const goal4 = document.getElementById('goal4')
-    // const goal5 = document.getElementById('goal5')
+    const medical_option_parent = document.querySelectorAll('.medical_option_parent');
+    medical_option_parent.forEach((item)=>{
+      item.addEventListener('click',()=>{
+        const item_checked = item.querySelector('.item_checked')
+        const medical_option_item = item.querySelector('.medical_option_item')
+        if(medical_option_item.style.display === 'none'){
+            item_checked.style.display = 'none'
+            medical_option_item.style.display = 'inline-flex'
+          item.classList.remove('medical_option_ck')
+            } 
+            else{
+              item_checked.style.display = 'inline-flex'
+              medical_option_item.style.display = 'none'
+              item.classList.add('medical_option_ck')
 
+      }
+        })
+    })
 
-    
-    // goal1.addEventListener('change',(e)=>{
-    //   goal1_1.classList.add('medical_option_ck')
-    //   goal1_2.classList.remove('medical_option_ck')
-    //   goal1_3.classList.remove('medical_option_ck')
-    //   goal1_4.classList.remove('medical_option_ck')
-    //   goal1_5.classList.remove('medical_option_ck')
-    // })
-    // goal2.addEventListener('change',(e)=>{
-    //   goal1_1.classList.remove('medical_option_ck')
-    //   goal1_2.classList.add('medical_option_ck')
-    //   goal1_3.classList.remove('medical_option_ck')
-    //   goal1_4.classList.remove('medical_option_ck')
-    //   goal1_5.classList.remove('medical_option_ck')
-    // })
-    // goal3.addEventListener('change',(e)=>{
-    //   goal1_1.classList.remove('medical_option_ck')
-    //   goal1_2.classList.remove('medical_option_ck')
-    //   goal1_3.classList.add('medical_option_ck')
-    //   goal1_4.classList.remove('medical_option_ck')
-    //   goal1_5.classList.remove('medical_option_ck')
-    // })
-    //  goal4.addEventListener('change',(e)=>{
-    //   goal1_1.classList.remove('medical_option_ck')
-    //   goal1_2.classList.remove('medical_option_ck')
-    //   goal1_3.classList.remove('medical_option_ck')
-    //   goal1_4.classList.add('medical_option_ck')
-    //   goal1_5.classList.remove('medical_option_ck')
-    // })
-    // goal5.addEventListener('change',(e)=>{
-    //   goal1_1.classList.remove('medical_option_ck')
-    //   goal1_2.classList.remove('medical_option_ck')
-    //   goal1_3.classList.remove('medical_option_ck')
-    //   goal1_4.classList.remove('medical_option_ck')
-    //   goal1_5.classList.add('medical_option_ck')
-    // })
-
-    // medical_option1.addEventListener('change',(e)=>{
-    //   medical_option_1.classList.add('medical_option_ck')
-    //   medical_option_2.classList.remove('medical_option_ck')
-    //   medical_option_3.classList.remove('medical_option_ck')
-    //   medical_option_4.classList.remove('medical_option_ck')
-    //   medical_option_5.classList.remove('medical_option_ck')
-    // })
-    // medical_option2.addEventListener('change',(e)=>{
-    //   medical_option_1.classList.remove('medical_option_ck')
-    //   medical_option_2.classList.add('medical_option_ck')
-    //   medical_option_3.classList.remove('medical_option_ck')
-    //   medical_option_4.classList.remove('medical_option_ck')
-    //   medical_option_5.classList.remove('medical_option_ck')
-    // })
-    // medical_option3.addEventListener('change',(e)=>{
-    //  medical_option_1.classList.remove('medical_option_ck')
-    //   medical_option_2.classList.remove('medical_option_ck')
-    //   medical_option_3.classList.add('medical_option_ck')
-    //   medical_option_4.classList.remove('medical_option_ck')
-    //   medical_option_5.classList.remove('medical_option_ck')
-    // })
-    // medical_option4.addEventListener('change',(e)=>{
-    //    medical_option_1.classList.remove('medical_option_ck')
-    //   medical_option_2.classList.remove('medical_option_ck')
-    //   medical_option_3.classList.remove('medical_option_ck')
-    //   medical_option_4.classList.add('medical_option_ck')
-    //   medical_option_5.classList.remove('medical_option_ck')
-    // })
-    
-    // medical_option5.addEventListener('change',(e)=>{
-    //    medical_option_1.classList.remove('medical_option_ck')
-    //   medical_option_2.classList.remove('medical_option_ck')
-    //   medical_option_3.classList.remove('medical_option_ck')
-    //   medical_option_4.classList.remove('medical_option_ck')
-    //   medical_option_5.classList.add('medical_option_ck')
-    // })
-
-
-    //-------A----R-------S--------E-----------N---------I----------I------------// 
-  
-// !!!!!!!!!!!!!!!Этот код работает только в тг веб аппе, когда код запущен на сервере. GitHub PAges не хватает!!!!!
-   let user_id = tg.initDataUnsafe.user.id;
-   let username = tg.initDataUnsafe.user.username;
-   let first_name = tg.initDataUnsafe.user.first_name;
-
-   console.log(user_id);
-   console.log(username);
-   console.log(first_name);
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Это обязатьельная часть кода, пока я буду использовать болванку, чтобы тестить запросы к БД
-
-// let user_id = 1066778126;
-//     let weight__ = "52";
-//     let height__ = "165";
-//     let gender__ = "Ж";
-//     let age__ = "16";
-//     let medical_history__ = "";
-//     let goal__ = "Улучшение здоровья";
-//     let preferences__ = "";
-//     let activity__ = "4";
-//     let psychological__ = "3"
-   
-
-
-//     document.getElementById('Send_registration_data').addEventListener('click', function() {
-//         $.ajax({
-//         url: 'Register.php',
-//         type: 'POST',
-//         data: { user_id : user_id, weight : weight__, height : height__, gender : gender__, age: age__, medical_history : medical_history__, goal : goal__, preferences: preferences__, activity : activity__, psychological : psychological__},
-//         success: function(response) {
-//           console.log(response);
-//         }
-//         });
-//     });
-
+    const kkl_j_1 = document.getElementById('kkl_j_1')
+    const kkl_1 = 319
+    const gr_1 = 210
+    kkl_j_1.innerText = `${kkl_1} ккал, ${gr_1} гр`
 
     
-//     document.getElementById('Get_Statistic_data').addEventListener('click', function() {
-//         $.ajax({
-//         url: 'Statistic.php',
-//         type: 'POST',
-//         data: { argument: user_id },
-//         success: function(response) {
-//           console.log(response)
-//           const json_statistic = JSON.parse(response);
-//           console.log(json_statistic);
-//         }
-//         });
-//     });
+    const kkl_j_2 = document.getElementById('kkl_j_2')
+    const kkl_2 = 425
+    const gr_2 = 210
+    kkl_j_2.innerText = `${kkl_2} ккал, ${gr_2} гр`
 
-//-------A----R-------S--------E-----------N---------I----------I------------//
+    const kkl_j_3 = document.getElementById('kkl_j_3')
+    const kkl_3 = 920
+    const gr_3 = 1870
+    kkl_j_3.innerText = `${kkl_3} ккал, ${gr_3} гр`
 
-
+    const meals_all = document.getElementById('meals_all')
+    const meals_curent = document.getElementById('meals_curent')
+    
+    const meals_all_per = 3
+    const meals_curent_per = 3
+    
+    meals_all.innerText = `${meals_all_per}`
+    meals_curent.innerText = `из ${meals_curent_per}`
+    
+    const eaten = document.getElementById('eaten')
+    const eaten_gr = '2,250'
+    
+    eaten.innerText = `${eaten_gr}`
+    
+    const left = document.getElementById('left')
+    const left_gr = '230'
+    
+    left.innerText = `${left_gr}`
 
     </script>
     </div>
