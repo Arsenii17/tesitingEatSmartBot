@@ -1222,6 +1222,7 @@
   <body>
     <div class="container">
       <button onclick="prevSlide()">Previous</button>
+    
       <!--  <button onclick="nextSlide()">NEXT</button>-->
       <div class="steps_row">
         <div class="steps" id="steps">
@@ -1816,12 +1817,15 @@
         tg.onEvent('mainButtonClicked', nextSlide)
         tg.onEvent('mainButtonClicked', nextSlide_2)
 
+
+
         BackButton = tg.BackButton
         BackButton.color = "#3881F0"
-
+        BackButton.text = "Назад"
         tg.onEvent('backButtonClicked', prevSlide)
-
-        tg.SettingsButton.show()
+        
+        
+        // tg.SettingsButton.show()
         // tg.extend()
         // tg.expand()
 
