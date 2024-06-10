@@ -1822,7 +1822,7 @@
         BackButton = tg.BackButton
         BackButton.color = "#3881F0"
         BackButton.text = "Назад"
-        BackButton.show()
+        
         
         tg.onEvent('backButtonClicked', prevSlide)
         
@@ -1850,10 +1850,12 @@
           if(currentSlide === 0){
              buttonText = "<p>Начать</p>"
             button_container_2.style.display = 'none'
+            BackButton.hide()
           }
           else if(currentSlide < totalSlides - 1 && currentSlide < 5){
             buttonText = "<p>Продолжить</p>" 
             button_container_2.style.display = 'none'
+            BackButton.show()
           }
           else if(currentSlide === 5){
             buttonText = "<p>Готово</p>"
@@ -1865,6 +1867,7 @@
             button_container_2.style.display = 'block'
           }
           else if(currentSlide === 7){
+            BackButton.hide()
             button_container_2.style.display = 'none'
             buttonText = "<p>Поделиться</p>"
           }
