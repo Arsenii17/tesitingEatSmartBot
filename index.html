@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>EatSmart</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
   </head>
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
@@ -1252,7 +1250,7 @@
   <body>
     <div class="container">
       <button onclick="prevSlide()">Previous</button>
-       <button id="Send_registration_data">Send_registration_data</button>
+      <!--  <button onclick="nextSlide()">NEXT</button>-->
       <div class="steps_row">
         <div class="steps" id="steps">
           <div class="steps_item" id="steps_1"></div>
@@ -1440,7 +1438,7 @@
             <br>
             <br>
 
-            <!-- <button onclick="collectDataAndPrint()">Вывести JSON</button> -->
+            <button onclick="collectDataAndPrint()">Вывести JSON</button>
           </div>
         </div>
 
@@ -1589,7 +1587,7 @@
                   </div>
                   <span>5</span>
                 </div>
-                <!-- <span id="activity-value">1</span> -->
+                <span id="activity-value">1</span>
                 <p>Выберите свой обычный уровень активности, где <span
                     id="purple_text">1 - Минимальный</span>, а 5 -
                   Максимальный</p>
@@ -1622,7 +1620,7 @@
                   </div>
                   <span>5</span>
                 </div>
-                <!-- <span id="stress-value">1</span> -->
+                <span id="stress-value">1</span>
                 <p>Выберите свой обычный уровень стресса, где <span
                     id="purple_text">1 - Минимальный</span>, а 5 -
                   Максимальный</p>
@@ -1816,7 +1814,7 @@
 
       <div class="popup" id="weightPopup_3">
         <div class="popup-header">
-          <h3>Ваш возраст</h3>
+          <h3>Ваш рост</h3>
         </div>
         <div class="weight-picker-section">
           <div class="weight-picker-container">
@@ -1970,7 +1968,6 @@
          }
         }
 
-        let answer = []
         // Обработчики кликов для выбора карточек
         document.querySelectorAll('.preference-card').forEach(card => {
             card.addEventListener('click', () => {
@@ -1982,11 +1979,8 @@
                 // Логика для отображения в консоли выбранных карточек
                 if (card.classList.contains('selected')) {
                     console.log(`Вы выбрали: ${title}`);
-                    answer.push(title)
-                    console.log(answer)
                 } else {
                     console.log(`Вы убрали выбор: ${title}`);
-                    answer.pop()
                 }
             });
         });
@@ -2050,13 +2044,6 @@
 
         // }
 
-        // let weight__ = 11;
-        // let height__ = 11;
-        // let gender__ = "";
-        // let medical_history__ = "";
-        // let goal__ = "";
-        // let age__ = 11;
-
      
         // Функция для сбора данных и вывода в консоль
         function collectData() {
@@ -2065,19 +2052,11 @@
           userData.height = document.getElementById('height').value;
           userData.age = document.getElementById('age').value;
 
-
-          // gender__ = document.getElementById('gender').value;
-          // height__ = document.getElementById('height').value;
-          // age__ = document.getElementById('age').value;
-
-
-
           // Получение выбранного медицинского состояния со второго экрана
           const medicalConditions = document.querySelectorAll('input[name="medical_condition"]');
           medicalConditions.forEach(condition => {
             if (condition.checked) {
               userData.medicalCondition = condition.value;
-              // medical_history__ = condition.value
             }
           });
 
@@ -2086,14 +2065,13 @@
           goals.forEach(goal => {
             if (goal.checked) {
               userData.goal = goal.value;
-              // goal__ = goal.value
             }
           });
 
           // console.log(JSON.stringify(userData));
         }
         function collectDataAndPrint() {
-          console.log(collectData());
+          collectData();
         }
 
         const activityLevel = document.getElementById('activity-level');
@@ -2521,60 +2499,23 @@
     })
 
     const medical_option_parent = document.querySelectorAll('.medical_option_parent');
-    const selectedConditions = new Set();
-    let testMed;
+    medical_option_parent.forEach((item)=>{
+      item.addEventListener('click',()=>{
+        const item_checked = item.querySelector('.item_checked')
+        const medical_option_item = item.querySelector('.medical_option_item')
+        if(medical_option_item.style.display === 'none'){
+            item_checked.style.display = 'none'
+            medical_option_item.style.display = 'inline-flex'
+          item.classList.remove('medical_option_ck')
+            } 
+            else{
+              item_checked.style.display = 'inline-flex'
+              medical_option_item.style.display = 'none'
+              item.classList.add('medical_option_ck')
 
-    function updateConditionsList() {
-        testMed = Array.from(selectedConditions).join(', ')
-        // console.log('Выбранные противопоказания:', Array.from(selectedConditions).join(', '));
-        console.log(testMed)
-    }
-
-    medical_option_parent.forEach((item) => {
-        item.addEventListener('click', () => {
-            const condition = item.querySelector('span').innerText;
-            const item_checked = item.querySelector('.item_checked');
-            const medical_option_item = item.querySelector('.medical_option_item');
-
-            if (item.classList.contains('medical_option_ck')) {
-                selectedConditions.delete(condition);
-                item.classList.remove('medical_option_ck');
-                item_checked.style.display = 'none';
-                medical_option_item.style.display = 'inline-flex';
-            } else {
-                selectedConditions.add(condition);
-                item.classList.add('medical_option_ck');
-                item_checked.style.display = 'inline-flex';
-                medical_option_item.style.display = 'none';
-            }
-
-            updateConditionsList();
-        });
-    });
-
-    updateConditionsList();
-
-    // medical_option_parent.forEach((item)=>{
-    //   item.addEventListener('click',()=>{
-    //     const item_checked = item.querySelector('.item_checked')
-    //     const medical_option_item = item.querySelector('.medical_option_item')
-    //     // console.log(medical_option_item)
-    //     // console.log(item_checked)
-    
-
-    //     if(medical_option_item.style.display === 'none'){
-    //         item_checked.style.display = 'none'
-    //         medical_option_item.style.display = 'inline-flex'
-    //       item.classList.remove('medical_option_ck')
-    //         } 
-    //         else{
-    //           item_checked.style.display = 'inline-flex'
-    //           medical_option_item.style.display = 'none'
-    //           item.classList.add('medical_option_ck')
-
-    //   }
-    //     })
-    // })
+      }
+        })
+    })
 
     const kkl_j_1 = document.getElementById('kkl_j_1')
     const kkl_1 = 319
@@ -2623,187 +2564,6 @@
     const left_gr = '230'
     
     left.innerText = `${left_gr}`
-    // Получаем элементы слайдера
-    const activitySlider = document.getElementById('activity-level');
-    const stressSlider = document.getElementById('stress-level');
-    let activity__ = activityValue;
-    let psychological__ = stressValue;
-
-
-    function logSliderValues() {
-      const activityValue = activitySlider.value;
-      const stressValue = stressSlider.value;
-      activity__ = activityValue;
-      psychological__ = stressValue;
-      console.log('Уровень активности:', activityValue);
-      console.log('Уровень стресса:', stressValue);
-      // console.log(activity__)
-      // console.log(psychological__)
-    }
-
-    // Добавляем обработчики событий для изменения значений слайдера
-    activitySlider.addEventListener('input', logSliderValues);
-    stressSlider.addEventListener('input', logSliderValues);
-
-    // Выводим начальные значения в консоль
-    logSliderValues();
-
-
-
-
-
-
-
-
-
-    // let medical_history__ = "";
-    // let goal__ = "";
-
-    // const medicalConditions = document.querySelectorAll('input[name="medical_condition"]');
-    // medicalConditions.forEach(condition => {
-    //   if (condition.checked) {
-    //     // userData.medicalCondition = condition.value;
-    //     medical_history__ = condition
-    //   }
-    // });
-
-    // // Получение выбранной цели с третьего экрана
-    // const goals = document.querySelectorAll('input[name="goal"]');
-    // goals.forEach(goal => {
-    //   if (goal.checked) {
-    //     // userData.goal = goal.value;
-    //     goal__ = goal
-    //   }
-    // });
-
-
-    // function longLive() {
-
-    //   const otvetMed = medical_history__.value;
-    //   const otvetGoal = goal__.value;
-    //   console.log('Med:', otvetMed);
-    //   console.log('Goal:', otvetGoal);
-    //   // console.log(activity__)
-    //   // console.log(psychological__)
-    // }
-
-    // // Добавляем обработчики событий для изменения значений слайдера
-    // goals.addEventListener('input', longLive);
-    // medicalConditions.addEventListener('input', longLive);
-
-    // // Выводим начальные значения в консоль
-    // longLive();
-
-
-    // let gender__ = document.getElementById('gender')
-    // let height__ = document.getElementById('height')
-    // let age__ = document.getElementById('age')
-    // function longLive() {
-    //   const a = gender__.value;
-    //   const b = height__.value;
-    //   const c = age__.value;
-    //   console.log('Гендер:', a);
-    //   console.log('Рост:', b);
-    //   console.log('Вес:', c);
-    // }
-    //  // Добавляем обработчики событий для изменения значений слайдера
-    // gender__.addEventListener('input', longLive);
-    // height__.addEventListener('input', longLive);
-    // age__.addEventListener('input', longLive);
-
-
- 
-
-
-    function confirmWeight() {
-        const weight = document.getElementById('weight').value;
-        const weightUnit = document.getElementById('weightUnit').value;
-        const weightDisplay = weightUnit === 'kg' ? `${weight} kg` : `${weight} lb`;
-
-        let a123 = weightDisplay;
-    }
-
-    function confirmHeight() {
-        const height = document.getElementById('popupHeight').value;
-        document.getElementById('currentHeight').innerText = `${height} cm`;
-        document.getElementById('height').value = height;
-    }
-    function updateData() {
-        const gender = document.getElementById('gender').value;
-        const height = document.getElementById('height').value;
-        const age = document.getElementById('age').value;
-
-        let gendet123 = gender;
-        let height123 = `${height} cm`;
-        let age123 = age;
-        console.log('Гендер:', gendet123);
-        console.log('Рост:', height123);
-        console.log('Вес:', age123);
-
-    }
-    document.getElementById('gender').addEventListener('input', updateData);
-    document.getElementById('height').addEventListener('input', updateData);
-    document.getElementById('age').addEventListener('input', updateData);
-    updateData();
-
-
-
-// ---------------------------------------------------------
-    console.log("URAAAAAAA")
-    collectData()
-    let user_id = 1231232121132;
-    // let weight__ = userData.weight;
-    // let height__ = userData.height;
-    // let gender__ = userData.gender;
-    // let medical_history__ = userData.medicalCondition;
-    // let goal__ = userData.goal;
-    let weight__ = 1111;
-    let height__ = 1111;
-    let gender__ = "Мужской";
-    let age__ = 18;
-    // Активити и стрес выше сохраняется
-    let preferences__ = answer;
-    // let age__ = document.getElementById('age').value;
-
-
-
-
-    document.getElementById('Send_registration_data').addEventListener('click', function() {
-      console.log("Send registration data");
-      $.ajax({
-        url: 'Register.php',
-        type: 'POST',
-        data: { 
-            user_id: user_id, 
-            weight: weight__,         
-            height: height__, 
-            gender: gender__,         
-            age: age__, 
-            medical_history: testMed,         
-            goal: testMed, 
-            preferences: preferences__, 
-            activity: activity__,        
-            psychological: psychological__ 
-        },
-        success: function(response) {
-          console.log(response);
-        }
-        });
-    });
-
-
-    document.getElementById('Get_Statistic_data').addEventListener('click', function() {
-        $.ajax({
-        url: 'Statistic.php',
-        type: 'POST',
-        data: { argument: user_id },
-        success: function(response) {
-          console.log(response)
-          const json_statistic = JSON.parse(response);
-          console.log(json_statistic);
-        }
-        });
-    });
 
 
     </script>
@@ -2813,33 +2573,58 @@
   <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
   <script>
 
-  const max_kk = 230;
-  const curent_kk = 30
+const max_kk = 230;
+const curent_kk = 30
 
-  anychart.onDocumentReady(function() {
+anychart.onDocumentReady(function() {
 
-    var data = [
-        {x: "", value: max_kk},
-        {x: "", value: curent_kk},
-    ];
+  var data = [
+      {x: "", value: max_kk},
+      {x: "", value: curent_kk},
+  ];
 
-    // create the chart
-    var chart = anychart.pie();
-    chart.data(data);
+  // create the chart
+  var chart = anychart.pie();
+  chart.data(data);
 
-    // display the chart in the container
-    chart.container('container_ba');
-    chart.draw();
+  // display the chart in the container
+  chart.container('container_ba');
+  chart.draw();
 
-    const ac_path_i = document.getElementById('ac_path_i')
-    const ac_path_j = document.getElementById('ac_path_j')
+  const ac_path_i = document.getElementById('ac_path_i')
+  const ac_path_j = document.getElementById('ac_path_j')
 
-    ac_path_i.style.fill = '#9C6AF9'
-    ac_path_j.style.fill = '#EBE1FE'
-  });
+  ac_path_i.style.fill = '#9C6AF9'
+  ac_path_j.style.fill = '#EBE1FE'
+});
 
 
 
+document.getElementById('Send_registration_data').addEventListener('click', function() {    // Retrieve values from input fields
+    let user_id = 1066778126; // Assuming user_id is still hard-coded or fetched elsewhere    let weight__ = document.getElementById('weight').value;
+    let height__ = document.getElementById('height').value;    let gender__ = document.getElementById('gender').value;
+    let age__ = document.getElementById('age').value;    let medical_history__ = document.getElementById('medical_history').value;
+    let goal__ = document.getElementById('goal').value;    let preferences__ = document.getElementById('preferences').value;
+    let activity__ = document.getElementById('activity').value;    let psychological__ = document.getElementById('psychological').value;
+ 
+    $.ajax({url: 'Register.php',
+      type: 'POST',data: { 
+        user_id: user_id, 
+        weight: weight__,         
+        height: height__, 
+        gender: gender__,         
+        age: age__, 
+        medical_history: medical_history__,         
+        goal: goal__, 
+        preferences: preferences__, 
+        activity: activity__,        
+         psychological: psychological__ 
+      },      
+      success: function(response) {
+        console.log(response);     
+       }
+})      
+})
 
 
 </script>
